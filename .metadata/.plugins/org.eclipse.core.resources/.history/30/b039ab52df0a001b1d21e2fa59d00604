@@ -1,0 +1,7 @@
+package umu.tds.business;
+
+public class Song {
+	private String title;
+	private LinkedList<String> artists;
+	
+}

@@ -1,0 +1,10 @@
+package umu.tds.business;
+
+import javax.swing.*;
+
+public class User {
+	private String name;
+	private Password password;
+	
+
+}

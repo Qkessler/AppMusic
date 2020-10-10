@@ -1,0 +1,14 @@
+package umu.tds.business;
+
+import javax.swing.*;
+import java.util.Date;
+
+public class User {
+	private String name;
+	private String password;
+	private String lastName;
+	private Date birthDate;
+	private String username;
+	private LinkedList<Song> recentSongs;
+
+}
