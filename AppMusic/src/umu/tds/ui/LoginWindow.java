@@ -17,12 +17,14 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
+import umu.tds.controller.AppMusic;
 
 public class LoginWindow {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField txtSalir;
+	private JTextField txtUsername;
+	private JPasswordField txtPassword;
 
 	/**
 	 * Launch the application.
@@ -73,71 +75,84 @@ public class LoginWindow {
 		JLabel lblLoginAppmusic = new JLabel("Login AppMusic");
 		GridBagConstraints gbc_lblLoginAppmusic = new GridBagConstraints();
 		gbc_lblLoginAppmusic.gridwidth = 2;
-		gbc_lblLoginAppmusic.insets = new Insets(0, 0, 5, 5);
+		gbc_lblLoginAppmusic.insets = new Insets(0, 0, 5, 0);
 		gbc_lblLoginAppmusic.gridx = 2;
 		gbc_lblLoginAppmusic.gridy = 0;
 		panelFormularioLogin.add(lblLoginAppmusic, gbc_lblLoginAppmusic);
 		lblLoginAppmusic.setHorizontalAlignment(SwingConstants.LEFT);
 		lblLoginAppmusic.setFont(new Font("FreeSans", Font.BOLD, 16));
 		
-		JLabel lblUsuario = new JLabel("Usuario");
-		GridBagConstraints gbc_lblUsuario = new GridBagConstraints();
-		gbc_lblUsuario.insets = new Insets(0, 0, 5, 5);
-		gbc_lblUsuario.anchor = GridBagConstraints.EAST;
-		gbc_lblUsuario.gridx = 1;
-		gbc_lblUsuario.gridy = 1;
-		panelFormularioLogin.add(lblUsuario, gbc_lblUsuario);
+		JLabel lblUser = new JLabel("Username");
+		GridBagConstraints gbc_lblUser = new GridBagConstraints();
+		gbc_lblUser.insets = new Insets(0, 0, 5, 5);
+		gbc_lblUser.anchor = GridBagConstraints.EAST;
+		gbc_lblUser.gridx = 1;
+		gbc_lblUser.gridy = 1;
+		panelFormularioLogin.add(lblUser, gbc_lblUser);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.gridwidth = 2;
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 2;
-		gbc_textField.gridy = 1;
-		panelFormularioLogin.add(textField, gbc_textField);
-		textField.setColumns(10);
+		txtUsername = new JTextField();
+		GridBagConstraints gbc_txtUsername = new GridBagConstraints();
+		gbc_txtUsername.gridwidth = 2;
+		gbc_txtUsername.insets = new Insets(0, 0, 5, 0);
+		gbc_txtUsername.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtUsername.gridx = 2;
+		gbc_txtUsername.gridy = 1;
+		panelFormularioLogin.add(txtUsername, gbc_txtUsername);
+		txtUsername.setColumns(10);
 		
-		JLabel lblClave = new JLabel("Clave");
-		GridBagConstraints gbc_lblClave = new GridBagConstraints();
-		gbc_lblClave.anchor = GridBagConstraints.EAST;
-		gbc_lblClave.insets = new Insets(0, 0, 5, 5);
-		gbc_lblClave.gridx = 1;
-		gbc_lblClave.gridy = 2;
-		panelFormularioLogin.add(lblClave, gbc_lblClave);
+		JLabel lblPassword = new JLabel("Password");
+		GridBagConstraints gbc_lblPassword = new GridBagConstraints();
+		gbc_lblPassword.anchor = GridBagConstraints.EAST;
+		gbc_lblPassword.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPassword.gridx = 1;
+		gbc_lblPassword.gridy = 2;
+		panelFormularioLogin.add(lblPassword, gbc_lblPassword);
 		
-		txtSalir = new JTextField();
-		GridBagConstraints gbc_txtSalir = new GridBagConstraints();
-		gbc_txtSalir.insets = new Insets(0, 0, 5, 0);
-		gbc_txtSalir.gridwidth = 2;
-		gbc_txtSalir.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtSalir.gridx = 2;
-		gbc_txtSalir.gridy = 2;
-		panelFormularioLogin.add(txtSalir, gbc_txtSalir);
-		txtSalir.setColumns(10);
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setHorizontalAlignment(SwingConstants.LEFT);
+		btnLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				String username = new String(txtUsername.getName());
+				String password = new String(txtPassword.getPassword());
+				AppMusic app = new AppMusic();
+				boolean loggedIn = app.login(username, password);
+				if(!loggedIn) {
+					
+				}
+				
+			}
+		});
 		
-		JButton BotonLogin = new JButton("Login");
-		BotonLogin.setHorizontalAlignment(SwingConstants.LEFT);
-		BotonLogin.setActionCommand("");
-		GridBagConstraints gbc_BotonLogin = new GridBagConstraints();
-		gbc_BotonLogin.insets = new Insets(0, 0, 0, 5);
-		gbc_BotonLogin.gridx = 2;
-		gbc_BotonLogin.gridy = 3;
-		panelFormularioLogin.add(BotonLogin, gbc_BotonLogin);
+		txtPassword = new JPasswordField();
+		GridBagConstraints gbc_txtPassword = new GridBagConstraints();
+		gbc_txtPassword.insets = new Insets(0, 0, 5, 5);
+		gbc_txtPassword.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtPassword.gridx = 2;
+		gbc_txtPassword.gridy = 2;
+		panelFormularioLogin.add(txtPassword, gbc_txtPassword);
 		
-		JButton btnNewButton_1 = new JButton("Registro");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		GridBagConstraints gbc_btnLogin = new GridBagConstraints();
+		gbc_btnLogin.insets = new Insets(0, 0, 0, 5);
+		gbc_btnLogin.gridx = 2;
+		gbc_btnLogin.gridy = 3;
+		panelFormularioLogin.add(btnLogin, gbc_btnLogin);
+		
+		JButton btnRegister = new JButton("Registro");
+		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame registerWindow = new RegisterWindow(frame);
 				registerWindow.setVisible(true);
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.gridx = 3;
-		gbc_btnNewButton_1.gridy = 3;
-		panelFormularioLogin.add(btnNewButton_1, gbc_btnNewButton_1);
+		btnRegister.setHorizontalAlignment(SwingConstants.RIGHT);
+		GridBagConstraints gbc_btnRegister = new GridBagConstraints();
+		gbc_btnRegister.gridx = 3;
+		gbc_btnRegister.gridy = 3;
+		panelFormularioLogin.add(btnRegister, gbc_btnRegister);
 	}
 
 }

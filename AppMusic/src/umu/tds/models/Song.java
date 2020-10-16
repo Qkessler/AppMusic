@@ -1,4 +1,4 @@
-package umu.tds.business;
+package umu.tds.models;
 
 import java.util.LinkedList;
 
