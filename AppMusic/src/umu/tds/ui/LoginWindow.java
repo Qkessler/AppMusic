@@ -114,11 +114,9 @@ public class LoginWindow {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				String username = new String(txtUsername.getName());
 				String password = new String(txtPassword.getPassword());
-				AppMusic app = new AppMusic();
-				boolean loggedIn = app.login(username, password);
+				boolean loggedIn = AppMusic.getInstance().login(username, password);
 				if(!loggedIn) {
 					
 				}

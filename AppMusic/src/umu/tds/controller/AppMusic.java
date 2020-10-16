@@ -1,10 +1,17 @@
 package umu.tds.controller;
 
 import java.time.LocalDate;
-
 import umu.tds.models.User;
 
 public class AppMusic {
+	
+	private static AppMusic onlyInstance = null;
+	
+	private AppMusic() {}
+	
+	public static AppMusic getInstance() {
+		return onlyInstance == null ? new AppMusic() : onlyInstance;
+	}
 	
 	public boolean login(String username, String password) {
 		// UserDAO.find(username);
