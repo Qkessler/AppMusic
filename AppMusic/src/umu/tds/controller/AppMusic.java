@@ -18,7 +18,7 @@ public class AppMusic {
 		/* Search for username in BDD.
 		 * If the user exists, we check if username.login = password.
 		 */
-		return true;
+		return false;
 	}
 	
 	public User registerUser(String username, String password, String firstName, String lastName, String email, LocalDate birthDate) {

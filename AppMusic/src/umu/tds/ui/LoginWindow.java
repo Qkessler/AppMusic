@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
@@ -118,7 +120,7 @@ public class LoginWindow {
 				String password = new String(txtPassword.getPassword());
 				boolean loggedIn = AppMusic.getInstance().login(username, password);
 				if(!loggedIn) {
-					
+					JOptionPane.showMessageDialog(btnLogin, "Login incorrecto");
 				}
 				
 			}
@@ -139,13 +141,11 @@ public class LoginWindow {
 		panelFormularioLogin.add(btnLogin, gbc_btnLogin);
 		
 		JButton btnRegister = new JButton("Registro");
-		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnRegister.addActionListener(ev -> {
 				JFrame registerWindow = new RegisterWindow(frame);
 				registerWindow.setVisible(true);
 				frame.setVisible(false);
-			}
-		});
+		});	
 		btnRegister.setHorizontalAlignment(SwingConstants.RIGHT);
 		GridBagConstraints gbc_btnRegister = new GridBagConstraints();
 		gbc_btnRegister.gridx = 3;

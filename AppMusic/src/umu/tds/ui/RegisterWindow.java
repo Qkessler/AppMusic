@@ -11,13 +11,19 @@ import javax.swing.border.EmptyBorder;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JSpinnerDateEditor;
 
+import umu.tds.controller.AppMusic;
+
 import java.awt.GridBagLayout;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegisterWindow extends JFrame {
 	private JTextField nameTextField;
@@ -50,6 +56,8 @@ public class RegisterWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public RegisterWindow(JFrame invoker) {
+		// addWindowListener();
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 650, 292);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -194,6 +202,27 @@ public class RegisterWindow extends JFrame {
 		getContentPane().add(panel, gbc_panel);
 		
 		btnRegister = new JButton("Register");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO: Cambiar los nombres de los textField para consistencia con LoginWindow.
+				/*
+				String username = txtUser.getText();
+				String pass1 = new String(txtPassword1.getPassword());
+				String pass2 = new String(txtPassword2.getPassword());
+				String email = txtMail.getText();
+				String firstName = txtFirstName.getText();
+				String lastName = txtLastName.getText();
+				// LocalDate birthDate = LocalDate.of()
+				if(!pass1.equals(pass2)) {
+					JOptionPane.showInternalMessageDialog(btnRegister, "Register error");
+				}
+				else {
+					//AppMusic.getInstance().registerUser(username, pass1, firstName, lastName, email, birthDate);
+					// Quizás ahora cerrar ventana registro y pasar a main.
+				}
+				*/
+			}
+		});
 		panel.add(btnRegister);
 		
 		btnCancel = new JButton("Cancel");
