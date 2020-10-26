@@ -1,9 +1,0 @@
-package umu.tds.business;
-
-import java.util.LinkedList;
-
-public class Song {
-	private String title;
-	private LinkedList<String> artists;
-	private String genre;
-}
