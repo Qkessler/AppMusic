@@ -13,6 +13,14 @@ public class AppMusic {
 		return onlyInstance == null ? new AppMusic() : onlyInstance;
 	}
 	
+	public void play() {
+		// TODO: Create the play function.
+	}
+	
+	// public PlayList createList() {
+		// TODO: createList();
+	// }
+	
 	public boolean login(String username, String password) {
 		// UserDAO.find(username);
 		/* Search for username in BDD.
