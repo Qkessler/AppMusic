@@ -1,4 +1,4 @@
-package umu.tds;
+package umu.tds.apps;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
