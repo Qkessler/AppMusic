@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Song {
 	private String title;
 	private LinkedList<Artist> artists;
+	private int id;
 	private String genre; // We only need the name, instead of an object, we are using a property.
 	private Long playCount;
 
@@ -16,6 +17,9 @@ public class Song {
 	}
 	
 	// Hypothetic playSong -> playCount++;
+	public int getId() {
+		return id;
+	}
 
 	public String getTitle() {
 		return title;

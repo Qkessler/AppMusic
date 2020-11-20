@@ -8,7 +8,7 @@ on all the topics at hand, some of which are:
 - Improvement of Login window.
 - Creation of searching songs window.
 - Creation of Recent songs window.
-- Initial persistence configuration.
+X Initial persistence configuration.
 - Controller configuration.
 - Repo Creation for Songs (SongsRepo)
 - DAO Adapter for Song.
