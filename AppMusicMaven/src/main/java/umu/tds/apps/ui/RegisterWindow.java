@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JSpinnerDateEditor;
 
-import umu.tds.apps.controller.AppMusic;
+import umu.tds.apps.controller.AppMusicController;
 
 import java.awt.GridBagLayout;
 import javax.swing.JTabbedPane;

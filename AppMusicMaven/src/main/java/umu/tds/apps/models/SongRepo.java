@@ -13,7 +13,7 @@ public class SongRepo {
 	
 	private SongRepo() {
 		try {
-			dao = FactoriaDAO.getInstance(FactoriaDAO.DAO_TDS);
+			dao = FactoriaDAO.getInstancia(FactoriaDAO.DAO_TDS);
 			songAdapter = dao.getSongDAO();
 			songs = new HashMap<Integer, Song>();
 			this.loadRepo();
@@ -46,7 +46,7 @@ public class SongRepo {
 		return allSongs;
 	}
 	
-	private void cargarCatalogo() throws DAOException {
+	private void loadRepo() throws DAOException {
 		List<Song> songsDB= songAdapter.getAllSongs();
 		for (Song song: songsDB)
 			songs.put(song.getId(), song);

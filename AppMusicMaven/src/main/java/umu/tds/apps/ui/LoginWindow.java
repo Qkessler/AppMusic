@@ -20,7 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
-import umu.tds.apps.controller.AppMusic;
+import umu.tds.apps.controller.AppMusicController;
 
 public class LoginWindow {
 
@@ -118,7 +118,7 @@ public class LoginWindow {
 			public void actionPerformed(ActionEvent arg0) {
 				String username = new String(txtUsername.getName());
 				String password = new String(txtPassword.getPassword());
-				boolean loggedIn = AppMusic.getInstance().login(username, password);
+				boolean loggedIn = AppMusicController.getInstance().login(username, password);
 				if(!loggedIn) {
 					JOptionPane.showMessageDialog(btnLogin, "Login incorrecto");
 				}
