@@ -1,8 +1,13 @@
 package umu.tds.apps.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import umu.tds.apps.persistence.DAOException;
+import umu.tds.apps.persistence.FactoriaDAO;
+import umu.tds.apps.persistence.ISongAdapterDAO;
 
 public class SongRepo {
 	private Map<Integer, Song> songs;
@@ -47,7 +52,7 @@ public class SongRepo {
 	}
 	
 	private void loadRepo() throws DAOException {
-		List<Song> songsDB= songAdapter.getAllSongs();
+		List<Song> songsDB = songAdapter.getAllSongs();
 		for (Song song: songsDB)
 			songs.put(song.getId(), song);
 	 }

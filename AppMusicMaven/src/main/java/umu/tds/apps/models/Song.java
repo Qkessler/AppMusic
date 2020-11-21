@@ -13,7 +13,8 @@ public class Song {
 		this.title = title;
 		this.genre = genre;
 		this.artists = artists;
-		playCount = (long) 0;
+		this.id = 0;
+		this.playCount = (long) 0;
 	}
 	
 	// Hypothetic playSong -> playCount++;
@@ -31,6 +32,10 @@ public class Song {
 
 	public String getGenre() {
 		return genre;
+	}
+	
+	public Long getPlayCount() {
+		return playCount;
 	}
 	
 	/*
