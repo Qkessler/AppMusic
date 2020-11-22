@@ -2,12 +2,16 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="umu.tds.apps.models.SongRepo"/>
     <fullyQualifiedTypeName name="umu.tds.apps.models.PlayListRepo"/>
     <fullyQualifiedTypeName name="umu.tds.apps.models.UserRepo"/>
-    <fullyQualifiedTypeName name="umu.tds.apps.models.Song"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="umu.tds.apps.models.Artist"/>
+    <fullyQualifiedTypeName name="umu.tds.apps.persistence.FactoriaDAO"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="umu.tds.apps.persistence.ISongAdapterDAO"/>
+    <fullyQualifiedTypeName name="umu.tds.apps.persistence.DAOException"/>
+    <fullyQualifiedTypeName name="umu.tds.apps.models.Song"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

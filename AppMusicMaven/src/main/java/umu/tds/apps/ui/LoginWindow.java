@@ -74,14 +74,14 @@ public class LoginWindow {
 		gbl_panelFormularioLogin.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelFormularioLogin.setLayout(gbl_panelFormularioLogin);
 		
-		JLabel lblLoginAppmusic = new JLabel("Login AppMusic");
+		JLabel lblLoginAppmusic = new JLabel("AppMusic");
 		GridBagConstraints gbc_lblLoginAppmusic = new GridBagConstraints();
-		gbc_lblLoginAppmusic.gridwidth = 2;
+		gbc_lblLoginAppmusic.gridwidth = 4;
 		gbc_lblLoginAppmusic.insets = new Insets(0, 0, 5, 0);
-		gbc_lblLoginAppmusic.gridx = 2;
+		gbc_lblLoginAppmusic.gridx = 0;
 		gbc_lblLoginAppmusic.gridy = 0;
 		panelFormularioLogin.add(lblLoginAppmusic, gbc_lblLoginAppmusic);
-		lblLoginAppmusic.setHorizontalAlignment(SwingConstants.LEFT);
+		lblLoginAppmusic.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLoginAppmusic.setFont(new Font("FreeSans", Font.BOLD, 16));
 		
 		JLabel lblUser = new JLabel("Username");
@@ -116,13 +116,14 @@ public class LoginWindow {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String username = new String(txtUsername.getName());
+				String username = new String(txtUsername.getText());
 				String password = new String(txtPassword.getPassword());
+				System.out.println(username + " " + password);
 				boolean loggedIn = AppMusicController.getInstance().login(username, password);
 				if(!loggedIn) {
 					JOptionPane.showMessageDialog(btnLogin, "Login incorrecto");
 				}
-				
+
 			}
 		});
 		

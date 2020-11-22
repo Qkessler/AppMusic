@@ -31,7 +31,10 @@ public class AppMusicController {
 	}
 
 	public static AppMusicController getInstance() {
-		return instance == null ? new AppMusicController() : instance;
+		if (instance == null) {
+			instance = new AppMusicController();
+		}
+		return instance;
 	}
 
 	public void registerUser(String username, String password, String firstName, String lastName, String email,

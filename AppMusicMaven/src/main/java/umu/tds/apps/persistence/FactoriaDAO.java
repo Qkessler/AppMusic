@@ -3,7 +3,7 @@ package umu.tds.apps.persistence;
 public abstract class FactoriaDAO {
 	private static FactoriaDAO unicaInstancia;
 
-	public static final String DAO_TDS = "persistencia.TDSFactoriaDAO";
+	public static final String DAO_TDS = "umu.tds.apps.persistence.TDSFactoriaDAO";
 
 	/**
 	 * Crea un tipo de factoria DAO. Solo existe el tipo TDSFactoriaDAO
