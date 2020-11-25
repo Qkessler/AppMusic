@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import umu.tds.apps.persistence.DAOException;
 import umu.tds.apps.persistence.FactoriaDAO;
@@ -49,6 +50,17 @@ public class SongRepo {
 			allSongs.add(song);
 		}
 		return allSongs;
+	}
+	
+	public List<Song> filterSongs(String artist, String title, String genre) {
+		// TODO: Check again how to pass null filters.
+		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
+		return songs.stream()
+		.filter(song -> song.getArtists().contains(artist))
+		.filter(song -> song.getTitle().contains(title))
+		.filter(song -> song.getGenre().equals(genre))
+		.collect(Collectors.toList());
+		
 	}
 	
 	private void loadRepo() throws DAOException {
