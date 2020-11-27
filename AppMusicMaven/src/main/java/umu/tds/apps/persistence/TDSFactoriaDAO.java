@@ -7,4 +7,9 @@ public class TDSFactoriaDAO extends FactoriaDAO {
 	public ISongAdapterDAO getSongDAO() {
 		return SongAdapterTDS.getInstance();
 	}
+
+	@Override
+	public IUserAdapterDAO getUserDAO() {
+		return UserAdapterTDS.getInstance();
+	}
 }

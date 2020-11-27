@@ -18,7 +18,7 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 	private static SongAdapterTDS instance;
 	private ServicioPersistencia servicioPersistencia = FactoriaServicioPersistencia.getInstance().getServicioPersistencia();
 	
-	private static final String NAME = "song";
+	private static final String SONG = "song";
 	private static final String TITLE = "title";
 	private static final String ARTISTS = "artists";
 	private static final String GENRE = "genre";
@@ -40,7 +40,7 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 		}
 		if (registered) return;
 		Entidad eSong = new Entidad();
-		eSong.setNombre(NAME);
+		eSong.setNombre(SONG);
 		eSong.setPropiedades(
 				new ArrayList<Propiedad>(Arrays.asList(
 						new Propiedad(TITLE, song.getTitle()),
@@ -81,7 +81,7 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 	}
 	
 	public List<Song> getAllSongs() {
-		ArrayList<Entidad> eSongs = servicioPersistencia.recuperarEntidades(NAME);
+		ArrayList<Entidad> eSongs = servicioPersistencia.recuperarEntidades(SONG);
 		List<Song> songs = eSongs.stream()
 				.map(e -> getSong(e.getId()))
 				.collect(Collectors.toList());

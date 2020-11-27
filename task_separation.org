@@ -10,8 +10,8 @@ on all the topics at hand, some of which are:
 - Creation of Recent songs window.
 X Initial persistence configuration.
 - Controller configuration.
-- Repo Creation for Songs (SongsRepo)
-- DAO Adapter for Song.
+X Repo Creation for Songs (SongsRepo)
+X DAO Adapter for Song.
 - Tests for Song functionality.
 - Component creation.
 ** Javier Barceló Pérez

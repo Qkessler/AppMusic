@@ -1,6 +1,7 @@
 package umu.tds.apps.controller;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedList;
 
 import tds.driver.ServicioPersistencia;
@@ -38,10 +39,15 @@ public class AppMusicController {
 		return instance;
 	}
 
-	public void registerUser(String username, String password, String firstName, String lastName, String email,
-			LocalDate birthDate) {
-		User user = new User(username, password, firstName, lastName, email, birthDate);
+	public boolean registerUser(String username, String password, String firstName, String lastName, String email,
+			Date birthDate) {
+		// User user = new User(username, password, firstName, lastName, email, birthDate);
 		// register user on the userRepo, shouldn't really return it.
+		return true;
+	}
+	
+	public boolean isRegistered(String username) {
+		return false;
 	}
 
 	public void registerSong(String title, LinkedList<Artist> artists, String genre) {
