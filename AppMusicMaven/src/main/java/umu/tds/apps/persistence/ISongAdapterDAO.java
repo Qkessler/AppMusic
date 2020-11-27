@@ -7,7 +7,6 @@ import umu.tds.apps.models.Song;
 public interface ISongAdapterDAO {
 	public void registerSong(Song song);
 	public void removeSong(Song song);
-	public void modifySong(Song song);
-	public void getSong(Song song);
+	public Song getSong(int id);
 	public List<Song> getAllSongs();
 }
