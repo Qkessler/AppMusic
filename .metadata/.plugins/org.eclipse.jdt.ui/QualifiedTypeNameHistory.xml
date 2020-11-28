@@ -20,9 +20,7 @@
     <fullyQualifiedTypeName name="tds.driver.ServicioPersistencia"/>
     <fullyQualifiedTypeName name="beans.Entidad"/>
     <fullyQualifiedTypeName name="beans.Propiedad"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="umu.tds.apps.models.User"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
@@ -38,4 +36,15 @@
     <fullyQualifiedTypeName name="javax.swing.border.CompoundBorder"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="javax.swing.ListCellRenderer"/>
+    <fullyQualifiedTypeName name="javax.swing.DefaultListCellRenderer"/>
+    <fullyQualifiedTypeName name="java.awt.Component"/>
+    <fullyQualifiedTypeName name="umu.tds.apps.models.User"/>
+    <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
+    <fullyQualifiedTypeName name="javax.swing.UIManager"/>
+    <fullyQualifiedTypeName name="javax.swing.DefaultListModel"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
+    <fullyQualifiedTypeName name="javax.swing.Icon"/>
+    <fullyQualifiedTypeName name="javax.swing.event.ListSelectionListener"/>
 </qualifiedTypeNameHistroy>

@@ -1,6 +1,5 @@
 package umu.tds.apps.ui;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
@@ -43,10 +42,11 @@ public class MainView {
 	private JPanel selectedTab;
 	
 	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
+	private static final String IMAGE_PATH = "/umu/tds/apps/images/";
 
 	public MainView() {
 		controller = AppMusicController.getInstance();
-		selectedTab = createRecentTab();
+		selectedTab = new RecentSongsPanel();
 		this.username = controller.getCurrentUser().getUsername(); 
 		initialize();
 	}
@@ -58,6 +58,7 @@ public class MainView {
 	
 	private void initialize() {
 		frmMainView = new JFrame();
+		frmMainView.setTitle("AppMusic");
 		frmMainView.setBounds(100, 100, 682, 460);
 		frmMainView.setResizable(false);
 		frmMainView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,7 +112,7 @@ public class MainView {
 		gbc_btnLogout.gridy = 0;
 		panel.add(btnLogout, gbc_btnLogout);
 		
-		addLogoutFunctionality(btnLogout);
+		logoutFunctionality(btnLogout);
 	}
 	
 	private void createTopRow() {
@@ -128,12 +129,6 @@ public class MainView {
 		createTopRowButtons(topRow);
 	}
 	
-	// TODO: Implement recent tab.
-	private JPanel createRecentTab() {
-		JPanel panel = new JPanel();
-		return panel;
-	}
-	
 	private void createTabSwitcher() {
 		JPanel panel = new JPanel();
 		frmMainView.getContentPane().add(panel, BorderLayout.WEST);
@@ -143,7 +138,7 @@ public class MainView {
 		functionalityList.setFixedCellHeight(50);
 		functionalityList.setFixedCellWidth(180);
 		functionalityList.setCellRenderer(createListRenderer());
-		addSelectedTabFunctionality(functionalityList);
+		selectTabFunctionality(functionalityList);
 		JScrollPane pane = new JScrollPane(functionalityList);
 		panel.add(pane);
 	}
@@ -162,22 +157,22 @@ public class MainView {
 					JLabel label = (JLabel) c;
 					switch(index) {
 					case 0:
-						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/magnifying-glass.png")));
+						label.setIcon(new ImageIcon(getClass().getResource(IMAGE_PATH + "magnifying-glass.png")));
 						label.setText("Explore");
 						label.setForeground(Color.WHITE);
 						break;
 					case 1:											
-						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/add-to-list.png")));
+						label.setIcon(new ImageIcon(getClass().getResource(IMAGE_PATH + "add-to-list.png")));
 						label.setText("New PlayList");
 						label.setForeground(Color.WHITE);
 						break;
 					case 2:				
-						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/back-in-time.png")));
+						label.setIcon(new ImageIcon(getClass().getResource(IMAGE_PATH + "back-in-time.png")));
 						label.setText("Recent");
 						label.setForeground(Color.WHITE);
 						break;
 					case 3:											
-						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/list.png")));
+						label.setIcon(new ImageIcon(getClass().getResource(IMAGE_PATH + "list.png")));
 						label.setText("My Lists");
 						label.setForeground(Color.WHITE);
 						break;
@@ -193,16 +188,36 @@ public class MainView {
 		return renderer;
 	}
 	
-	private void addSelectedTabFunctionality(JList<Integer> functionalityList) {
-		functionalityList.addListSelectionListener(new ListSelectionListener() {
-			@Override
-			public void valueChanged(ListSelectionEvent arg0) {
-				// TODO Auto-generated method stub
+	private void selectTabFunctionality(JList<Integer> functionalityList) {
+		functionalityList.addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting()) {
+				int value = functionalityList.getSelectedValue();
+				frmMainView.remove(selectedTab);
+				switch(value) {
+				case 0:
+					selectedTab = new SearchSongsPanel();
+					break;
+				case 1:
+					selectedTab = new NewPlayListPanel();
+					break;
+				case 2:
+					selectedTab = new RecentSongsPanel();
+					break;
+				case 3:
+					selectedTab = new MyPlayListsPanel();
+					break;
+				default:
+					break;
+				}
+				frmMainView.add(selectedTab, BorderLayout.CENTER);
+				frmMainView.revalidate();
+				frmMainView.repaint();
+				frmMainView.validate();
 			}
 		});
 	}
 	
-	private void addLogoutFunctionality(JButton btnLogout) {
+	private void logoutFunctionality(JButton btnLogout) {
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LoginView loginView = new LoginView();
