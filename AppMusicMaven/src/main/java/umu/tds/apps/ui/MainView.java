@@ -43,6 +43,7 @@ public class MainView {
 	private JFrame frmMainView;
 	private String username;
 	private AppMusicController controller;
+	private JPanel selectedTab;
 	
 	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
 
@@ -127,6 +128,12 @@ public class MainView {
 		
 		createGreetingLabel(topRow);
 		createTopRowButtons(topRow);
+	}
+	
+	// TODO: Implement recent tab.
+	private JPanel createRecentTab() {
+		JPanel panel = new JPanel();
+		return panel;
 	}
 	
 	private void createTabSwitcher() {

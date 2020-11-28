@@ -11,9 +11,9 @@ on all the topics at hand, some of which are:
 - [x] Improvement of Login window.
 - [ ] Creation of searching songs Panel.
 - [ ] Creation of Recent songs Panel.
-- [ ] Creation of Main window.
+- [x] Creation of Main window.
 - [x] Initial persistence configuration.
-- [ ] Controller configuration.
+- [x] Controller configuration.
 - [x] Repo Creation for Songs (SongsRepo)
 - [x] DAO Adapter for Song.
 - [ ] Tests for Song functionality.
