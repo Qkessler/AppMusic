@@ -5,9 +5,9 @@ on all the topics at hand, some of which are:
 - Swing (Creation of windows).
 - Component creation.
 ** Enrique Kessler Martínez
-- Improvement of Login window.
-- Creation of searching songs window.
-- Creation of Recent songs window.
+X Improvement of Login window.
+- Creation of searching songs Panel.
+- Creation of Recent songs Panel.
 X Initial persistence configuration.
 - Controller configuration.
 X Repo Creation for Songs (SongsRepo)
@@ -15,12 +15,14 @@ X DAO Adapter for Song.
 - Tests for Song functionality.
 - Component creation.
 ** Javier Barceló Pérez
-- Improvement of Register window.
+X Improvement of Register window.
 - Creation of Main window.
 - Creation of NewList window.
 - Creation of MyLists window.
 - Creation of Most reproduced songs window.
-- Repo creation for Users (UsersRepo): En español lo llama el profesor Catálogo.
-- DAO Adapter for User.
+X Repo creation for Users (UsersRepo): En español lo llama el profesor Catálogo.
+X DAO Adapter for User.
+- DAO Adapter for PlayList.
+- Repo creation for PlayList (PlayListRepo)
 - Tests for User functionality.
 
