@@ -15,6 +15,7 @@ import javax.swing.JTextPane;
 import javax.swing.ListCellRenderer;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -42,6 +43,8 @@ public class MainView {
 	private JFrame frmMainView;
 	private String username;
 	private AppMusicController controller;
+	
+	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
 
 	public MainView() {
 		controller = AppMusicController.getInstance();
@@ -67,10 +70,11 @@ public class MainView {
 		frmMainView.pack();
 	}
 	
-	private static JButton createSimpleButton(String text) {
-		JButton button = new JButton(text);
-		button.setForeground(Color.BLACK);
-		button.setBackground(Color.WHITE);
+	private static JButton createSimpleButton(String text, Icon icon) {
+		JButton button = new JButton(icon);
+		button.setText(text);
+		button.setForeground(Color.WHITE);
+		button.setBackground(DEFAULT_BACKGROUND);
 		Border line = new LineBorder(Color.BLACK);
 		Border margin = new EmptyBorder(5, 15, 5, 15);
 		Border compound = new CompoundBorder(line, margin);
@@ -90,7 +94,8 @@ public class MainView {
 	}
 	
 	private void createTopRowButtons(JPanel panel) {
-		JButton btnUpgrade = createSimpleButton("Upgrade");
+		Icon iconUpgrade = new ImageIcon(getClass().getResource("/umu/tds/apps/images/credit.png"));
+		JButton btnUpgrade = createSimpleButton("Upgrade", iconUpgrade);
 		GridBagConstraints gbc_btnUpgrade = new GridBagConstraints();
 		gbc_btnUpgrade.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnUpgrade.insets = new Insets(0, 0, 5, 5);
@@ -98,7 +103,8 @@ public class MainView {
 		gbc_btnUpgrade.gridy = 0;
 		panel.add(btnUpgrade, gbc_btnUpgrade);
 		
-		JButton btnLogout = createSimpleButton("Logout");
+		Icon iconLogout= new ImageIcon(getClass().getResource("/umu/tds/apps/images/log-out.png"));
+		JButton btnLogout = createSimpleButton("Logout", iconLogout);
 		GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 		gbc_btnLogout.insets = new Insets(0, 0, 5, 0);
 		gbc_btnLogout.anchor = GridBagConstraints.NORTHWEST;
@@ -140,7 +146,6 @@ public class MainView {
 	private static ListCellRenderer<? super Integer> createListRenderer() {
 		DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
 			private Color selectedBackground = new Color(10, 37, 64, 220);
-			private Color defaultBackground = new Color(10, 37, 64, 255);
  
 			@Override
 			public Component getListCellRendererComponent(JList<?> list, Object value,
@@ -173,7 +178,7 @@ public class MainView {
 					default:
 						break;
 					}
-					label.setBackground(isSelected ? selectedBackground : defaultBackground);
+					label.setBackground(isSelected ? selectedBackground : DEFAULT_BACKGROUND);
 				}
 				return c;
 			}
