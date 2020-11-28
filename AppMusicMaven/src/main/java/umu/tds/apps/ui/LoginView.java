@@ -165,11 +165,11 @@ public class LoginView {
 						new String(textPassword.getPassword()));
 
 				if (login) {
-					VentanaPrincipal window = new VentanaPrincipal();
-					window.mostrarVentana();
+					MainView window = new MainView();
+					window.show();
 					frmLogin.dispose();
 				} else
-					JOptionPane.showMessageDialog(frmLogin, "Nombre de usuario o contrase�a no valido",
+					JOptionPane.showMessageDialog(frmLogin, "Nombre de usuario o contraseña no valido",
 							"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		});

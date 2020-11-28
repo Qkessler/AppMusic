@@ -29,4 +29,5 @@
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="umu.tds.apps.persistence.DAOException"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="umu.tds.apps.persistence.IUserAdapterDAO"/>
 </qualifiedTypeNameHistroy>
