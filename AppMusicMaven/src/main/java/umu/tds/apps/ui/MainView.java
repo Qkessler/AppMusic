@@ -5,26 +5,37 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.FlowLayout;
 import javax.swing.JTextPane;
+import javax.swing.ListCellRenderer;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import umu.tds.apps.controller.AppMusicController;
+import umu.tds.apps.models.User;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.JLabel;
+import javax.swing.JList;
 
 public class MainView {
 
@@ -51,6 +62,7 @@ public class MainView {
 		frmMainView.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		createTopRow();
+		createTabSwitcher();
 		
 		frmMainView.pack();
 	}
@@ -66,7 +78,7 @@ public class MainView {
 		return button;
 	}
 	
-	public void createGreetingLabel(JPanel panel) {
+	private void createGreetingLabel(JPanel panel) {
 		JLabel txtGreeting = new JLabel();
 		txtGreeting.setText("Hey " + username + "!");
 		GridBagConstraints gbc_txtGreeting = new GridBagConstraints();
@@ -77,7 +89,7 @@ public class MainView {
 		panel.add(txtGreeting, gbc_txtGreeting);
 	}
 	
-	public void createTopRowButtons(JPanel panel) {
+	private void createTopRowButtons(JPanel panel) {
 		JButton btnUpgrade = createSimpleButton("Upgrade");
 		GridBagConstraints gbc_btnUpgrade = new GridBagConstraints();
 		gbc_btnUpgrade.anchor = GridBagConstraints.NORTHWEST;
@@ -97,18 +109,77 @@ public class MainView {
 		addLogoutFunctionality(btnLogout);
 	}
 	
-	public void createTopRow() {
-		JPanel panel = new JPanel();
-		frmMainView.getContentPane().add(panel, BorderLayout.NORTH);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{376, 99, 81, 94, 0};
-		gbl_panel.rowHeights = new int[]{25, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		panel.setLayout(gbl_panel);
+	private void createTopRow() {
+		JPanel topRow = new JPanel();
+		frmMainView.getContentPane().add(topRow, BorderLayout.NORTH);
+		GridBagLayout gbl_topRow = new GridBagLayout();
+		gbl_topRow.columnWidths = new int[]{376, 99, 81, 94, 0};
+		gbl_topRow.rowHeights = new int[]{25, 0, 0};
+		gbl_topRow.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_topRow.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		topRow.setLayout(gbl_topRow);
 		
-		createGreetingLabel(panel);
-		createTopRowButtons(panel);
+		createGreetingLabel(topRow);
+		createTopRowButtons(topRow);
+	}
+	
+	private void createTabSwitcher() {
+		JPanel panel = new JPanel();
+		frmMainView.getContentPane().add(panel, BorderLayout.WEST);
+		DefaultListModel<Integer> listModel = new DefaultListModel<Integer>();
+		listModel.addAll(Arrays.asList(0, 1, 2, 3));
+		JList<Integer> functionalityList = new JList<Integer>(listModel);
+		functionalityList.setFixedCellHeight(50);
+		functionalityList.setFixedCellWidth(180);
+		functionalityList.setCellRenderer(createListRenderer());
+		JScrollPane pane = new JScrollPane(functionalityList);
+		panel.add(pane);
+	}
+	
+	@SuppressWarnings("serial")
+	private static ListCellRenderer<? super Integer> createListRenderer() {
+		DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
+			private Color selectedBackground = new Color(10, 37, 64, 220);
+			private Color defaultBackground = new Color(10, 37, 64, 255);
+ 
+			@Override
+			public Component getListCellRendererComponent(JList<?> list, Object value,
+					int index, boolean isSelected, boolean cellHasFocus) {
+				Component c = super.getListCellRendererComponent(
+						list, value, index, isSelected, cellHasFocus);
+				if (c instanceof JLabel) {
+					JLabel label = (JLabel) c;
+					switch(index) {
+					case 0:
+						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/magnifying-glass.png")));
+						label.setText("Explore");
+						label.setForeground(Color.WHITE);
+						break;
+					case 1:											
+						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/add-to-list.png")));
+						label.setText("New PlayList");
+						label.setForeground(Color.WHITE);
+						break;
+					case 2:				
+						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/back-in-time.png")));
+						label.setText("Recent");
+						label.setForeground(Color.WHITE);
+						break;
+					case 3:											
+						label.setIcon(new ImageIcon(getClass().getResource("/umu/tds/apps/images/list.png")));
+						label.setText("My Lists");
+						label.setForeground(Color.WHITE);
+						break;
+					default:
+						break;
+					}
+					label.setBackground(isSelected ? selectedBackground : defaultBackground);
+				}
+				return c;
+			}
+		};
+		renderer.setHorizontalAlignment(JLabel.CENTER);
+		return renderer;
 	}
 	
 	private void addLogoutFunctionality(JButton btnLogout) {
