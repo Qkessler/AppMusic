@@ -9,6 +9,7 @@ import javax.swing.border.LineBorder;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.Icon;
@@ -16,30 +17,40 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import umu.tds.apps.models.Song;
+import javax.swing.JScrollPane;
 
+@SuppressWarnings("serial")
 public class RecentSongsPanel extends JPanel {
 	private static final String IMAGE_PATH = "/umu/tds/apps/images/";
 	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
-	private ArrayList<Song> songs;
+	private JTable table;
 
 	public RecentSongsPanel() {
 		setLayout(new BorderLayout(0, 0));
-		
 		JPanel panel = new JPanel();
+		setPreferredSize(new Dimension(780, 550));
 		add(panel, BorderLayout.SOUTH);
-		
 		createSongsTable();
 		createMediaButtons(panel);
 
 	}
 	
 	private void createSongsTable() {
-		JTable table = new JTable();
 		DefaultTableModel tableModel = new DefaultTableModel();
 		tableModel.addColumn("Title");
 		tableModel.addColumn("Artist");
-		table.setModel(tableModel);
-		add(table, BorderLayout.CENTER);
+		
+		// Dummy data.
+		for(int i = 0; i < 100; i++) {
+			Object[] array = new Object[2];
+			array[0] = "cancion";
+			array[1] = "interprete";
+			tableModel.addRow(array);
+		}
+				
+		table = new JTable(tableModel);
+		JScrollPane scrollPane = new JScrollPane(table);
+		add(scrollPane, BorderLayout.NORTH);
 	}
 	
 	private JButton createIconButton(String path) {

@@ -59,7 +59,7 @@ public class MainView {
 	private void initialize() {
 		frmMainView = new JFrame();
 		frmMainView.setTitle("AppMusic");
-		frmMainView.setBounds(100, 100, 682, 460);
+		frmMainView.setBounds(100, 100, 718, 689);
 		frmMainView.setResizable(false);
 		frmMainView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMainView.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -210,6 +210,7 @@ public class MainView {
 					break;
 				}
 				frmMainView.add(selectedTab, BorderLayout.CENTER);
+				frmMainView.setSize(selectedTab.getPreferredSize());
 				frmMainView.revalidate();
 				frmMainView.repaint();
 				frmMainView.validate();
