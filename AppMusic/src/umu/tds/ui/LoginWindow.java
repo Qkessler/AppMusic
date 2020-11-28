@@ -50,6 +50,11 @@ public class LoginWindow {
 	public LoginWindow() {
 		initialize();
 	}
+	
+	public void mostrarVentana() {
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -116,7 +121,7 @@ public class LoginWindow {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String username = new String(txtUsername.getName());
+				String username = new String(txtUsername.getText());
 				String password = new String(txtPassword.getPassword());
 				boolean loggedIn = AppMusic.getInstance().login(username, password);
 				if(!loggedIn) {
@@ -142,8 +147,8 @@ public class LoginWindow {
 		
 		JButton btnRegister = new JButton("Registro");
 		btnRegister.addActionListener(ev -> {
-				JFrame registerWindow = new RegisterWindow(frame);
-				registerWindow.setVisible(true);
+				RegisterWindow registerWindow = new RegisterWindow(frame);
+				registerWindow.mostrarVentana();
 				frame.setVisible(false);
 		});	
 		btnRegister.setHorizontalAlignment(SwingConstants.RIGHT);
