@@ -29,7 +29,7 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 	private static final String BIRTH_DATE = "birth_date";
 	
 	public static UserAdapterTDS getInstance() {
-		dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		dateFormat = new SimpleDateFormat("E M dd k:m:s z yyyy");
 		if (instance == null) {
 			return new UserAdapterTDS();
 		}
@@ -38,11 +38,11 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 	
 	@Override
 	public void registerUser(User user) {
-		boolean registered = false;
+		boolean registered = true;
 		try {
 			servicioPersistencia.recuperarEntidad(user.getId()); 
 		} catch(NullPointerException e) {
-			registered = true;
+			registered = false;
 		}
 		if (registered) return;
 		Entidad eUser = new Entidad();

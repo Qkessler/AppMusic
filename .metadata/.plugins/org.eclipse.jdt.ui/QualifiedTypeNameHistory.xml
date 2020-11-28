@@ -30,4 +30,12 @@
     <fullyQualifiedTypeName name="umu.tds.apps.persistence.DAOException"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="umu.tds.apps.persistence.IUserAdapterDAO"/>
+    <fullyQualifiedTypeName name="umu.tds.apps.controller.AppMusicController"/>
+    <fullyQualifiedTypeName name="javax.swing.border.Border"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="javax.swing.border.EmptyBorder"/>
+    <fullyQualifiedTypeName name="javax.swing.border.LineBorder"/>
+    <fullyQualifiedTypeName name="javax.swing.border.CompoundBorder"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
 </qualifiedTypeNameHistroy>

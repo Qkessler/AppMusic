@@ -232,9 +232,8 @@ public class RegisterView {
 		panelCamposFechaNacimiento.add(lblFechaNacimiento);
 		fixedSize(lblFechaNacimiento, 130, 20);
 		txtFechaNacimiento = new JDateChooser(null, null, null, new JSpinnerDateEditor());
+		txtFechaNacimiento.setDateFormatString("dd/MM/yyyy");
 		panelCamposFechaNacimiento.add(txtFechaNacimiento);
-//		txtFechaNacimiento = new JTextField();
-//		panelCamposFechaNacimiento.add(txtFechaNacimiento);
 		fixedSize(txtFechaNacimiento, 215, 20);
 		lblFechaNacimientoError = new JLabel("Introduce la fecha de nacimiento", SwingConstants.CENTER);
 		fixedSize(lblFechaNacimientoError, 150, 15);
