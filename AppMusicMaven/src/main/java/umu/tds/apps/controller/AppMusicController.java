@@ -1,12 +1,9 @@
 package umu.tds.apps.controller;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.LinkedList;
 
-import tds.driver.ServicioPersistencia;
 import umu.tds.apps.models.Artist;
-import umu.tds.apps.models.PlayListRepo;
 import umu.tds.apps.models.Song;
 import umu.tds.apps.models.SongRepo;
 import umu.tds.apps.models.User;
@@ -14,20 +11,24 @@ import umu.tds.apps.models.UserRepo;
 import umu.tds.apps.persistence.DAOException;
 import umu.tds.apps.persistence.FactoriaDAO;
 import umu.tds.apps.persistence.ISongAdapterDAO;
+import umu.tds.apps.persistence.IUserAdapterDAO;
 
 public class AppMusicController {
 
 	private static AppMusicController instance = null;
 
 	private ISongAdapterDAO songAdapter;
+	private IUserAdapterDAO userAdapter;
 	// private IPlayListAdapterDAO playListAdapter;
-	// private IUserAdapterDAO userAdapter;
 
 	private UserRepo userRepo;
 	private SongRepo songRepo;
-	private PlayListRepo playListRepo;
+	// private PlayListRepo playListRepo;
+	
+	private User currentUser;
 
 	private AppMusicController() {
+		this.currentUser= null;
 		initializeAdapters();
 		initializeRepos();
 	}
@@ -38,20 +39,41 @@ public class AppMusicController {
 		}
 		return instance;
 	}
-
-	public boolean registerUser(String username, String password, String firstName, String lastName, String email,
-			Date birthDate) {
-		// User user = new User(username, password, firstName, lastName, email, birthDate);
-		// register user on the userRepo, shouldn't really return it.
-		return true;
+	
+	public User getCurrentUser() {
+		return currentUser;
 	}
 	
 	public boolean isRegistered(String username) {
+		return userRepo.getUser(username) != null;
+	}
+	
+	public boolean registerUser(String username, String password,
+			String name, String lastName, String email, Date birthDate) {
+		if (isRegistered(username)) return false;
+		User user = new User(username, password, name, lastName, email, birthDate);
+		userAdapter.registerUser(user);
+		userRepo.addUser(user);
+		return true;
+	}
+	
+	public boolean removeUser(User user) {
+		if (!isRegistered(user.getUsername())) return false;
+		userAdapter.removeUser(user);
+		userRepo.removeUser(user);
+		return true;
+	}
+	
+	public boolean login(String username, String password) {
+		User user = userRepo.getUser(username);
+		if (user != null && user.getPassword().equals(password)) {
+			this.currentUser = user;
+			return true;
+		}
 		return false;
 	}
-
+	
 	public void registerSong(String title, LinkedList<Artist> artists, String genre) {
-		// Maybe check whether we have the same already in. Checking the title.
 		Song song = new Song(title, artists, genre);
 		songAdapter.registerSong(song);
 		songRepo.addSong(song);
@@ -65,15 +87,6 @@ public class AppMusicController {
 	// TODO: createList();
 	// }
 
-	public boolean login(String username, String password) {
-		// UserDAO.find(username);
-		/*
-		 * Search for username in DB. If the user exists, we check if username.login =
-		 * password.
-		 */
-		return false;
-	}
-
 	private void initializeAdapters() {
 		FactoriaDAO factoria = null;
 		try {
@@ -82,9 +95,12 @@ public class AppMusicController {
 			e.printStackTrace();
 		}
 		songAdapter = factoria.getSongDAO();
+		userAdapter = factoria.getUserDAO();
 	}
 
 	private void initializeRepos() {
 		songRepo = SongRepo.getInstance();
+		userRepo = UserRepo.getInstance();
 	}
+
 }

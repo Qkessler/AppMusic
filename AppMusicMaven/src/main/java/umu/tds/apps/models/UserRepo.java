@@ -36,25 +36,26 @@ public class UserRepo {
 		}
 	}
 	
-	public List<User> getUsuarios() throws DAOException {
+	public List<User> getUsers() throws DAOException {
 		return new LinkedList<User>(usersUsername.values());
 	}
 	
-	public User getUsuario(String login) {
-		return usersUsername.get(login);
+	public User getUser(String username) {
+		return usersUsername.get(username);
 	}
 
-	public User getUsuario(int id) {
+	public User getUser(int id) {
 		return usersId.get(id);
 	}
 	
-	public void addUsuario(User usuario) {
-		usersId.put(usuario.getId(), usuario);
-		usersUsername.put(usuario.getUsername(), usuario);
+	public void addUser(User user) {
+		usersId.put(user.getId(), user);
+		usersUsername.put(user.getUsername(), user);
+		System.out.println(user);
 	}
 	
-	public void removeUsuario(User usuario) {
-		usersId.remove(usuario.getId());
-		usersUsername.remove(usuario.getUsername());
+	public void removeUser(User user) {
+		usersId.remove(user.getId());
+		usersUsername.remove(user.getUsername());
 	}
 }

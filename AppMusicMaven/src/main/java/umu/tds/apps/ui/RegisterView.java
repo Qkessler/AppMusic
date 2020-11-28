@@ -267,9 +267,9 @@ public class RegisterView {
 				OK = checkFields();
 				if (OK) {
 					boolean registrado = false;
-					registrado = AppMusicController.getInstance().registerUser(txtNombre.getText(),
-							txtApellidos.getText(), txtEmail.getText(), txtUsuario.getText(),
-							new String(txtPassword.getPassword()), 
+					registrado = AppMusicController.getInstance().registerUser(txtUsuario.getText(),
+							new String(txtPassword.getPassword()), txtNombre.getText(),
+							txtApellidos.getText(), txtEmail.getText(), 
 							txtFechaNacimiento.getDate());
 					if (registrado) {
 						JOptionPane.showMessageDialog(frmRegistro, "Asistente registrado correctamente.", "Registro",

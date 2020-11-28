@@ -1,6 +1,5 @@
 package umu.tds.apps.models;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -80,7 +79,7 @@ public class User {
 	}
 
 	public List<PlayList> getPlaylists() {
-		return new ArrayList(playlists);
+		return new ArrayList<PlayList>(playlists);
 	}
 
 	public void setPlaylists(List<PlayList> playlists) {
@@ -98,8 +97,11 @@ public class User {
 	public void makePayment() {
 		// TODO: makePayment using a discount or not.
 	}
-	
-	public boolean login(String password) {
-		return this.password.equals(password);
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + ", lastName="
+				+ lastName + ", email=" + email + ", premium=" + premium + ", birthDate=" + birthDate + ", playlists="
+				+ playlists + "]";
 	}
 }
