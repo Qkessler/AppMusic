@@ -10,23 +10,20 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import java.awt.FlowLayout;
-import javax.swing.JTextPane;
 import javax.swing.ListCellRenderer;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import umu.tds.apps.controller.AppMusicController;
-import umu.tds.apps.models.User;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -49,6 +46,7 @@ public class MainView {
 
 	public MainView() {
 		controller = AppMusicController.getInstance();
+		selectedTab = createRecentTab();
 		this.username = controller.getCurrentUser().getUsername(); 
 		initialize();
 	}
@@ -145,6 +143,7 @@ public class MainView {
 		functionalityList.setFixedCellHeight(50);
 		functionalityList.setFixedCellWidth(180);
 		functionalityList.setCellRenderer(createListRenderer());
+		addSelectedTabFunctionality(functionalityList);
 		JScrollPane pane = new JScrollPane(functionalityList);
 		panel.add(pane);
 	}
@@ -192,6 +191,15 @@ public class MainView {
 		};
 		renderer.setHorizontalAlignment(JLabel.CENTER);
 		return renderer;
+	}
+	
+	private void addSelectedTabFunctionality(JList<Integer> functionalityList) {
+		functionalityList.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		});
 	}
 	
 	private void addLogoutFunctionality(JButton btnLogout) {
