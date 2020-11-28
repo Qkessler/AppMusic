@@ -68,4 +68,10 @@ public class SongRepo {
 		for (Song song: songsDB)
 			songs.put(song.getId(), song);
 	 }
+
+	// TODO: Complete functionality.
+	public List<Song> getRecentSongs() {
+		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
+		return songs;
+	}
 }

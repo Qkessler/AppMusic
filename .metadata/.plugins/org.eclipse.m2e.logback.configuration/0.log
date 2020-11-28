@@ -5899,3 +5899,171 @@
 2020-11-28 18:43:15,370 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
 2020-11-28 18:43:15,371 [Worker-62: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2020-11-28 18:43:15,371 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:46:56,785 [Worker-59: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:46:56,786 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:46:56,787 [Worker-59: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:46:56,787 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:49:17,425 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:17,425 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:49:17,425 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:17,426 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:49:22,563 [Worker-71: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:22,564 [Worker-71: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:49:22,564 [Worker-71: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:22,564 [Worker-71: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:49:26,482 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:26,482 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:49:26,482 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:26,483 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:49:34,607 [Worker-66: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:34,608 [Worker-66: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:49:34,608 [Worker-66: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:34,609 [Worker-66: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:49:51,255 [Worker-59: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:51,255 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:49:51,256 [Worker-59: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:49:51,256 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:50:49,715 [Worker-61: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:50:49,716 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:50:49,716 [Worker-61: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:50:49,716 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:52:29,122 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:52:29,122 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:52:29,123 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:52:29,123 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:53:16,313 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:53:16,313 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:53:16,314 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:53:16,314 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:53:38,349 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:53:38,349 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:53:38,349 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:53:38,349 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:56:26,288 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:56:26,289 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:56:26,290 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:56:26,290 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:56:30,611 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:56:30,612 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:56:30,612 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:56:30,612 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:56:44,784 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:56:44,784 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:56:44,784 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:56:44,784 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:58:48,354 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:58:48,355 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:58:48,355 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:58:48,356 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 18:59:49,546 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:59:49,546 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 18:59:49,547 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 18:59:49,547 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:00:04,103 [Worker-76: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:00:04,103 [Worker-76: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:00:04,104 [Worker-76: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:00:04,104 [Worker-76: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:00:06,172 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:00:06,172 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:00:06,172 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:00:06,172 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:01:31,453 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:01:31,454 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:01:31,454 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:01:31,454 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:01:37,074 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:01:37,074 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:01:37,075 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:01:37,075 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:01:38,117 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:01:38,117 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:01:38,118 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:01:38,119 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:02:03,787 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:02:03,787 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:02:03,788 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:02:03,788 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:02:17,412 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:02:17,412 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:02:17,413 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:02:17,413 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:03:05,149 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:03:05,149 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:03:05,150 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:03:05,150 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:03:06,462 [Worker-80: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:03:06,462 [Worker-80: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:03:06,463 [Worker-80: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:03:06,463 [Worker-80: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:03:32,742 [Worker-80: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:03:32,743 [Worker-80: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:03:32,743 [Worker-80: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:03:32,743 [Worker-80: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:07:09,395 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:09,395 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:07:09,396 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:09,397 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:07:21,315 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:21,315 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:07:21,315 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:21,316 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:07:26,560 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:26,561 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:07:26,561 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:26,561 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:07:52,536 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:52,536 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:07:52,537 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:52,537 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:07:53,974 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:53,974 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:07:53,976 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:07:53,976 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:08:16,594 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:16,594 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:08:16,595 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:16,596 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:08:20,029 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:20,029 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:08:20,041 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:20,041 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:08:42,186 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:42,187 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:08:42,187 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:42,188 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:08:48,770 [Worker-81: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:48,770 [Worker-81: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:08:48,771 [Worker-81: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:48,772 [Worker-81: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:08:57,074 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:57,075 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:08:57,076 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:08:57,076 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:09:17,092 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:09:17,092 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:09:17,093 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:09:17,093 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:09:18,168 [Worker-81: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:09:18,169 [Worker-81: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:09:18,169 [Worker-81: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:09:18,170 [Worker-81: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:09:19,216 [Worker-81: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:09:19,217 [Worker-81: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:09:19,217 [Worker-81: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:09:19,217 [Worker-81: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:10:02,778 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:10:02,778 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:10:02,779 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:10:02,780 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:11:02,515 [Worker-82: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:11:02,516 [Worker-82: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:11:02,517 [Worker-82: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:11:02,517 [Worker-82: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:11:04,760 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:11:04,761 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:11:04,761 [Worker-68: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:11:04,761 [Worker-68: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources
+2020-11-28 19:11:13,750 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:11:13,750 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/main/resources
+2020-11-28 19:11:13,751 [Worker-75: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-11-28 19:11:13,751 [Worker-75: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/qkessler/Documents/AppMusic/AppMusicMaven/src/test/resources

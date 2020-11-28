@@ -1,5 +1,6 @@
 package umu.tds.apps.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -77,6 +78,10 @@ public class AppMusicController {
 		Song song = new Song(title, artists, genre);
 		songAdapter.registerSong(song);
 		songRepo.addSong(song);
+	}
+	
+	public ArrayList<Song> getRecentSongs() {
+		return songRepo.getRecentSongs();
 	}
 
 	public void play() {

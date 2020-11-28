@@ -59,7 +59,7 @@ public class MainView {
 	private void initialize() {
 		frmMainView = new JFrame();
 		frmMainView.setTitle("AppMusic");
-		frmMainView.setBounds(100, 100, 718, 689);
+		frmMainView.setBounds(100, 100, 710, 550);
 		frmMainView.setResizable(false);
 		frmMainView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMainView.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -113,6 +113,7 @@ public class MainView {
 		panel.add(btnLogout, gbc_btnLogout);
 		
 		logoutFunctionality(btnLogout);
+		upgradeFunctionality(btnUpgrade);
 	}
 	
 	private void createTopRow() {
@@ -224,6 +225,14 @@ public class MainView {
 				LoginView loginView = new LoginView();
 				loginView.mostrarVentana();
 				frmMainView.dispose();
+			}
+		});
+	}
+	
+	private void upgradeFunctionality(JButton btnUpgrade) {
+		btnUpgrade.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 	}

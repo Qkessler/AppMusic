@@ -10,7 +10,7 @@ on all the topics at hand, some of which are:
 ### Enrique Kessler Martínez
 - [x] Improvement of Login window.
 - [ ] Creation of searching songs Panel.
-- [ ] Creation of Recent songs Panel.
+- [x] Creation of Recent songs Panel.
 - [x] Creation of Main window.
 - [x] Initial persistence configuration.
 - [x] Controller configuration.
