@@ -29,7 +29,7 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 	private static final String BIRTH_DATE = "birth_date";
 	
 	public static UserAdapterTDS getInstance() {
-		dateFormat = new SimpleDateFormat("E M dd k:m:s z yyyy");
+		dateFormat = new SimpleDateFormat("E MMMM dd k:m:s z yyyy");
 		if (instance == null) {
 			return new UserAdapterTDS();
 		}
@@ -120,7 +120,9 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return new User(username, password, name, lastName, email, date);
+		User user = new User(username, password, name, lastName, email, date);
+		user.setId(id);
+		return user; 
 	}
 
 	@Override

@@ -248,7 +248,7 @@ public class MainView {
 	private void upgradeFunctionality(JButton btnUpgrade) {
 		btnUpgrade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				System.out.println(controller.getCurrentUser());
 			}
 		});
 	}

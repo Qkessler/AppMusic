@@ -76,7 +76,9 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 		String playCount = servicioPersistencia.recuperarPropiedadEntidad(eSong, PLAY_COUNT);
 		
 		ArrayList<Artist> artists = (ArrayList<Artist>) Song.parseArtists(artistNames);
-		return new Song(title, artists, genre, Long.parseLong(playCount));
+		Song song = new Song(title, artists, genre, Long.parseLong(playCount));
+		song.setId(id);
+		return song;
 	}
 	
 	public List<Song> getAllSongs() {
