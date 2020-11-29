@@ -14,7 +14,7 @@ public class Song {
 	// "JAZZ/nina Simone-Fly Me To The Moon.mp3"
 	public Song(String path) {
 		String[] stringList = path.split("-");
-		String name = stringList[1].split(".")[0]; // Holds "Fly Me to The Moon"
+		String name = stringList[1].split("\\.")[0]; // Holds "Fly Me to The Moon"
 		String genreArtists = stringList[0]; // Holds "JAZZ/nina Simone"
 		String[] genreArtistsArray = genreArtists.split("/");
 		String artists = genreArtistsArray[1]; // Holds "nina Simone"
@@ -94,5 +94,11 @@ public class Song {
 			artists.add(new Artist(name));
 		}
 		return artists;
+	}
+
+	@Override
+	public String toString() {
+		return "Song [id=" + id + ", title=" + title + ", artists=" + artists + ", genre=" + genre + ", playCount="
+				+ playCount + "]";
 	}
 }

@@ -51,7 +51,6 @@ public class UserRepo {
 	public void addUser(User user) {
 		usersId.put(user.getId(), user);
 		usersUsername.put(user.getUsername(), user);
-		System.out.println(usersUsername);
 	}
 	
 	public void removeUser(User user) {

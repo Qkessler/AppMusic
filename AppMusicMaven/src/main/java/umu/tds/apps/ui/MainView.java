@@ -119,6 +119,7 @@ public class MainView {
 		gbc_btnLogout.gridy = 0;
 		panel.add(btnLogout, gbc_btnLogout);
 		
+		updateSongsFunctionality(btnUpdate);
 		logoutFunctionality(btnLogout);
 		upgradeFunctionality(btnUpgrade);
 	}
@@ -232,6 +233,14 @@ public class MainView {
 				LoginView loginView = new LoginView();
 				loginView.mostrarVentana();
 				frmMainView.dispose();
+			}
+		});
+	}
+	
+	private void updateSongsFunctionality(JButton btnUpdate) {
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.initializeSongs();
 			}
 		});
 	}

@@ -3,6 +3,7 @@ package umu.tds.apps.persistence;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import beans.Entidad;
@@ -22,7 +23,6 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 	private static final String ARTISTS = "artists";
 	private static final String GENRE = "genre";
 	private static final String PLAY_COUNT = "play_count";
-	private static final String PATH = "path";
 	
 	public static SongAdapterTDS getInstance() {
 		if (instance == null) {
@@ -44,7 +44,12 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 				)));
 		eSong = servicioPersistencia.registrarEntidad(eSong);
 		song.setId(eSong.getId());
-		
+	}
+	
+	public void registerSong(String path) {
+		if (getSong(path).isPresent()) return;
+		Song song = new Song(path);
+		registerSong(song);
 	}
 	
 	public void removeSong(Song song) {
@@ -80,5 +85,19 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 				.map(e -> getSong(e.getId()))
 				.collect(Collectors.toList());
 		return songs;
+	}
+	
+	public Optional<Song> getSong(String path) {
+		ArrayList<Song> allSongs = (ArrayList<Song>) getAllSongs();
+		return allSongs.stream()
+		.filter(s -> s.getPath().equals(path))
+		.findAny();
+	}
+	
+	public void cleanDB() {
+		ArrayList<Entidad> entities = servicioPersistencia.recuperarEntidades();
+		for (Entidad e : entities) {
+			servicioPersistencia.borrarEntidad(e);
+		}
 	}
 }

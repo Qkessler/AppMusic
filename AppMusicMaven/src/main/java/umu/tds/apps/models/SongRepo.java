@@ -50,13 +50,6 @@ public class SongRepo {
 		return songs.get(id);
 	}
 	
-	public Optional<Song> getSong(String path) {
-		ArrayList<Song> allSongs = (ArrayList<Song>) getAllSongs();
-		return allSongs.stream()
-		.filter(s -> s.getPath().equals(path))
-		.findAny();
-	}
-	
 	public List<Song> getAllSongs() {
 		ArrayList<Song> allSongs = new ArrayList<Song>();
 		for(Song song : songs.values()) {
@@ -65,13 +58,17 @@ public class SongRepo {
 		return allSongs;
 	}
 	
-	public void initializeSongs() {
+	public ArrayList<Song> initializeSongs() {
 		File songsFolder = new File(SONGS_PATH);
+		ArrayList<Song> songs = new ArrayList<Song>();
 		for(File genre : songsFolder.listFiles()) {
-			for(File song : genre.listFiles()) {
-				System.out.println(song.getPath());
+			for(File curSong : genre.listFiles()) {
+				String path = curSong.getPath().replaceAll(SONGS_PATH + "/", "");
+				Song song = new Song(path);
+				songs.add(song);
 			}
 		}
+		return songs;
 	}
 	
 	
@@ -95,7 +92,7 @@ public class SongRepo {
 	// TODO: Complete functionality.
 	public List<Song> getRecentSongs() {
 		// ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
-		System.out.println(System.getProperty("user.dir"));
+//		System.out.println(System.getProperty("user.dir"));
 		ArrayList<Song> songs = new ArrayList<Song>();
 		ArrayList<Artist> artists = new ArrayList<>();
 		artists.add(new Artist("Javi"));

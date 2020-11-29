@@ -74,10 +74,14 @@ public class AppMusicController {
 		return false;
 	}
 	
-	public void registerSong(String title, ArrayList<Artist> artists, String genre) {
-		Song song = new Song(title, artists, genre);
+	public void registerSong(Song song) {
 		songAdapter.registerSong(song);
 		songRepo.addSong(song);
+	}
+	
+	public void registerSong(String path) {
+		songAdapter.registerSong(path);
+		songRepo.addSong(new Song(path));
 	}
 	
 	public ArrayList<Song> getRecentSongs() {
@@ -87,7 +91,10 @@ public class AppMusicController {
 	// Get the songs that are on the "canciones" directory that
 	// were not already persistent.
 	public void initializeSongs() {
-		songRepo.initializeSongs();
+		ArrayList<Song> songs = songRepo.initializeSongs();
+		for(Song song : songs) {
+			registerSong(song.getPath());
+		}
 	}
 
 	private void initializeAdapters() {
