@@ -44,7 +44,7 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 		eSong.setPropiedades(
 				new ArrayList<Propiedad>(Arrays.asList(
 						new Propiedad(TITLE, song.getTitle()),
-						new Propiedad(ARTISTS, getArtists(song.getArtists())),
+						new Propiedad(ARTISTS, song.getArtists()),
 						new Propiedad(GENRE, song.getGenre()),
 						new Propiedad(PLAY_COUNT, Long.toString(song.getPlayCount()))
 				)));
@@ -73,8 +73,10 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 		String genre = servicioPersistencia.recuperarPropiedadEntidad(eSong, GENRE);
 		String playCount = servicioPersistencia.recuperarPropiedadEntidad(eSong, PLAY_COUNT);
 		
-		LinkedList<Artist> artists = new LinkedList<>();
-		for (String name : artistNames.split(",")) {
+		// Removing all spaces to be able to split the names correctly.
+		artistNames.replaceAll("\\s+","");
+		ArrayList<Artist> artists = new ArrayList<>();
+		for (String name : artistNames.split("&")) {
 			artists.add(new Artist(name));
 		}
 		return new Song(title, artists, genre, Long.parseLong(playCount));
@@ -86,12 +88,5 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 				.map(e -> getSong(e.getId()))
 				.collect(Collectors.toList());
 		return songs;
-	}
-	private String getArtists(List<Artist> artists) {
-		String names = "";
-		for(Artist artist : artists) {
-			names += artist.getName() + ",";
-		}
-		return names;
 	}
 }

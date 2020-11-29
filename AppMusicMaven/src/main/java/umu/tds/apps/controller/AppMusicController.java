@@ -74,7 +74,7 @@ public class AppMusicController {
 		return false;
 	}
 	
-	public void registerSong(String title, LinkedList<Artist> artists, String genre) {
+	public void registerSong(String title, ArrayList<Artist> artists, String genre) {
 		Song song = new Song(title, artists, genre);
 		songAdapter.registerSong(song);
 		songRepo.addSong(song);

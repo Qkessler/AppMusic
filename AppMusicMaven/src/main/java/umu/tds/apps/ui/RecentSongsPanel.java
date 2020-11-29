@@ -2,6 +2,7 @@ package umu.tds.apps.ui;
 
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -10,14 +11,16 @@ import javax.swing.border.LineBorder;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
+
+import umu.tds.apps.controller.AppMusicController;
 import umu.tds.apps.models.Song;
+
 import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
@@ -28,8 +31,10 @@ public class RecentSongsPanel extends JPanel {
 	private static final int HEIGHT = 550;
 	
 	private JTable table;
+	private AppMusicController controller;
 
 	public RecentSongsPanel() {
+		this.controller = AppMusicController.getInstance();
 		setLayout(new BorderLayout(0, 0));
 		JPanel panel = new JPanel();
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -44,15 +49,22 @@ public class RecentSongsPanel extends JPanel {
 		tableModel.addColumn("Title");
 		tableModel.addColumn("Artist");
 		
-		// Dummy data.
-		for(int i = 0; i < 10; i++) {
+		for(Song song : controller.getRecentSongs()) {
 			Object[] array = new Object[2];
-			array[0] = "cancion";
-			array[1] = "interprete";
+			array[0] = song.getTitle();
+			array[1] = song.getArtists();
 			tableModel.addRow(array);
 		}
 				
-		table = new JTable(tableModel);
+		table = new JTable(tableModel) {
+			// Removing cell editing in tables.
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		ListSelectionModel selectionModel = new DefaultListSelectionModel();
+		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setSelectionModel(selectionModel);
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane, BorderLayout.NORTH);
 	}
