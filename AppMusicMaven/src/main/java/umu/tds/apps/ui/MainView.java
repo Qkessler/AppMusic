@@ -86,27 +86,36 @@ public class MainView {
 		GridBagConstraints gbc_txtGreeting = new GridBagConstraints();
 		gbc_txtGreeting.anchor = GridBagConstraints.WEST;
 		gbc_txtGreeting.insets = new Insets(0, 0, 5, 5);
-		gbc_txtGreeting.gridx = 1;
+		gbc_txtGreeting.gridx = 2;
 		gbc_txtGreeting.gridy = 0;
 		panel.add(txtGreeting, gbc_txtGreeting);
 	}
 	
 	private void createTopRowButtons(JPanel panel) {
-		Icon iconUpgrade = new ImageIcon(getClass().getResource("/umu/tds/apps/images/credit.png"));
+		Icon iconUpdate = new ImageIcon(getClass().getResource(IMAGE_PATH + "install.png"));
+		JButton btnUpdate = createSimpleButton("Update Songs", iconUpdate);
+		GridBagConstraints gbc_btnUpdate = new GridBagConstraints();
+		gbc_btnUpdate.anchor = GridBagConstraints.NORTHWEST;
+		gbc_btnUpdate.insets = new Insets(0, 0, 5, 0);
+		gbc_btnUpdate.gridx = 1;
+		gbc_btnUpdate.gridy = 0;
+		panel.add(btnUpdate, gbc_btnUpdate);
+		
+		Icon iconUpgrade = new ImageIcon(getClass().getResource(IMAGE_PATH + "credit.png"));
 		JButton btnUpgrade = createSimpleButton("Upgrade", iconUpgrade);
 		GridBagConstraints gbc_btnUpgrade = new GridBagConstraints();
 		gbc_btnUpgrade.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnUpgrade.insets = new Insets(0, 0, 5, 5);
-		gbc_btnUpgrade.gridx = 2;
+		gbc_btnUpgrade.gridx = 3;
 		gbc_btnUpgrade.gridy = 0;
 		panel.add(btnUpgrade, gbc_btnUpgrade);
 		
-		Icon iconLogout= new ImageIcon(getClass().getResource("/umu/tds/apps/images/log-out.png"));
+		Icon iconLogout= new ImageIcon(getClass().getResource(IMAGE_PATH + "log-out.png"));
 		JButton btnLogout = createSimpleButton("Logout", iconLogout);
 		GridBagConstraints gbc_btnLogout = new GridBagConstraints();
 		gbc_btnLogout.insets = new Insets(0, 0, 5, 0);
 		gbc_btnLogout.anchor = GridBagConstraints.NORTHWEST;
-		gbc_btnLogout.gridx = 3;
+		gbc_btnLogout.gridx = 4;
 		gbc_btnLogout.gridy = 0;
 		panel.add(btnLogout, gbc_btnLogout);
 		
@@ -118,9 +127,9 @@ public class MainView {
 		JPanel topRow = new JPanel();
 		frmMainView.getContentPane().add(topRow, BorderLayout.NORTH);
 		GridBagLayout gbl_topRow = new GridBagLayout();
-		gbl_topRow.columnWidths = new int[]{376, 99, 81, 94, 0};
+		gbl_topRow.columnWidths = new int[]{20, 356, 99, 81, 94, 0};
 		gbl_topRow.rowHeights = new int[]{25, 0, 0};
-		gbl_topRow.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_topRow.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_topRow.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		topRow.setLayout(gbl_topRow);
 		

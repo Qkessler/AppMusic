@@ -67,8 +67,10 @@ public class SongRepo {
 	
 	public void initializeSongs() {
 		File songsFolder = new File(SONGS_PATH);
-		for(File file : songsFolder.listFiles()) {
-			
+		for(File genre : songsFolder.listFiles()) {
+			for(File song : genre.listFiles()) {
+				System.out.println(song.getPath());
+			}
 		}
 	}
 	
