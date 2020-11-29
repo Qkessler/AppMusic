@@ -63,12 +63,12 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 
 	@Override
 	public void removeUser(User user) {
-		boolean removable = false;
+		boolean removable = true;
 		Entidad eUser = null;
 		try {
 			eUser = servicioPersistencia.recuperarEntidad(user.getId());
 		} catch (NullPointerException e) {
-			removable = true;
+			removable = false;
 		}
 		if (!removable) return;
 		servicioPersistencia.borrarEntidad(eUser);

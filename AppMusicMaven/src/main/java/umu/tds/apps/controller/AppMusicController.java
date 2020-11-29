@@ -81,7 +81,7 @@ public class AppMusicController {
 	}
 	
 	public ArrayList<Song> getRecentSongs() {
-		return songRepo.getRecentSongs();
+		return (ArrayList<Song>) songRepo.getRecentSongs();
 	}
 
 	public void play() {

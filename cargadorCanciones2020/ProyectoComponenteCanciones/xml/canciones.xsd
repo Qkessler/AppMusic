@@ -1,0 +1,23 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.tds.es/canciones" xmlns="http://www.tds.es/canciones"
+	elementFormDefault="qualified">
+	
+	<xs:element name="canciones">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="cancion" type="Cancion" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Cancion">
+		<xs:sequence>
+			<xs:element name="URL" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="estilo" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="interprete" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="titulo" type="xs:string" use="required" />
+	</xs:complexType>
+
+</xs:schema>
