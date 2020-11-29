@@ -59,6 +59,7 @@ public class SongRepo {
 	}
 	
 	public List<Song> getSongsFromIds(List<String> ids) {
+		if (ids.isEmpty()) return new ArrayList<Song>();
 		ArrayList<Song> songs = new ArrayList<Song>();
 		ids.stream()
 			.map(s -> Integer.parseInt(s))

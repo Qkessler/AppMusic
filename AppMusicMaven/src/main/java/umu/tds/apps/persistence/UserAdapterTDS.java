@@ -17,11 +17,12 @@ import umu.tds.apps.models.Song;
 import umu.tds.apps.models.SongRepo;
 import umu.tds.apps.models.User;
 
-public class UserAdapterTDS implements IUserAdapterDAO{
-	
+public class UserAdapterTDS implements IUserAdapterDAO {
+
 	private static UserAdapterTDS instance;
 	private static SimpleDateFormat dateFormat;
-	private ServicioPersistencia servicioPersistencia = FactoriaServicioPersistencia.getInstance().getServicioPersistencia();
+	private ServicioPersistencia servicioPersistencia = FactoriaServicioPersistencia.getInstance()
+			.getServicioPersistencia();
 	private SongRepo songRepo = SongRepo.getInstance();
 
 	private static final String USER = "user";
@@ -33,7 +34,7 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 	private static final String BIRTH_DATE = "birth_date";
 	private static final String RECENT_SONGS = "recent_songs";
 	private static final String PLAYLISTS = "playlists";
-	
+
 	public static UserAdapterTDS getInstance() {
 		dateFormat = new SimpleDateFormat("E MMMM dd k:m:s z yyyy");
 		if (instance == null) {
@@ -41,32 +42,28 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 		}
 		return instance;
 	}
-	
+
 	@Override
 	public void registerUser(User user) {
 		boolean registered = true;
 		try {
-			servicioPersistencia.recuperarEntidad(user.getId()); 
-		} catch(NullPointerException e) {
+			servicioPersistencia.recuperarEntidad(user.getId());
+		} catch (NullPointerException e) {
 			registered = false;
 		}
-		if (registered) return;
+		if (registered)
+			return;
 		Entidad eUser = new Entidad();
 		eUser.setNombre(USER);
-		eUser.setPropiedades(
-				new ArrayList<Propiedad>(Arrays.asList(
-						new Propiedad(NAME, user.getName()),
-						new Propiedad(LAST_NAME, user.getLastName()),
-						new Propiedad(EMAIL, user.getEmail()),
-						new Propiedad(USERNAME, user.getUsername()),
-						new Propiedad(PASSWORD, user.getPassword()),
-						new Propiedad(BIRTH_DATE, user.getBirthDate().toString()),
-						new Propiedad(RECENT_SONGS, user.recentSongsToString()),
-						new Propiedad(PLAYLISTS, user.playListsToString())
-				)));
+		eUser.setPropiedades(new ArrayList<Propiedad>(Arrays.asList(new Propiedad(NAME, user.getName()),
+				new Propiedad(LAST_NAME, user.getLastName()), new Propiedad(EMAIL, user.getEmail()),
+				new Propiedad(USERNAME, user.getUsername()), new Propiedad(PASSWORD, user.getPassword()),
+				new Propiedad(BIRTH_DATE, user.getBirthDate().toString()),
+				new Propiedad(RECENT_SONGS, user.recentSongsToString()),
+				new Propiedad(PLAYLISTS, user.playListsToString()))));
 		eUser = servicioPersistencia.registrarEntidad(eUser);
 		user.setId(eUser.getId());
-		
+
 	}
 
 	@Override
@@ -78,15 +75,16 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 		} catch (NullPointerException e) {
 			removable = false;
 		}
-		if (!removable) return;
+		if (!removable)
+			return;
 		servicioPersistencia.borrarEntidad(eUser);
 	}
 
 	@Override
 	public void updateProfile(User user) {
 		Entidad eUser = servicioPersistencia.recuperarEntidad(user.getId());
-		for(Propiedad prop : eUser.getPropiedades()) {
-			switch(prop.getNombre()) {
+		for (Propiedad prop : eUser.getPropiedades()) {
+			switch (prop.getNombre()) {
 			case NAME:
 				prop.setValor(String.valueOf(user.getName()));
 				break;
@@ -115,7 +113,7 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 			}
 			servicioPersistencia.modificarPropiedad(prop);
 		}
-		
+
 	}
 
 	@Override
@@ -139,26 +137,29 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 		User user = new User(username, password, name, lastName, email, date);
 		user.setId(id);
 
-		String[] songIds = recentSongsString.split(" ");
-		List<String> sIds = new ArrayList<String>(Arrays.asList(songIds)); 
-		ArrayList<Song> recentSongs = (ArrayList<Song>) songRepo.getSongsFromIds(sIds);
-		user.setRecentSongs(recentSongs);
-		
+		if (recentSongsString.equals(""))
+			user.setRecentSongs(new ArrayList<Song>());
+		else {
+			String[] songIds = recentSongsString.split(" ");
+			System.out.println(songIds.length);
+			List<String> sIds = new ArrayList<String>(Arrays.asList(songIds));
+			ArrayList<Song> recentSongs = (ArrayList<Song>) songRepo.getSongsFromIds(sIds);
+			user.setRecentSongs(recentSongs);
+		}
+
 //		String[] playListIds = playListsString.split(" ");
 //		List<String> pIds = new ArrayList<String>(Arrays.asList(playListIds));
 //		ArrayList<PlayList> playLists = (ArrayList<Song>) playListRepo.getPlayListsFromIds(pIds);
 //		user.setPlaylists(playlists);
-		
-		return user; 
+
+		return user;
 	}
 
 	@Override
 	public List<User> getAllUsers() {
 		ArrayList<Entidad> eUsers = servicioPersistencia.recuperarEntidades(USER);
-		List<User> users = eUsers.stream()
-				.map(e -> getUser(e.getId()))
-				.collect(Collectors.toList());
+		List<User> users = eUsers.stream().map(e -> getUser(e.getId())).collect(Collectors.toList());
 		return users;
 	}
-	
+
 }

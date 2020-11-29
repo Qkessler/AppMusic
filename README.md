@@ -9,7 +9,7 @@ on all the topics at hand, some of which are:
 - Component creation.
 ### Enrique Kessler Martínez
 - [x] Improvement of Login window.
-- [ ] Creation of searching songs Panel.
+- [x] Creation of searching songs Panel.
 - [x] Creation of Recent songs Panel.
 - [x] Creation of Main window.
 - [x] Initial persistence configuration.
