@@ -1,19 +1,19 @@
 package umu.tds.apps.models;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Song {
 	private int id;
 	private String title;
-	private LinkedList<Artist> artists;
+	private ArrayList<Artist> artists;
 	private String genre; // We only need the name, instead of an object, we are using a property.
 	private Long playCount;
 	
-	public Song(String title, LinkedList<Artist> artists, String genre) {
+	public Song(String title, ArrayList<Artist> artists, String genre) {
 		this(title, artists, genre, (long) 0);
 	}
 	
-	public Song(String title, LinkedList<Artist> artists, String genre, Long playCount) {
+	public Song(String title, ArrayList<Artist> artists, String genre, Long playCount) {
 		this.title = title;
 		this.genre = genre;
 		this.artists = artists;
@@ -34,8 +34,16 @@ public class Song {
 		return title;
 	}
 
-	public LinkedList<Artist> getArtists() {
-		return new LinkedList<Artist>(artists);
+	public String getArtists() {
+		String artistsString = "";
+		for(int i = 0; i < artists.size(); i++) {
+			Artist curArtist = artists.get(i);
+			artistsString += curArtist.getName();
+			if (i < artists.size() - 1) {
+				artistsString += " & ";
+			}
+		}
+		return artistsString;
 	}
 
 	public String getGenre() {

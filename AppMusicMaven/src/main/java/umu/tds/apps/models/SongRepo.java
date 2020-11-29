@@ -1,7 +1,9 @@
 package umu.tds.apps.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -71,7 +73,16 @@ public class SongRepo {
 
 	// TODO: Complete functionality.
 	public List<Song> getRecentSongs() {
-		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
+		// ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
+		System.out.println(System.getProperty("user.dir"));
+		ArrayList<Song> songs = new ArrayList<Song>();
+		ArrayList<Artist> artists = new ArrayList<>();
+		artists.add(new Artist("Javi"));
+		artists.add(new Artist("Quique"));
+		songs.add(new Song("title1", artists, "POP"));
+		songs.add(new Song("title2", artists, "JAZZ"));
+		songs.add(new Song("title3", artists, "POP"));
+		songs.add(new Song("death title", artists, "METAL"));
 		return songs;
 	}
 }
