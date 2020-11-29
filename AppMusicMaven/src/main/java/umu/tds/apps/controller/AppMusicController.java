@@ -87,7 +87,7 @@ public class AppMusicController {
 	// Get the songs that are on the "canciones" directory that
 	// were not already persistent.
 	public void initializeSongs() {
-		songRepo.initializeSongs()
+		songRepo.initializeSongs();
 	}
 
 	private void initializeAdapters() {

@@ -1,5 +1,6 @@
 package umu.tds.apps.models;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -65,7 +66,10 @@ public class SongRepo {
 	}
 	
 	public void initializeSongs() {
-		
+		File songsFolder = new File(SONGS_PATH);
+		for(File file : songsFolder.listFiles()) {
+			
+		}
 	}
 	
 	
