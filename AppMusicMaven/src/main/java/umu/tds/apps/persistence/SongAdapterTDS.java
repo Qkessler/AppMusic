@@ -2,7 +2,6 @@ package umu.tds.apps.persistence;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +22,7 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 	private static final String ARTISTS = "artists";
 	private static final String GENRE = "genre";
 	private static final String PLAY_COUNT = "play_count";
+	private static final String PATH = "path";
 	
 	public static SongAdapterTDS getInstance() {
 		if (instance == null) {
@@ -32,13 +32,7 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 	}
 	
 	public void registerSong(Song song) {
-		boolean registered = false;
-		try {
-			servicioPersistencia.recuperarEntidad(song.getId()); 
-		} catch(NullPointerException e) {
-			registered = true;
-		}
-		if (registered) return;
+		if (isRegistered(song.getId())) return;
 		Entidad eSong = new Entidad();
 		eSong.setNombre(SONG);
 		eSong.setPropiedades(
@@ -54,17 +48,20 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 	}
 	
 	public void removeSong(Song song) {
-		boolean removable = false;
-		Entidad eSong = null;
-		try {
-			eSong = servicioPersistencia.recuperarEntidad(song.getId());
-		} catch (NullPointerException e) {
-			removable = true;
+		if (isRegistered(song.getId())) {
+			Entidad eSong = servicioPersistencia.recuperarEntidad(song.getId());
+			servicioPersistencia.borrarEntidad(eSong);
 		}
-		if (!removable) return;
-		servicioPersistencia.borrarEntidad(eSong);
 	}
 	
+	private boolean isRegistered(int id) {
+		try {
+			servicioPersistencia.recuperarEntidad(id); 
+		} catch(NullPointerException e) {
+			return false;
+		}
+		return true;
+	}
 	
 	public Song getSong(int id) {
 		Entidad eSong = servicioPersistencia.recuperarEntidad(id);
@@ -73,12 +70,7 @@ public class SongAdapterTDS implements ISongAdapterDAO{
 		String genre = servicioPersistencia.recuperarPropiedadEntidad(eSong, GENRE);
 		String playCount = servicioPersistencia.recuperarPropiedadEntidad(eSong, PLAY_COUNT);
 		
-		// Removing all spaces to be able to split the names correctly.
-		artistNames.replaceAll("\\s+","");
-		ArrayList<Artist> artists = new ArrayList<>();
-		for (String name : artistNames.split("&")) {
-			artists.add(new Artist(name));
-		}
+		ArrayList<Artist> artists = (ArrayList<Artist>) Song.parseArtists(artistNames);
 		return new Song(title, artists, genre, Long.parseLong(playCount));
 	}
 	

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import umu.tds.apps.persistence.DAOException;
@@ -13,6 +14,8 @@ import umu.tds.apps.persistence.FactoriaDAO;
 import umu.tds.apps.persistence.ISongAdapterDAO;
 
 public class SongRepo {
+	private static final String SONGS_PATH = System.getProperty("user.dir") + "/canciones"; 
+	
 	private Map<Integer, Song> songs;
 	private static SongRepo instance = new SongRepo();
 	
@@ -46,6 +49,13 @@ public class SongRepo {
 		return songs.get(id);
 	}
 	
+	public Optional<Song> getSong(String path) {
+		ArrayList<Song> allSongs = (ArrayList<Song>) getAllSongs();
+		return allSongs.stream()
+		.filter(s -> s.getPath().equals(path))
+		.findAny();
+	}
+	
 	public List<Song> getAllSongs() {
 		ArrayList<Song> allSongs = new ArrayList<Song>();
 		for(Song song : songs.values()) {
@@ -53,6 +63,11 @@ public class SongRepo {
 		}
 		return allSongs;
 	}
+	
+	public void initializeSongs() {
+		
+	}
+	
 	
 	public List<Song> filterSongs(String artist, String title, String genre) {
 		// TODO: Check again how to pass null filters.

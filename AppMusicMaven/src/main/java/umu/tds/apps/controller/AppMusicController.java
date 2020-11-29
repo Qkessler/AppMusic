@@ -84,13 +84,11 @@ public class AppMusicController {
 		return (ArrayList<Song>) songRepo.getRecentSongs();
 	}
 
-	public void play() {
-		// TODO: Create the play function.
+	// Get the songs that are on the "canciones" directory that
+	// were not already persistent.
+	public void initializeSongs() {
+		songRepo.initializeSongs()
 	}
-
-	// public PlayList createList() {
-	// TODO: createList();
-	// }
 
 	private void initializeAdapters() {
 		FactoriaDAO factoria = null;
