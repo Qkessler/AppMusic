@@ -41,6 +41,7 @@ public class SearchSongsPanel extends JPanel {
 	private JTable table;
 	private JPanel mediaButtons;
 	private JScrollPane tablePanel;
+	private JPanel centerPanel;
 	private AppMusicController controller;
 		
 	public SearchSongsPanel() {
@@ -108,7 +109,7 @@ public class SearchSongsPanel extends JPanel {
 	}
 	
 	private void createCenter() {
-		JPanel centerPanel = new JPanel();
+		centerPanel = new JPanel();
 		add(centerPanel, BorderLayout.CENTER);
 		centerPanel.setLayout(new BorderLayout(0, 0));
 		mediaButtons = new JPanel();
@@ -165,9 +166,13 @@ public class SearchSongsPanel extends JPanel {
 	private void searchFunctionality(JButton btnSearch) {
 		btnSearch.addActionListener(e -> {
 			mediaButtons.setVisible(true);
+			createSongsTable(artistTextField.getText(), titleTextField.getText(), genreValue);
+			centerPanel.remove(tablePanel);
+			tablePanel = new JScrollPane(table);
 			tablePanel.setVisible(true);
-			tablePanel.revalidate();
-			tablePanel.repaint();
+			centerPanel.add(tablePanel);
+			centerPanel.revalidate();
+			centerPanel.repaint();
 			this.validate();
 		});
 	}

@@ -75,12 +75,12 @@ public class SongRepo {
 		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
 		if (!artist.isEmpty()) {
 			songs = (ArrayList<Song>) songs.stream()
-					.filter(s -> s.getArtists().equals(artist))
+					.filter(s -> s.getArtists().contains(artist))
 			.collect(Collectors.toList());
 		}
 		if (!title.isEmpty()) {
 			songs = (ArrayList<Song>) songs.stream()
-					.filter(s -> s.getTitle().equals(title))
+					.filter(s -> s.getTitle().contains(title))
 					.collect(Collectors.toList());
 		}
 		if (!genre.isEmpty()) {
