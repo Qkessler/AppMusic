@@ -73,14 +73,25 @@ public class SongRepo {
 	
 	public List<Song> filterSongs(String artist, String title, String genre) {
 		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
+		
+		// Creating a case insensitive filter.
+		final String lCArtist = artist.toLowerCase();
+		final String lCTitle  = title.toLowerCase();
+		
 		if (!artist.isEmpty()) {
 			songs = (ArrayList<Song>) songs.stream()
-					.filter(s -> s.getArtists().contains(artist))
+					.filter(s -> {
+						String curArtist = s.getArtists().toLowerCase();
+						return curArtist.contains(lCArtist);
+					})
 			.collect(Collectors.toList());
 		}
 		if (!title.isEmpty()) {
 			songs = (ArrayList<Song>) songs.stream()
-					.filter(s -> s.getTitle().contains(title))
+					.filter(s -> {
+						String curTitle = s.getTitle().toLowerCase();
+						return curTitle.contains(lCTitle);
+					})
 					.collect(Collectors.toList());
 		}
 		if (!genre.isEmpty()) {
