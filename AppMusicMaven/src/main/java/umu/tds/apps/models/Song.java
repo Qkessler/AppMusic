@@ -9,14 +9,16 @@ public class Song {
 	private ArrayList<Artist> artists;
 	private String genre; // We only need the name, instead of an object, we are using a property.
 	private Long playCount;
+	private String separator;
 	
 	// Paths follow the following format:
 	// "JAZZ/nina Simone-Fly Me To The Moon.mp3"
 	public Song(String path) {
+		fixSeparator();
 		String[] stringList = path.split("-");
 		String name = stringList[1].split("\\.")[0]; // Holds "Fly Me to The Moon"
 		String genreArtists = stringList[0]; // Holds "JAZZ/nina Simone"
-		String[] genreArtistsArray = genreArtists.split("/");
+		String[] genreArtistsArray = genreArtists.split(separator);
 		String artists = genreArtistsArray[1]; // Holds "nina Simone"
 		this.id = 0;
 		this.genre = genreArtistsArray[0]; // Holds "JAZZ"
@@ -30,11 +32,19 @@ public class Song {
 	}
 	
 	public Song(String title, ArrayList<Artist> artists, String genre, Long playCount) {
+		fixSeparator();
 		this.title = title;
 		this.genre = genre;
 		this.artists = artists;
 		this.playCount = playCount;
 		this.id = 0;
+	}
+	
+	private void fixSeparator() {				// los separadaores en windows son diferentes que en linux y mac
+		if (System.getProperty("os.name").startsWith("Windows"))
+			separator = "\\\\";
+		else 
+			separator = "/";			
 	}
 	
 	public int getId() {
@@ -74,7 +84,7 @@ public class Song {
 	// "JAZZ/nina Simone-Fly Me To The Moon.mp3"
 	public String getPath() {
 		String path = "";
-		path += this.genre + "/";
+		path += this.genre + separator;
 		path += getArtists() + "-";
 		path += this.title + ".mp3";
 		return path;
