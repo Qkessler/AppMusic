@@ -71,15 +71,24 @@ public class SongRepo {
 		return songs;
 	}
 	
-	
 	public List<Song> filterSongs(String artist, String title, String genre) {
-		// TODO: Check again how to pass null filters.
 		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
-		return songs.stream()
-		.filter(song -> song.getArtists().contains(artist))
-		.filter(song -> song.getTitle().contains(title))
-		.filter(song -> song.getGenre().equals(genre))
-		.collect(Collectors.toList());
+		if (!artist.isEmpty()) {
+			songs = (ArrayList<Song>) songs.stream()
+					.filter(s -> s.getArtists().equals(artist))
+			.collect(Collectors.toList());
+		}
+		if (!title.isEmpty()) {
+			songs = (ArrayList<Song>) songs.stream()
+					.filter(s -> s.getTitle().equals(title))
+					.collect(Collectors.toList());
+		}
+		if (!genre.isEmpty()) {
+			songs = (ArrayList<Song>) songs.stream()
+					.filter(s -> s.getGenre().equals(genre))
+					.collect(Collectors.toList());
+		}
+		return songs;
 		
 	}
 	
@@ -92,7 +101,6 @@ public class SongRepo {
 	// TODO: Complete functionality.
 	public List<Song> getRecentSongs() {
 		// ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
-//		System.out.println(System.getProperty("user.dir"));
 		ArrayList<Song> songs = new ArrayList<Song>();
 		ArrayList<Artist> artists = new ArrayList<>();
 		artists.add(new Artist("Javi"));
@@ -102,5 +110,13 @@ public class SongRepo {
 		songs.add(new Song("title3", artists, "POP"));
 		songs.add(new Song("death title", artists, "METAL"));
 		return songs;
+	}
+
+	public ArrayList<String> getGenres() {
+		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
+		return (ArrayList<String>) songs.stream()
+				.map(s -> s.getGenre())
+				.distinct()
+				.collect(Collectors.toList());
 	}
 }

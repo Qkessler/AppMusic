@@ -1,7 +1,5 @@
 package umu.tds.apps.models;
 
-import java.util.List;
-
 public class Artist {
 	private String name;
 	
@@ -11,10 +9,5 @@ public class Artist {
 	
 	public String getName() {
 		return name;
-	}
-	
-	public List<Song> getSongs() {
-		// Maybe go through the SongRepo checking?
-		return null;
 	}
 }

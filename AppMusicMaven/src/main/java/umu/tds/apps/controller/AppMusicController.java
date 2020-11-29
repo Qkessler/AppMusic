@@ -3,6 +3,8 @@ package umu.tds.apps.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
 
 import umu.tds.apps.models.Artist;
 import umu.tds.apps.models.Song;
@@ -95,6 +97,17 @@ public class AppMusicController {
 		for(Song song : songs) {
 			registerSong(song.getPath());
 		}
+	}
+	
+	public List<Song> filterSongs(String artist, String title,
+			String genre) {
+		ArrayList<Song> filteredSongs = (ArrayList<Song>) songRepo.filterSongs(artist, title, genre);
+		return filteredSongs;
+	}
+	
+	public List<String> getGenres() {
+		ArrayList<String> genres = songRepo.getGenres();
+		return genres;
 	}
 
 	private void initializeAdapters() {

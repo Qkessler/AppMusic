@@ -56,7 +56,7 @@ public class Song {
 			Artist curArtist = artists.get(i);
 			artistsString += curArtist.getName();
 			if (i < artists.size() - 1) {
-				artistsString += " & ";
+				artistsString += "&";
 			}
 		}
 		return artistsString;
