@@ -9,7 +9,8 @@ public class User {
 	private String username, password, name, lastName, email;
 	private boolean premium;
 	private Date birthDate;
-	private List<PlayList> playlists;
+	private List<PlayList> playLists;
+	private List<Song> recentSongs;
 	
 	public User(String username, String password, String name, String lastName, String email, Date birthDate) {
 		this.username = username;
@@ -19,7 +20,8 @@ public class User {
 		this.email = email;
 		this.premium = false;
 		this.birthDate = birthDate;
-		this.playlists = new ArrayList<PlayList>();
+		this.playLists = new ArrayList<PlayList>();
+		this.recentSongs = new ArrayList<Song>();
 	}
 	
 	public String getUsername() {
@@ -79,11 +81,36 @@ public class User {
 	}
 
 	public List<PlayList> getPlaylists() {
-		return new ArrayList<PlayList>(playlists);
+		return new ArrayList<PlayList>(playLists);
+	}
+	
+	public String playListsToString() {
+		String playListsString = "";
+		for(PlayList playList : playLists) {
+			playListsString += playList.getId() + " ";
+		}
+		return playListsString;
+		
 	}
 
 	public void setPlaylists(List<PlayList> playlists) {
-		this.playlists = playlists;
+		this.playLists = playlists;
+	}
+	
+	public List<Song> getRecentSongs() {
+		return new ArrayList<Song>(recentSongs);
+	}
+	
+	public void setRecentSongs(List<Song> songs) {
+		recentSongs = songs;
+	}
+	
+	public String recentSongsToString() {
+		String recentSongsString = "";
+		for(Song song : recentSongs) {
+			recentSongsString += song.getId() + " ";
+		}
+		return recentSongsString.trim();
 	}
 
 	public int getId() {
@@ -102,6 +129,6 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + ", lastName="
 				+ lastName + ", email=" + email + ", premium=" + premium + ", birthDate=" + birthDate + ", playlists="
-				+ playlists + "]";
+				+ playLists + "]";
 	}
 }

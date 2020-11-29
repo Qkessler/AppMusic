@@ -1,15 +1,17 @@
 package umu.tds.apps.models;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlayList {
 	private String name;
 	private List<Song> songs;
+	private int id;
 	
 	public PlayList(String name) {
 		this.name = name;
-		songs = new LinkedList<Song>(); // Check whether LinkedList is good here.
+		this.id = 0;
+		songs = new ArrayList<Song>(); // Check whether LinkedList is good here.
 	}
 	
 	public String getName() {
@@ -22,6 +24,10 @@ public class PlayList {
 	
 	public List<Song> getSongs() {
 		// Creating a new copy, we reduce the possibility of corruption in our songs.
-		return new LinkedList<Song>(songs);
+		return new ArrayList<Song>(songs);
+	}
+
+	public int getId() {
+		return id;
 	}
 }

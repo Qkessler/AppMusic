@@ -58,6 +58,14 @@ public class SongRepo {
 		return allSongs;
 	}
 	
+	public List<Song> getSongsFromIds(List<String> ids) {
+		ArrayList<Song> songs = new ArrayList<Song>();
+		ids.stream()
+			.map(s -> Integer.parseInt(s))
+			.forEach(i -> songs.add(getSong(i)));
+		return songs;
+	}
+	
 	public ArrayList<Song> initializeSongs() {
 		File songsFolder = new File(SONGS_PATH);
 		ArrayList<Song> songs = new ArrayList<Song>();

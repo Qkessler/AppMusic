@@ -12,6 +12,9 @@ import beans.Entidad;
 import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
+import umu.tds.apps.models.PlayList;
+import umu.tds.apps.models.Song;
+import umu.tds.apps.models.SongRepo;
 import umu.tds.apps.models.User;
 
 public class UserAdapterTDS implements IUserAdapterDAO{
@@ -19,6 +22,7 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 	private static UserAdapterTDS instance;
 	private static SimpleDateFormat dateFormat;
 	private ServicioPersistencia servicioPersistencia = FactoriaServicioPersistencia.getInstance().getServicioPersistencia();
+	private SongRepo songRepo = SongRepo.getInstance();
 
 	private static final String USER = "user";
 	private static final String NAME = "name";
@@ -27,6 +31,8 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 	private static final String USERNAME = "username";
 	private static final String PASSWORD = "password";
 	private static final String BIRTH_DATE = "birth_date";
+	private static final String RECENT_SONGS = "recent_songs";
+	private static final String PLAYLISTS = "playlists";
 	
 	public static UserAdapterTDS getInstance() {
 		dateFormat = new SimpleDateFormat("E MMMM dd k:m:s z yyyy");
@@ -54,7 +60,9 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 						new Propiedad(EMAIL, user.getEmail()),
 						new Propiedad(USERNAME, user.getUsername()),
 						new Propiedad(PASSWORD, user.getPassword()),
-						new Propiedad(BIRTH_DATE, user.getBirthDate().toString())
+						new Propiedad(BIRTH_DATE, user.getBirthDate().toString()),
+						new Propiedad(RECENT_SONGS, user.recentSongsToString()),
+						new Propiedad(PLAYLISTS, user.playListsToString())
 				)));
 		eUser = servicioPersistencia.registrarEntidad(eUser);
 		user.setId(eUser.getId());
@@ -97,6 +105,11 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 			case BIRTH_DATE:
 				prop.setValor(String.valueOf(user.getBirthDate()));
 				break;
+			case RECENT_SONGS:
+				prop.setValor(String.valueOf(user.recentSongsToString()));
+				break;
+			case PLAYLISTS:
+				prop.setValor(String.valueOf(user.playListsToString()));
 			default:
 				break;
 			}
@@ -114,6 +127,9 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 		String username = servicioPersistencia.recuperarPropiedadEntidad(eUser, USERNAME);
 		String password = servicioPersistencia.recuperarPropiedadEntidad(eUser, PASSWORD);
 		String birthDate = servicioPersistencia.recuperarPropiedadEntidad(eUser, BIRTH_DATE);
+		String recentSongsString = servicioPersistencia.recuperarPropiedadEntidad(eUser, RECENT_SONGS);
+		String playListsString = servicioPersistencia.recuperarPropiedadEntidad(eUser, PLAYLISTS);
+		
 		Date date = null;
 		try {
 			date = dateFormat.parse(birthDate);
@@ -122,6 +138,17 @@ public class UserAdapterTDS implements IUserAdapterDAO{
 		}
 		User user = new User(username, password, name, lastName, email, date);
 		user.setId(id);
+
+		String[] songIds = recentSongsString.split(" ");
+		List<String> sIds = new ArrayList<String>(Arrays.asList(songIds)); 
+		ArrayList<Song> recentSongs = (ArrayList<Song>) songRepo.getSongsFromIds(sIds);
+		user.setRecentSongs(recentSongs);
+		
+//		String[] playListIds = playListsString.split(" ");
+//		List<String> pIds = new ArrayList<String>(Arrays.asList(playListIds));
+//		ArrayList<PlayList> playLists = (ArrayList<Song>) playListRepo.getPlayListsFromIds(pIds);
+//		user.setPlaylists(playlists);
+		
 		return user; 
 	}
 
