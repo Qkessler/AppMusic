@@ -1,12 +1,12 @@
 package umu.tds.apps.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
-import umu.tds.apps.models.Artist;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import umu.tds.apps.models.Song;
 import umu.tds.apps.models.SongRepo;
 import umu.tds.apps.models.User;
@@ -19,6 +19,7 @@ import umu.tds.apps.persistence.IUserAdapterDAO;
 public class AppMusicController {
 
 	private static AppMusicController instance = null;
+	private MediaPlayer mediaPlayer;
 
 	private ISongAdapterDAO songAdapter;
 	private IUserAdapterDAO userAdapter;
@@ -32,6 +33,12 @@ public class AppMusicController {
 
 	private AppMusicController() {
 		this.currentUser= null;
+		try {
+			com.sun.javafx.application.PlatformImpl.startup(()->{});
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("Exception: " + ex.getMessage());
+		}
 		initializeAdapters();
 		initializeRepos();
 	}
@@ -108,6 +115,23 @@ public class AppMusicController {
 	public List<String> getGenres() {
 		ArrayList<String> genres = songRepo.getGenres();
 		return genres;
+	}
+	
+	public void playSong(String path) {
+		path = SongRepo.SONGS_PATH + "/" + path;
+		File f = new File(path);
+		System.out.println(path + ": " + f.exists());
+		Media hit = new Media(f.toURI().toString());
+		mediaPlayer = new MediaPlayer(hit);
+		mediaPlayer.play();
+	}
+	
+	public void pauseSong() {
+//		path = SongRepo.SONGS_PATH + "/" + path;
+//		File f = new File(path);
+//		Media hit = new Media(f.toURI().toString());
+//		mediaPlayer = new MediaPlayer(hit);
+		mediaPlayer.pause();
 	}
 
 	private void initializeAdapters() {

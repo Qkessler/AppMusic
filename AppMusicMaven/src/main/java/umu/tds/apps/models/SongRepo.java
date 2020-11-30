@@ -15,7 +15,7 @@ import umu.tds.apps.persistence.FactoriaDAO;
 import umu.tds.apps.persistence.ISongAdapterDAO;
 
 public class SongRepo {
-	private static final String SONGS_PATH = System.getProperty("user.dir") + "/canciones"; 
+	public static final String SONGS_PATH = System.getProperty("user.dir") + "/canciones"; 
 	
 	private Map<Integer, Song> songs;
 	private static SongRepo instance = new SongRepo();

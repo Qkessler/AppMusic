@@ -1,6 +1,8 @@
 package umu.tds.apps.ui;
 
 import java.awt.Dimension;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.swing.JPanel;
@@ -42,10 +44,12 @@ public class SearchSongsPanel extends JPanel {
 	private JPanel mediaButtons;
 	private JScrollPane tablePanel;
 	private JPanel centerPanel;
+	private Map<Integer, Song> filteredSongs;
 	private AppMusicController controller;
 		
 	public SearchSongsPanel() {
 		this.controller = AppMusicController.getInstance();
+		this.filteredSongs = new HashMap<Integer, Song>();
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setLayout(new BorderLayout(0, 0));
 		
@@ -132,11 +136,15 @@ public class SearchSongsPanel extends JPanel {
 		tableModel.addColumn("Title");
 		tableModel.addColumn("Artist");
 		
+		int index = 0;
+		filteredSongs.clear();
 		for(Song song : controller.filterSongs(artist, title, genre)) {
 			Object[] array = new Object[2];
 			array[0] = song.getTitle();
 			array[1] = song.getArtists();
 			tableModel.addRow(array);
+			filteredSongs.put(index, song);
+			index++;
 		}
 				
 		table = new JTable(tableModel) {
@@ -192,21 +200,29 @@ public class SearchSongsPanel extends JPanel {
 	
 	private void playFunctionality(JButton btnPlay, JButton btnPause) {
 		btnPlay.addActionListener(e -> {
-			btnPlay.setVisible(false);
-			btnPause.setVisible(true);
-			this.revalidate();
-			this.repaint();
-			this.validate();
+			// DefaultTableModel model = table.getModel();
+			int selectedSong = table.getSelectedRow();
+			if (selectedSong >= 0) {
+				Song song = filteredSongs.get(selectedSong);
+				controller.playSong(song.getPath());
+				btnPlay.setVisible(false);
+				btnPause.setVisible(true);
+				this.revalidate();
+				this.repaint();
+				this.validate();
+			}
 		});
 	}
 	
 	private void pauseFunctionality(JButton btnPause, JButton btnPlay) {
 		btnPause.addActionListener(e -> {
-			btnPause.setVisible(false);
-			btnPlay.setVisible(true);
-			this.revalidate();
-			this.repaint();
-			this.validate();
+				// Pauses the song, doesn't really need to check for the selectedSong.
+				controller.pauseSong();
+				btnPause.setVisible(false);
+				btnPlay.setVisible(true);
+				this.revalidate();
+				this.repaint();
+				this.validate();
 		});
 	}
 }
