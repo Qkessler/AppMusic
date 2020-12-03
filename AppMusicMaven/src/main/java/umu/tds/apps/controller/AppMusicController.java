@@ -119,10 +119,13 @@ public class AppMusicController {
 	
 	public void playSong(String path) {
 		path = SongRepo.SONGS_PATH + "/" + path;
-		File f = new File(path);
-		System.out.println(path + ": " + f.exists());
-		Media hit = new Media(f.toURI().toString());
-		mediaPlayer = new MediaPlayer(hit);
+//		path = SongRepo.SONGS_PATH + "/" + "Los Secretos - La Chica De Ayer.wav";
+		if (mediaPlayer == null) {
+			File f = new File(path);
+//		System.out.println(path + ": " + f.exists());
+			Media hit = new Media(f.toURI().toString());
+			mediaPlayer = new MediaPlayer(hit);
+		}
 		mediaPlayer.play();
 	}
 	
