@@ -15,11 +15,13 @@ import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import pulsador.Luz;
 import umu.tds.apps.controller.AppMusicController;
 
 import java.awt.GridBagLayout;
@@ -27,6 +29,9 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.util.Arrays;
 
 import javax.swing.JLabel;
@@ -38,6 +43,8 @@ public class MainView {
 	private String username;
 	private AppMusicController controller;
 	private JPanel selectedTab;
+	private JFileChooser fileChooser;
+	private String songFilePath;
 	
 	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
 	private static final String IMAGE_PATH = "/umu/tds/apps/images/";
@@ -92,14 +99,42 @@ public class MainView {
 	}
 	
 	private void createTopRowButtons(JPanel panel) {
-		Icon iconUpdate = new ImageIcon(getClass().getResource(IMAGE_PATH + "install.png"));
-		JButton btnUpdate = createSimpleButton("Update Songs", iconUpdate);
+//		Icon iconUpdate = new ImageIcon(getClass().getResource(IMAGE_PATH + "install.png"));
+//		JButton btnUpdate = createSimpleButton("Update Songs", iconUpdate);
+//		GridBagConstraints gbc_btnUpdate = new GridBagConstraints();
+//		gbc_btnUpdate.anchor = GridBagConstraints.NORTHWEST;
+//		gbc_btnUpdate.insets = new Insets(0, 0, 5, 0);
+//		gbc_btnUpdate.gridx = 1;
+//		gbc_btnUpdate.gridy = 0;
+//		panel.add(btnUpdate, gbc_btnUpdate);
+		fileChooser = new JFileChooser();
+		Luz btnUpdate = new Luz();
 		GridBagConstraints gbc_btnUpdate = new GridBagConstraints();
 		gbc_btnUpdate.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnUpdate.insets = new Insets(0, 0, 5, 0);
 		gbc_btnUpdate.gridx = 1;
 		gbc_btnUpdate.gridy = 0;
 		panel.add(btnUpdate, gbc_btnUpdate);
+		btnUpdate.addEncendidoListener(new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent arg0) {
+				int returnVal = fileChooser.showOpenDialog(frmMainView);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					File file = fileChooser.getSelectedFile();
+					try {
+						songFilePath = file.getAbsolutePath();
+						System.out.println(songFilePath);
+					} catch (Exception e) {
+						System.out.println("problem accessing file"+file.getAbsolutePath());
+					}
+				}
+				else {
+					System.out.println("File access canceled by user.");
+				}
+				
+			}
+			
+		});
 		
 		Icon iconUpgrade = new ImageIcon(getClass().getResource(IMAGE_PATH + "credit.png"));
 		JButton btnUpgrade = createSimpleButton("Upgrade", iconUpgrade);
@@ -119,7 +154,7 @@ public class MainView {
 		gbc_btnLogout.gridy = 0;
 		panel.add(btnLogout, gbc_btnLogout);
 		
-		updateSongsFunctionality(btnUpdate);
+//		updateSongsFunctionality(btnUpdate);
 		logoutFunctionality(btnLogout);
 		upgradeFunctionality(btnUpgrade);
 	}
