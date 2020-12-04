@@ -19,6 +19,7 @@ public class Song {
 		String name = stringList[1].split("\\.")[0]; // Holds "Fly Me to The Moon"
 		String genreArtists = stringList[0]; // Holds "JAZZ/nina Simone"
 		String[] genreArtistsArray = genreArtists.split(separator);
+		System.out.println(genreArtists);
 		String artists = genreArtistsArray[1]; // Holds "nina Simone"
 		this.id = 0;
 		this.genre = genreArtistsArray[0]; // Holds "JAZZ"

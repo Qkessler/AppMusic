@@ -109,7 +109,28 @@ public class AppMusicController {
 		ArrayList<String> genres = songRepo.getGenres();
 		return genres;
 	}
-
+/*
+	public void playSong(String path) {
+		path = SongRepo.SONGS_PATH + "\\\\" + path;
+//		path = SongRepo.SONGS_PATH + "/" + path;
+//		path = SongRepo.SONGS_PATH + "/" + "Los Secretos - La Chica De Ayer.wav";
+		if (mediaPlayer == null) {
+			File f = new File(path);
+//		System.out.println(path + ": " + f.exists());
+			Media hit = new Media(f.toURI().toString());
+			mediaPlayer = new MediaPlayer(hit);
+		}
+		mediaPlayer.play();
+	}
+	
+	public void pauseSong() {
+//		path = SongRepo.SONGS_PATH + "/" + path;
+//		File f = new File(path);
+//		Media hit = new Media(f.toURI().toString());
+//		mediaPlayer = new MediaPlayer(hit);
+		mediaPlayer.pause();
+	}
+*/
 	private void initializeAdapters() {
 		FactoriaDAO factoria = null;
 		try {

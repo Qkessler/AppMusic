@@ -19,6 +19,8 @@ public class SongRepo {
 	//private static final String SONGS_PATH = System.getProperty("user.dir") + "/canciones"; 
 	private String songs_path;
 	private String separator;
+	//public static final String SONGS_PATH = System.getProperty("user.dir") + "/canciones"; 
+	//public static final String SONGS_PATH = "C:\\\\Users\\\\javib\\\\Documents\\\\GitHub\\\\AppMusic\\\\AppMusicMaven\\\\canciones";
 	private Map<Integer, Song> songs;
 	private static SongRepo instance = new SongRepo();
 	
