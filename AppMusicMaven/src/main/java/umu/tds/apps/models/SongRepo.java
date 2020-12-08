@@ -26,7 +26,7 @@ public class SongRepo {
 	
 	private FactoriaDAO dao;
 	private ISongAdapterDAO songAdapter;
-	
+
 	private SongRepo() {
 		try {
 			dao = FactoriaDAO.getInstancia(FactoriaDAO.DAO_TDS);
@@ -64,6 +64,10 @@ public class SongRepo {
 		songs.remove(song.getId());
 	}
 	
+	public String getSongs_path() {
+		return songs_path;
+	}
+		
 	public Song getSong(int id) {
 		return songs.get(id);
 	}
