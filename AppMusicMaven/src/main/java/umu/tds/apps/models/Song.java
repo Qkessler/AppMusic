@@ -14,12 +14,12 @@ public class Song {
 	// Paths follow the following format:
 	// "JAZZ/nina Simone-Fly Me To The Moon.mp3"
 	public Song(String path) {
-		fixSeparator();
+		separator = setSeparator();
+		String constructorSeparator = (System.getProperty("os.name").startsWith("Windows")) ? separator+separator : separator ; // en windows hace falta poner doble contrabarra para que funcione el separador
 		String[] stringList = path.split("-");
 		String name = stringList[1].split("\\.")[0]; // Holds "Fly Me to The Moon"
 		String genreArtists = stringList[0]; // Holds "JAZZ/nina Simone"
-		String[] genreArtistsArray = genreArtists.split(separator);
-		System.out.println(genreArtists);
+		String[] genreArtistsArray = genreArtists.split(constructorSeparator);
 		String artists = genreArtistsArray[1]; // Holds "nina Simone"
 		this.id = 0;
 		this.genre = genreArtistsArray[0]; // Holds "JAZZ"
@@ -33,7 +33,7 @@ public class Song {
 	}
 	
 	public Song(String title, ArrayList<Artist> artists, String genre, Long playCount) {
-		fixSeparator();
+		separator = setSeparator();
 		this.title = title;
 		this.genre = genre;
 		this.artists = artists;
@@ -41,11 +41,11 @@ public class Song {
 		this.id = 0;
 	}
 	
-	private void fixSeparator() {				// los separadaores en windows son diferentes que en linux y mac
+	private String setSeparator() {				// los separadaores en windows son diferentes que en linux y mac
 		if (System.getProperty("os.name").startsWith("Windows"))
-			separator = "\\\\";
+			return "\\";
 		else 
-			separator = "/";			
+			return "/";			
 	}
 	
 	public int getId() {

@@ -42,6 +42,7 @@ public class SongRepo {
 	private void fixSeparator() {				// los separadaores en windows son diferentes que en linux y mac
 		if (System.getProperty("os.name").startsWith("Windows")) {
 			//songs_path = System.getProperty("user.dir") + "\\canciones";
+			//songs_path = songs_path.replaceAll("\\", "\\\\");
 			songs_path = "C:\\\\Users\\\\javib\\\\Documents\\\\GitHub\\\\AppMusic\\\\AppMusicMaven\\\\canciones";
 			separator = "\\\\";
 		}
