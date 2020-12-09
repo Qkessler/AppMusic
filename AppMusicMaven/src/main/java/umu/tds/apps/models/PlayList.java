@@ -1,6 +1,6 @@
 package umu.tds.apps.models;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class PlayList {
@@ -11,23 +11,37 @@ public class PlayList {
 	public PlayList(String name) {
 		this.name = name;
 		this.id = 0;
-		songs = new ArrayList<Song>(); // Check whether LinkedList is good here.
+		songs = new LinkedList<Song>(); // Check whether LinkedList is good here.
 	}
 	
 	public String getName() {
 		return name;
 	}
 	
-	public void addSong(Song song) {
-		songs.add(song);
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public List<Song> getSongs() {
 		// Creating a new copy, we reduce the possibility of corruption in our songs.
-		return new ArrayList<Song>(songs);
+		return new LinkedList<Song>(songs);
 	}
 
 	public int getId() {
 		return id;
 	}
+	
+	// Used by the registerPlaylist
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void addSong(Song song) {
+		songs.add(song);
+	}
+	
+	public boolean removeSong(Song song) {
+		return songs.remove(song);
+	}
+
 }

@@ -33,4 +33,5 @@ public abstract class FactoriaDAO {
 // interfaces
 	public abstract ISongAdapterDAO getSongDAO();
 	public abstract IUserAdapterDAO getUserDAO();
+	public abstract IPlayListAdapterDAO getPlayListDAO();
 }

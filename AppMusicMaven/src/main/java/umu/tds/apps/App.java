@@ -25,8 +25,9 @@ public class App{
 			break;
 		case 1:
 			SongAdapterTDS.getInstance().cleanDB();
+			break;
 		case 2:
-			System.out.println(System.getProperty("os.name").startsWith("Windows"));
+			System.out.println(System.getProperty("os.name"));
 			System.out.println(System.getProperty("user.dir"));
 		}
 		sc.close();
