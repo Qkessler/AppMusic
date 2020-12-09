@@ -26,6 +26,14 @@ public class PlayList {
 		// Creating a new copy, we reduce the possibility of corruption in our songs.
 		return new LinkedList<Song>(songs);
 	}
+	
+	public String songsToString() {		// método para la construcción de propiedades del método DAO
+		String songsString = "";
+		for(Song song : songs) {
+			songsString += song.getId() + " ";
+		}
+		return songsString;
+	}
 
 	public int getId() {
 		return id;

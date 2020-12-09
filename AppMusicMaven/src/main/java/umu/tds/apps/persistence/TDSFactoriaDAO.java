@@ -12,4 +12,11 @@ public class TDSFactoriaDAO extends FactoriaDAO {
 	public IUserAdapterDAO getUserDAO() {
 		return UserAdapterTDS.getInstance();
 	}
+
+	@Override
+	public IPlayListAdapterDAO getPlayListDAO() {
+		return PlayListAdapterTDS.getInstance();
+	}
+	
+	
 }

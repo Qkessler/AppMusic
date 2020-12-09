@@ -13,6 +13,8 @@ public class PlayListRepo {
 	private HashMap<Integer, PlayList> playlistsId;
 	private HashMap<String, PlayList> playlistsName;
 	
+	
+	
 	public static PlayListRepo getInstance() {
 		if (instance == null) instance = new PlayListRepo();
 		return instance;
