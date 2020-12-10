@@ -148,4 +148,47 @@ public class Cancion {
         this.titulo = value;
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((estilo == null) ? 0 : estilo.hashCode());
+		result = prime * result + ((interprete == null) ? 0 : interprete.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cancion other = (Cancion) obj;
+		if (estilo == null) {
+			if (other.estilo != null)
+				return false;
+		} else if (!estilo.equals(other.estilo))
+			return false;
+		if (interprete == null) {
+			if (other.interprete != null)
+				return false;
+		} else if (!interprete.equals(other.interprete))
+			return false;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
+			return false;
+		return true;
+	}
+
 }

@@ -73,4 +73,29 @@ public class Canciones {
         return this.cancion;
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cancion == null) ? 0 : cancion.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Canciones other = (Canciones) obj;
+		if (cancion == null) {
+			if (other.cancion != null)
+				return false;
+		} else if (!cancion.equals(other.cancion))
+			return false;
+		return true;
+	}
+
 }
