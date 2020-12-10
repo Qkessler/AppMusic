@@ -90,7 +90,6 @@ public class User {
 			playListsString += playList.getId() + " ";
 		}
 		return playListsString;
-		
 	}
 
 	public void setPlaylists(List<PlayList> playlists) {

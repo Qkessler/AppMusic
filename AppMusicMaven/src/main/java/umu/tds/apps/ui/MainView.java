@@ -135,6 +135,35 @@ public class MainView {
 			}
 			
 		});
+
+//		fileChooser = new JFileChooser();
+//		Luz btnUpdate = new Luz();
+//		GridBagConstraints gbc_btnUpdate = new GridBagConstraints();
+//		gbc_btnUpdate.anchor = GridBagConstraints.NORTHWEST;
+//		gbc_btnUpdate.insets = new Insets(0, 0, 5, 0);
+//		gbc_btnUpdate.gridx = 1;
+//		gbc_btnUpdate.gridy = 0;
+//		panel.add(btnUpdate, gbc_btnUpdate);
+//		btnUpdate.addEncendidoListener(new PropertyChangeListener() {
+//			@Override
+//			public void propertyChange(PropertyChangeEvent arg0) {
+//				int returnVal = fileChooser.showOpenDialog(frmMainView);
+//				if (returnVal == JFileChooser.APPROVE_OPTION) {
+//					File file = fileChooser.getSelectedFile();
+//					try {
+//						songFilePath = file.getAbsolutePath();
+//						System.out.println(songFilePath);
+//					} catch (Exception e) {
+//						System.out.println("problem accessing file"+file.getAbsolutePath());
+//					}
+//				}
+//				else {
+//					System.out.println("File access canceled by user.");
+//				}
+//				
+//			}
+//			
+//		});
 		
 		Icon iconUpgrade = new ImageIcon(getClass().getResource(IMAGE_PATH + "credit.png"));
 		JButton btnUpgrade = createSimpleButton("Upgrade", iconUpgrade);

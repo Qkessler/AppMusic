@@ -137,15 +137,15 @@ public class UserAdapterTDS implements IUserAdapterDAO {
 		User user = new User(username, password, name, lastName, email, date);
 		user.setId(id);
 
-		if (recentSongsString.equals(""))
-			user.setRecentSongs(new ArrayList<Song>());
-		else {
-			String[] songIds = recentSongsString.split(" ");
-			System.out.println(songIds.length);
-			List<String> sIds = new ArrayList<String>(Arrays.asList(songIds));
-			ArrayList<Song> recentSongs = (ArrayList<Song>) songRepo.getSongsFromIds(sIds);
-			user.setRecentSongs(recentSongs);
-		}
+//		if (recentSongsString.equals(""))
+//			user.setRecentSongs(new ArrayList<Song>());
+//		else {
+//			String[] songIds = recentSongsString.split(" ");
+//			System.out.println(songIds.length);
+//			List<String> sIds = new ArrayList<String>(Arrays.asList(songIds));
+//			ArrayList<Song> recentSongs = (ArrayList<Song>) songRepo.getSongsFromIds(sIds);
+//			user.setRecentSongs(recentSongs);
+//		}
 
 //		String[] playListIds = playListsString.split(" ");
 //		List<String> pIds = new ArrayList<String>(Arrays.asList(playListIds));
