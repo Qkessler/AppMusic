@@ -3,7 +3,7 @@
 	xs:schemaLocation="http://www.tds.es/canciones canciones.xsd">
 	
 	<cancion titulo="La Chica De Ayer">
-	  <URL><![CDATA[~/Documents/AppMusic/AppMusicMaven/canciones/Los Secretos - La Chica De Ayer.wav]]></URL>
+	  <URL><![CDATA[/home/qkessler/Documents/AppMusic/AppMusicMaven/canciones/Los Secretos - La Chica De Ayer.wav]]></URL>
 		<estilo>POP</estilo>
 		<interprete>Los Secretos</interprete>
 	</cancion>

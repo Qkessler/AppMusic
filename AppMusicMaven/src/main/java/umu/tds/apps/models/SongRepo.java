@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 import umu.tds.apps.persistence.DAOException;
 import umu.tds.apps.persistence.FactoriaDAO;
 import umu.tds.apps.persistence.ISongAdapterDAO;
+import umu.tds.componente.Cancion;
+import umu.tds.componente.Canciones;
 
 public class SongRepo {
 
@@ -86,16 +88,24 @@ public class SongRepo {
 		return songs;
 	}
 	
-	public ArrayList<Song> initializeSongs() {
-		File songsFolder = new File(songsPath);
+	public ArrayList<Song> initializeSongs(Canciones canciones) {
+//		File songsFolder = new File(songsPath);
 		ArrayList<Song> songs = new ArrayList<Song>();
-		for(File genre : songsFolder.listFiles()) {
-			for(File curSong : genre.listFiles()) {
-				String path = curSong.getPath().replaceAll(songsPath + separator, "");
-				Song song = new Song(path);
-				songs.add(song);
-			}
+		for(Cancion cancion : canciones.getCancion()) {
+			String path = cancion.getURL();
+			String title = cancion.getTitulo();
+			String genre = cancion.getEstilo();
+			ArrayList<Artist> artists = (ArrayList<Artist>) Song.parseArtists(cancion.getInterprete()); 
+			Song song = new Song(title, artists, genre, path);
+			songs.add(song);
 		}
+//		for(File genre : songsFolder.listFiles()) {
+//			for(File curSong : genre.listFiles()) {
+//				String path = curSong.getPath().replaceAll(songsPath + separator, "");
+//				Song song = new Song(path);
+//				songs.add(song);
+//			}
+//		}
 		return songs;
 	}
 	
@@ -142,10 +152,6 @@ public class SongRepo {
 		ArrayList<Artist> artists = new ArrayList<>();
 		artists.add(new Artist("Javi"));
 		artists.add(new Artist("Quique"));
-		songs.add(new Song("title1", artists, "POP"));
-		songs.add(new Song("title2", artists, "JAZZ"));
-		songs.add(new Song("title3", artists, "POP"));
-		songs.add(new Song("death title", artists, "METAL"));
 		return songs;
 	}
 

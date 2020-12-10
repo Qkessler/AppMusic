@@ -124,6 +124,8 @@ public class MainView {
 					try {
 						songFilePath = file.getAbsolutePath();
 						System.out.println(songFilePath);
+						controller.setSongsFile(songFilePath);
+						controller.initializeSongs();
 					} catch (Exception e) {
 						System.out.println("problem accessing file"+file.getAbsolutePath());
 					}
