@@ -7,4 +7,10 @@
 		<estilo>POP</estilo>
 		<interprete>Los Secretos</interprete>
 	</cancion>
+
+    <cancion titulo="My Way">
+	  <URL><![CDATA[/home/qkessler/Documents/AppMusic/AppMusicMaven/canciones/Frank Sinatra - My Way.wav]]></URL>
+		<estilo>ROMANTICA</estilo>
+		<interprete>Frank Sinatra</interprete>
+	</cancion>
 </canciones>

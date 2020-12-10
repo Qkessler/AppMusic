@@ -123,7 +123,6 @@ public class MainView {
 					File file = fileChooser.getSelectedFile();
 					try {
 						songFilePath = file.getAbsolutePath();
-						System.out.println(songFilePath);
 						controller.setSongsFile(songFilePath);
 						controller.initializeSongs();
 					} catch (Exception e) {

@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -81,7 +83,7 @@ public class UserAdapterTDS implements IUserAdapterDAO {
 	}
 
 	@Override
-	public void updateProfile(User user) {
+	public void updateUser(User user) {
 		Entidad eUser = servicioPersistencia.recuperarEntidad(user.getId());
 		for (Propiedad prop : eUser.getPropiedades()) {
 			switch (prop.getNombre()) {
@@ -137,15 +139,14 @@ public class UserAdapterTDS implements IUserAdapterDAO {
 		User user = new User(username, password, name, lastName, email, date);
 		user.setId(id);
 
-//		if (recentSongsString.equals(""))
-//			user.setRecentSongs(new ArrayList<Song>());
-//		else {
-//			String[] songIds = recentSongsString.split(" ");
-//			System.out.println(songIds.length);
-//			List<String> sIds = new ArrayList<String>(Arrays.asList(songIds));
-//			ArrayList<Song> recentSongs = (ArrayList<Song>) songRepo.getSongsFromIds(sIds);
-//			user.setRecentSongs(recentSongs);
-//		}
+		if (recentSongsString.equals(""))
+			user.setRecentSongs(new LinkedList<Song>());
+		else {
+			String[] songIds = recentSongsString.split(" ");
+			List<String> sIds = new ArrayList<String>(Arrays.asList(songIds));
+			LinkedList<Song> recentSongs = (LinkedList<Song>) songRepo.getSongsFromIds(sIds);
+			user.setRecentSongs(recentSongs);
+		}
 
 //		String[] playListIds = playListsString.split(" ");
 //		List<String> pIds = new ArrayList<String>(Arrays.asList(playListIds));

@@ -7,7 +7,7 @@ import umu.tds.apps.models.User;
 public interface IUserAdapterDAO {
 	public void registerUser(User user);
 	public void removeUser(User user);
-	public void updateProfile(User user);
 	public User getUser(int id);
 	public List<User> getAllUsers();
+	void updateUser(User user);
 }

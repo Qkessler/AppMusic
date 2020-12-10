@@ -12,23 +12,7 @@ public class Song {
 	private String separator;
 	private String path;
 	
-	// Paths follow the following format:
-	// "JAZZ/nina Simone-Fly Me To The Moon.mp3"
-//	public Song(String path) {
-//		separator = setSeparator();
-//		String constructorSeparator = (System.getProperty("os.name").startsWith("Windows")) ? separator+separator : separator ; // en windows hace falta poner doble contrabarra para que funcione el separador
-//		String[] stringList = path.split("-");
-//		String name = stringList[1].split("\\.")[0]; // Holds "Fly Me to The Moon"
-//		String genreArtists = stringList[0]; // Holds "JAZZ/nina Simone"
-//		String[] genreArtistsArray = genreArtists.split(constructorSeparator);
-//		String artists = genreArtistsArray[1]; // Holds "nina Simone"
-//		this.id = 0;
-//		this.genre = genreArtistsArray[0]; // Holds "JAZZ"
-//		this.artists = (ArrayList<Artist>) parseArtists(artists);
-//		this.title = name;
-//		this.playCount = (long) 0;
-//	}
-	
+
 	public Song(String title, ArrayList<Artist> artists, String genre, String path) {
 		this(title, artists, genre, path, (long) 0);
 	}

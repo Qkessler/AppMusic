@@ -205,6 +205,7 @@ public class SearchSongsPanel extends JPanel {
 			if (selectedSong >= 0) {
 				Song song = filteredSongs.get(selectedSong);
 				controller.playSong(song.getPath());
+				controller.addRecentSong(song);
 				btnPlay.setVisible(false);
 				btnPause.setVisible(true);
 				this.revalidate();

@@ -83,16 +83,15 @@ public class SongRepo {
 	}
 	
 	public List<Song> getSongsFromIds(List<String> ids) {
-		if (ids.isEmpty()) return new ArrayList<Song>();
-		ArrayList<Song> songs = new ArrayList<Song>();
+		if (ids.isEmpty()) return new LinkedList<Song>();
+		List<Song> songs = new LinkedList<Song>();
 		ids.stream()
 			.map(s -> Integer.parseInt(s))
 			.forEach(i -> songs.add(getSong(i)));
 		return songs;
 	}
 	
-	public ArrayList<Song> initializeSongs(Canciones canciones) {
-//		File songsFolder = new File(songsPath);
+	public List<Song> initializeSongs(Canciones canciones) {
 		ArrayList<Song> songs = new ArrayList<Song>();
 		for(Cancion cancion : canciones.getCancion()) {
 			String path = cancion.getURL();
@@ -102,13 +101,6 @@ public class SongRepo {
 			Song song = new Song(title, artists, genre, path);
 			songs.add(song);
 		}
-//		for(File genre : songsFolder.listFiles()) {
-//			for(File curSong : genre.listFiles()) {
-//				String path = curSong.getPath().replaceAll(songsPath + separator, "");
-//				Song song = new Song(path);
-//				songs.add(song);
-//			}
-//		}
 		return songs;
 	}
 	
@@ -147,16 +139,6 @@ public class SongRepo {
 		for (Song song: songsDB)
 			songs.put(song.getId(), song);
 	 }
-
-	// TODO: Complete functionality.
-	public List<Song> getRecentSongs() {
-		// ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
-		ArrayList<Song> songs = new ArrayList<Song>();
-		ArrayList<Artist> artists = new ArrayList<>();
-		artists.add(new Artist("Javi"));
-		artists.add(new Artist("Quique"));
-		return songs;
-	}
 
 	public ArrayList<String> getGenres() {
 		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
