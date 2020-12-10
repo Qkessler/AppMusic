@@ -2,10 +2,10 @@
 <canciones xmlns="http://www.tds.es/canciones" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
 	xs:schemaLocation="http://www.tds.es/canciones canciones.xsd">
 	
-	<cancion titulo="La Chica De Ayer">
-	  <URL><![CDATA[/home/qkessler/Documents/AppMusic/AppMusicMaven/canciones/Los Secretos - La Chica De Ayer.wav]]></URL>
-		<estilo>POP</estilo>
-		<interprete>Los Secretos</interprete>
+	<cancion titulo="Schism">
+	  <URL><![CDATA[C:\Users\javib\Documents\GitHub\AppMusic\AppMusicMaven\canciones\METAL\TOOL- Schism.mp3]]></URL>
+		<estilo>METAL</estilo>
+		<interprete>TOOL</interprete>
 	</cancion>
 
     <cancion titulo="My Way">

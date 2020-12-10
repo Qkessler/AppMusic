@@ -3,6 +3,7 @@ package umu.tds.apps.persistence;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import beans.Entidad;
 import beans.Propiedad;
@@ -76,13 +77,18 @@ public class PlayListAdapterTDS implements IPlayListAdapterDAO {
 	@Override
 	public void updatePlayList(PlayList playlist) {		// tanto para cuando se añade o se quita una cancion de la playlist
 		Entidad ePlayList = servicioPersistencia.recuperarEntidad(playlist.getId());
-		//ePlayList.
+		for (Propiedad prop : ePlayList.getPropiedades())
+			if (prop.getNombre().equals(PLAYLIST)) {
+				prop.setValor(playlist.songsToString());
+				servicioPersistencia.modificarPropiedad(prop);
+			}
 	}
 
 	@Override
 	public List<PlayList> getAllPlaylists() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Entidad> ePlayLists = servicioPersistencia.recuperarEntidades(PLAYLIST);
+		List<PlayList> playlists = ePlayLists.stream().map(e -> getPlayList(e.getId())).collect(Collectors.toList());
+		return playlists;
 	}
 
 
