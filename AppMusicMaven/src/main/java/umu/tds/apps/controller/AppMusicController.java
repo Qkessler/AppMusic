@@ -3,6 +3,7 @@ package umu.tds.apps.controller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.EventObject;
 import java.util.List;
 
 import javafx.scene.media.Media;
@@ -15,8 +16,12 @@ import umu.tds.apps.persistence.DAOException;
 import umu.tds.apps.persistence.FactoriaDAO;
 import umu.tds.apps.persistence.ISongAdapterDAO;
 import umu.tds.apps.persistence.IUserAdapterDAO;
+import umu.tds.componente.Canciones;
+import umu.tds.componente.CancionesEvent;
+import umu.tds.componente.CancionesListener;
+import umu.tds.componente.CargadorCanciones;
 
-public class AppMusicController {
+public class AppMusicController implements CancionesListener{
 
 	private static AppMusicController instance = null;
 	private MediaPlayer mediaPlayer;
@@ -30,6 +35,8 @@ public class AppMusicController {
 	// private PlayListRepo playListRepo;
 	
 	private User currentUser;
+	private Canciones nuevasCanciones;
+	private CargadorCanciones cargadorCanciones;
 
 	private AppMusicController() {
 		this.currentUser= null;
@@ -39,6 +46,8 @@ public class AppMusicController {
 			ex.printStackTrace();
 			System.out.println("Exception: " + ex.getMessage());
 		}
+		cargadorCanciones = new CargadorCanciones();
+		cargadorCanciones.addCancionesListener(this);
 		initializeAdapters();
 		initializeRepos();
 	}
@@ -88,11 +97,6 @@ public class AppMusicController {
 		songRepo.addSong(song);
 	}
 	
-	public void registerSong(String path) {
-		songAdapter.registerSong(path);
-		songRepo.addSong(new Song(path));
-	}
-	
 	public ArrayList<Song> getRecentSongs() {
 		return (ArrayList<Song>) songRepo.getRecentSongs();
 	}
@@ -100,9 +104,9 @@ public class AppMusicController {
 	// Get the songs that are on the "canciones" directory that
 	// were not already persistent.
 	public void initializeSongs() {
-		ArrayList<Song> songs = songRepo.initializeSongs();
+		ArrayList<Song> songs = songRepo.initializeSongs(nuevasCanciones);
 		for(Song song : songs) {
-			registerSong(song.getPath());
+			registerSong(song);
 		}
 	}
 	
@@ -119,8 +123,9 @@ public class AppMusicController {
 
 	public void playSong(String path) {
 //		path = songRepo.getSongs_path() + "\\\\" + path;
-		path = songRepo.getSongsPath()+ "/" + path;
+//		path = songRepo.getSongsPath()+ "/" + path;
 //		path = SongRepo.SONGS_PATH + "/" + "Los Secretos - La Chica De Ayer.wav";
+//		System.out.println(path);
 		if (mediaPlayer == null) {
 			File f = new File(path);
 //		System.out.println(path + ": " + f.exists());
@@ -153,6 +158,17 @@ public class AppMusicController {
 	private void initializeRepos() {
 		songRepo = SongRepo.getInstance();
 		userRepo = UserRepo.getInstance();
+	}
+
+	@Override
+	public void nuevasCanciones(EventObject arg0) {
+		if (arg0 instanceof CancionesEvent) {
+			nuevasCanciones = ((CancionesEvent) arg0).getNuevasCanciones();
+		}
+	}
+	
+	public void setSongsFile(String path) {
+		cargadorCanciones.setArchivoCanciones(path);
 	}
 
 }
