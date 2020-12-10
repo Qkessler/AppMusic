@@ -9,7 +9,6 @@ import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
 import umu.tds.apps.models.PlayList;
-import umu.tds.apps.models.Song;
 
 public class PlayListAdapterTDS implements IPlayListAdapterDAO {
 
@@ -67,23 +66,17 @@ public class PlayListAdapterTDS implements IPlayListAdapterDAO {
 		playlist.setId(id);
 		String[] songs = songsIDs.split(" ");
 		//TODO devuelve la lista vacía, hay que llenarla con sus canciones
-		/*for (String songID : songs) {
-			playlist.addSong(song);
-		}*/
+		for (String songID : songs) {
+			playlist.addSong(SongAdapterTDS.getInstance().getSong(Integer.parseInt(songID)));
+		}
 		
 		return playlist;
 	}
 
 	@Override
-	public void addSongPlayList(PlayList playlist, Song song) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void removeSongPlayList() {
-		// TODO Auto-generated method stub
-		
+	public void updatePlayList(PlayList playlist) {		// tanto para cuando se añade o se quita una cancion de la playlist
+		Entidad ePlayList = servicioPersistencia.recuperarEntidad(playlist.getId());
+		//ePlayList.
 	}
 
 	@Override
@@ -91,5 +84,6 @@ public class PlayListAdapterTDS implements IPlayListAdapterDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

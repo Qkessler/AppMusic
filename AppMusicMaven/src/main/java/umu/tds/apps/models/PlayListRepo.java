@@ -1,6 +1,7 @@
 package umu.tds.apps.models;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import umu.tds.apps.persistence.DAOException;
@@ -12,7 +13,6 @@ public class PlayListRepo {
 
 	private HashMap<Integer, PlayList> playlistsId;
 	private HashMap<String, PlayList> playlistsName;
-	
 	
 	
 	public static PlayListRepo getInstance() {
@@ -34,5 +34,27 @@ public class PlayListRepo {
 		} catch (DAOException eDAO) {
 			   eDAO.printStackTrace();
 		}
+	}
+	
+	public void addPlayList(PlayList playlist) {
+		playlistsId.put(playlist.getId(), playlist);
+		playlistsName.put(playlist.getName(), playlist);
+	}
+	
+	public void removePlayList(PlayList playlist) {
+		playlistsId.remove(playlist.getId());
+		playlistsName.remove(playlist.getName());
+	}
+	
+	public PlayList getPlayList(String name) {
+		return playlistsName.get(name);
+	}
+	
+	public PlayList getPlayList(int id) {
+		return playlistsId.get(id);
+	}
+	
+	public List<PlayList> getAllPlayLists(){
+		return new LinkedList<PlayList>(playlistsName.values());
 	}
 }
