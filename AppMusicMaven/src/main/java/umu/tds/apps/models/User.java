@@ -1,13 +1,20 @@
 package umu.tds.apps.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.TimeZone;
 
 public class User {
+	private static final int ELDER_AGE = 70;
+	private static final int YOUTH_AGE = 16;
+	private static final String UM_DOMAIN = "um.es";
+	
 	private int id;
 	private String username, password, name, lastName, email;
 	private boolean premium;
@@ -146,5 +153,23 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + ", lastName="
 				+ lastName + ", email=" + email + ", premium=" + premium + ", birthDate=" + birthDate + ", playlists="
 				+ playLists + "]";
+	}
+	
+	public boolean isElder() {
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Madrid"));
+		cal.setTime(birthDate);
+		int year = cal.get(Calendar.YEAR);
+		return (LocalDate.now().getYear() - year) >= ELDER_AGE;
+	}
+	
+	public boolean isYouth() {
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Madrid"));
+		cal.setTime(birthDate);
+		int year = cal.get(Calendar.YEAR);
+		return (LocalDate.now().getYear() - year) <= YOUTH_AGE;
+	}
+	
+	public boolean isEducation() {
+		return email.contains(UM_DOMAIN);
 	}
 }

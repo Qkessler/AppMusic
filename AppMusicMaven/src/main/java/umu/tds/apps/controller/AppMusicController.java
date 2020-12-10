@@ -2,16 +2,23 @@ package umu.tds.apps.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.EventObject;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import umu.tds.apps.models.Discount;
+import umu.tds.apps.models.EducationDiscount;
+import umu.tds.apps.models.ElderDiscount;
 import umu.tds.apps.models.Song;
 import umu.tds.apps.models.SongRepo;
 import umu.tds.apps.models.User;
 import umu.tds.apps.models.UserRepo;
+import umu.tds.apps.models.YouthDiscount;
 import umu.tds.apps.persistence.DAOException;
 import umu.tds.apps.persistence.FactoriaDAO;
 import umu.tds.apps.persistence.ISongAdapterDAO;
@@ -37,6 +44,8 @@ public class AppMusicController implements CancionesListener{
 	private User currentUser;
 	private Canciones nuevasCanciones;
 	private CargadorCanciones cargadorCanciones;
+	
+	private List<Discount> activeDiscounts;
 
 	private AppMusicController() {
 		this.currentUser= null;
@@ -50,6 +59,7 @@ public class AppMusicController implements CancionesListener{
 		cargadorCanciones.addCancionesListener(this);
 		initializeAdapters();
 		initializeRepos();
+		initializeDiscounts();
 	}
 
 	public static AppMusicController getInstance() {
@@ -166,6 +176,20 @@ public class AppMusicController implements CancionesListener{
 	
 	public void setSongsFile(String path) {
 		cargadorCanciones.setArchivoCanciones(path);
+	}
+	
+	private void initializeDiscounts() {
+		activeDiscounts = new ArrayList<Discount>();
+		activeDiscounts.add(new EducationDiscount());
+		activeDiscounts.add(new YouthDiscount());
+		activeDiscounts.add(new ElderDiscount());
+	}
+	
+	public Optional<Discount> getDiscount() {
+		return activeDiscounts.stream()
+				.filter(d -> d.isApplicable(currentUser))
+				.sorted(Comparator.comparing(Discount::getDiscount).reversed())
+				.findFirst();
 	}
 
 }
