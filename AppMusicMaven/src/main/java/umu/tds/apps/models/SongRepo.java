@@ -17,7 +17,7 @@ import umu.tds.apps.persistence.ISongAdapterDAO;
 public class SongRepo {
 	//private static final String OS = System.getProperty("os.name");
 	//private static final String SONGS_PATH = System.getProperty("user.dir") + "/canciones"; 
-	private String songs_path;
+	private String songsPath;
 	private String separator;
 	//public static final String SONGS_PATH = System.getProperty("user.dir") + "/canciones"; 
 	//public static final String SONGS_PATH = "C:\\\\Users\\\\javib\\\\Documents\\\\GitHub\\\\AppMusic\\\\AppMusicMaven\\\\canciones";
@@ -39,15 +39,15 @@ public class SongRepo {
 		}
 	}
 	
-	private void fixSeparator() {				// los separadaores en windows son diferentes que en linux y mac
+	private void fixSeparator() {				// los separadores en windows son diferentes que en linux y mac
 		if (System.getProperty("os.name").startsWith("Windows")) {
-			//songs_path = System.getProperty("user.dir") + "\\canciones";
-			//songs_path = songs_path.replaceAll("\\", "\\\\");
-			songs_path = "C:\\\\Users\\\\javib\\\\Documents\\\\GitHub\\\\AppMusic\\\\AppMusicMaven\\\\canciones";
+			//songsPath = System.getProperty("user.dir") + "\\canciones";
+			//songsPath = songsPath.replaceAll("\\", "\\\\");
+			songsPath = "C:\\\\Users\\\\javib\\\\Documents\\\\GitHub\\\\AppMusic\\\\AppMusicMaven\\\\canciones";
 			separator = "\\\\";
 		}
 		else {
-			songs_path = System.getProperty("user.dir") + "/canciones";
+			songsPath = System.getProperty("user.dir") + "/canciones";
 			separator = "/";			
 		}
 	}
@@ -64,8 +64,8 @@ public class SongRepo {
 		songs.remove(song.getId());
 	}
 	
-	public String getSongs_path() {
-		return songs_path;
+	public String getSongsPath() {
+		return songsPath;
 	}
 		
 	public Song getSong(int id) {
@@ -90,11 +90,11 @@ public class SongRepo {
 	}
 	
 	public ArrayList<Song> initializeSongs() {
-		File songsFolder = new File(songs_path);
+		File songsFolder = new File(songsPath);
 		ArrayList<Song> songs = new ArrayList<Song>();
 		for(File genre : songsFolder.listFiles()) {
 			for(File curSong : genre.listFiles()) {
-				String path = curSong.getPath().replaceAll(songs_path + separator, "");
+				String path = curSong.getPath().replaceAll(songsPath + separator, "");
 				Song song = new Song(path);
 				songs.add(song);
 			}
@@ -106,17 +106,26 @@ public class SongRepo {
 		ArrayList<Song> songs = (ArrayList<Song>) getAllSongs();
 		if (!artist.isEmpty()) {
 			songs = (ArrayList<Song>) songs.stream()
-					.filter(s -> s.getArtists().equals(artist))
+					.filter(s -> {
+						String artistsLower = s.getArtists().toLowerCase();
+					return artistsLower.contains(artist.toLowerCase());	
+					})
 			.collect(Collectors.toList());
 		}
 		if (!title.isEmpty()) {
 			songs = (ArrayList<Song>) songs.stream()
-					.filter(s -> s.getTitle().equals(title))
+					.filter(s -> {
+						String titleLower = s.getTitle().toLowerCase();
+						return titleLower.contains(title.toLowerCase());
+					})
 					.collect(Collectors.toList());
 		}
 		if (!genre.isEmpty()) {
 			songs = (ArrayList<Song>) songs.stream()
-					.filter(s -> s.getGenre().equals(genre))
+					.filter(s -> {
+						String genreLower = s.getGenre().toLowerCase();
+						return genreLower.contains(genre.toLowerCase());
+					})
 					.collect(Collectors.toList());
 		}
 		return songs;

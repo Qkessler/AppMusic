@@ -118,8 +118,8 @@ public class AppMusicController {
 	}
 
 	public void playSong(String path) {
-		path = songRepo.getSongs_path() + "\\\\" + path;
-//		path = SongRepo.SONGS_PATH + "/" + path;
+//		path = songRepo.getSongs_path() + "\\\\" + path;
+		path = songRepo.getSongsPath()+ "/" + path;
 //		path = SongRepo.SONGS_PATH + "/" + "Los Secretos - La Chica De Ayer.wav";
 		if (mediaPlayer == null) {
 			File f = new File(path);

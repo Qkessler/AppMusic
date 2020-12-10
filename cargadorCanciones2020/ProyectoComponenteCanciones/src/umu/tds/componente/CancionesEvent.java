@@ -2,6 +2,7 @@ package umu.tds.componente;
 
 import java.util.EventObject;
 
+@SuppressWarnings("serial")
 public class CancionesEvent extends EventObject{
 	protected Canciones nuevasCanciones, anteCanciones;
 	

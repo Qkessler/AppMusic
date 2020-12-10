@@ -122,7 +122,7 @@ public class TestPlay {
 		mediaPlayer = null;
 		binPath = TestPlay.class.getClassLoader().getResource(".").getPath();
 		binPath = binPath.replaceFirst("/", "");
-		// quitar "/" añadida al inicio del path en plataforma Windows
+		// quitar "/" aÃ±adida al inicio del path en plataforma Windows
 		tempPath = binPath.replace("/bin", "/temp");
 
 		frmReproductorDeCanciones = new JFrame();
