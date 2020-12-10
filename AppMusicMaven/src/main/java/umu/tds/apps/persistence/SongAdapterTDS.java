@@ -34,7 +34,7 @@ public class SongAdapterTDS implements ISongAdapterDAO {
 	}
 
 	public void registerSong(Song song) {
-		if (isRegistered(song.getId()))
+		if (isRegistered(song.getId()) || isRegistered(song.getPath()))
 			return;
 		Entidad eSong = new Entidad();
 		eSong.setNombre(SONG);
@@ -59,6 +59,10 @@ public class SongAdapterTDS implements ISongAdapterDAO {
 			return false;
 		}
 		return true;
+	}
+	
+	private boolean isRegistered(String path) {
+		return getSong(path).isPresent();
 	}
 
 	public Song getSong(int id) {

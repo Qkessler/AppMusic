@@ -98,13 +98,13 @@ public class AppMusicController implements CancionesListener{
 	}
 	
 	public ArrayList<Song> getRecentSongs() {
-		return (ArrayList<Song>) songRepo.getRecentSongs();
+		return (ArrayList<Song>) currentUser.getRecentSongs();
 	}
 
 	// Get the songs that are on the "canciones" directory that
 	// were not already persistent.
 	public void initializeSongs() {
-		ArrayList<Song> songs = songRepo.initializeSongs(nuevasCanciones);
+		ArrayList<Song> songs = (ArrayList<Song>) songRepo.initializeSongs(nuevasCanciones);
 		for(Song song : songs) {
 			registerSong(song);
 		}
@@ -122,25 +122,22 @@ public class AppMusicController implements CancionesListener{
 	}
 
 	public void playSong(String path) {
-//		path = songRepo.getSongs_path() + "\\\\" + path;
-//		path = songRepo.getSongsPath()+ "/" + path;
-//		path = SongRepo.SONGS_PATH + "/" + "Los Secretos - La Chica De Ayer.wav";
-//		System.out.println(path);
-		if (mediaPlayer == null) {
-			File f = new File(path);
-//		System.out.println(path + ": " + f.exists());
-			Media hit = new Media(f.toURI().toString());
+		File f = new File(path);
+		String source = f.toURI().toString();
+		if (mediaPlayer == null || !mediaPlayer.getMedia().getSource().equals(source)) {
+			Media hit = new Media(source);
 			mediaPlayer = new MediaPlayer(hit);
 		}
 		mediaPlayer.play();
 	}
 	
 	public void pauseSong() {
-//		path = SongRepo.SONGS_PATH + "/" + path;
-//		File f = new File(path);
-//		Media hit = new Media(f.toURI().toString());
-//		mediaPlayer = new MediaPlayer(hit);
 		mediaPlayer.pause();
+	}
+	
+	public void addRecentSong(Song song) {
+		currentUser.addRecentSong(song);
+		userAdapter.updateUser(currentUser);
 	}
 
 

@@ -2,7 +2,10 @@ package umu.tds.apps.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class User {
 	private int id;
@@ -21,7 +24,7 @@ public class User {
 		this.premium = false;
 		this.birthDate = birthDate;
 		this.playLists = new ArrayList<PlayList>();
-		this.recentSongs = new ArrayList<Song>();
+		this.recentSongs = new LinkedList<Song>();
 	}
 	
 	public String getUsername() {
@@ -98,6 +101,20 @@ public class User {
 	
 	public List<Song> getRecentSongs() {
 		return new ArrayList<Song>(recentSongs);
+	}
+	
+	public void addRecentSong(Song song) {
+		if (recentSongs.contains(song)) {
+			recentSongs.remove(song);
+			((LinkedList<Song>) recentSongs).addFirst(song);
+		}
+		else if (recentSongs.size() < 10) {
+			((LinkedList<Song>) recentSongs).addFirst(song);
+		}
+		else {
+			((LinkedList<Song>) recentSongs).removeLast();
+			((LinkedList<Song>) recentSongs).addFirst(song);
+		}
 	}
 	
 	public void setRecentSongs(List<Song> songs) {
