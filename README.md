@@ -16,8 +16,9 @@ on all the topics at hand, some of which are:
 - [x] Controller configuration.
 - [x] Repo Creation for Songs (SongsRepo)
 - [x] DAO Adapter for Song.
+- [x] Discount configuration.
 - [ ] Tests for Song functionality.
-- [ ] Component creation.
+- [x] Component creation.
 ### Javier Barceló Pérez
 - [x] Improvement of Register window.
 - [ ] Creation of NewList window.
