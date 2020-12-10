@@ -113,9 +113,9 @@ public class UserAdapterTDS implements IUserAdapterDAO {
 			}
 			servicioPersistencia.modificarPropiedad(prop);
 		}
-
 	}
 
+	
 	@Override
 	public User getUser(int id) {
 		Entidad eUser = servicioPersistencia.recuperarEntidad(id);
