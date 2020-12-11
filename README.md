@@ -17,7 +17,7 @@ on all the topics at hand, some of which are:
 - [x] Repo Creation for Songs (SongsRepo)
 - [x] DAO Adapter for Song.
 - [x] Discount configuration.
-- [ ] Tests for Song functionality.
+- [x] Tests for Song functionality.
 - [x] Component creation.
 ### Javier Barceló Pérez
 - [x] Improvement of Register window.
