@@ -191,5 +191,8 @@ public class AppMusicController implements CancionesListener{
 				.sorted(Comparator.comparing(Discount::getDiscount).reversed())
 				.findFirst();
 	}
-
+	
+	public void upgradeUser() {
+		currentUser.setPremium(true);
+	}
 }

@@ -277,6 +277,7 @@ public class MainView {
 					JOptionPane.showMessageDialog(frmMainView, "No discount could be applied.", "Premium",
 								JOptionPane.ERROR_MESSAGE);
 				}
+				controller.upgradeUser();
 			}
 		});
 	}
