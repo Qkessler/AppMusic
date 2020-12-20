@@ -69,7 +69,7 @@ public class MainView {
 		frmMainView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMainView.getContentPane().setLayout(new BorderLayout(0, 0));
 		frmMainView.add(selectedTab, BorderLayout.CENTER);
-		frmMainView.setSize(selectedTab.getPreferredSize());
+		frmMainView.setPreferredSize(selectedTab.getPreferredSize());
 		
 		createTopRow();
 		createTabSwitcher();
@@ -248,7 +248,7 @@ public class MainView {
 					break;
 				}
 				frmMainView.add(selectedTab, BorderLayout.CENTER);
-				frmMainView.setSize(selectedTab.getPreferredSize());
+				frmMainView.setPreferredSize(selectedTab.getPreferredSize());
 				frmMainView.revalidate();
 				frmMainView.repaint();
 				frmMainView.validate();

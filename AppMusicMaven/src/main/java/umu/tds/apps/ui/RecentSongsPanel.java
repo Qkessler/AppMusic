@@ -32,7 +32,7 @@ public class RecentSongsPanel extends JPanel {
 	private static final String IMAGE_PATH = "/umu/tds/apps/images/";
 	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
 	private static final int WIDTH = 710;
-	private static final int HEIGHT = 550;
+	private static final int HEIGHT = 500;
 	
 	private JTable table;
 	private JPanel recentSongsPanel;
