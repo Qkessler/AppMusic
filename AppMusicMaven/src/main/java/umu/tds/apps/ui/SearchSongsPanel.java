@@ -1,6 +1,9 @@
 package umu.tds.apps.ui;
 
 import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -46,8 +49,13 @@ public class SearchSongsPanel extends JPanel {
 	private JPanel centerPanel;
 	private Map<Integer, Song> filteredSongs;
 	private AppMusicController controller;
+	private int songPlaying;
+	
+	private JButton btnPlay;
+	private JButton btnPause;
 		
 	public SearchSongsPanel() {
+		this.songPlaying = 0;
 		this.controller = AppMusicController.getInstance();
 		this.filteredSongs = new HashMap<Integer, Song>();
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -98,20 +106,22 @@ public class SearchSongsPanel extends JPanel {
 	
 	private void createMediaButtons(JPanel panel) {
 		JButton btnBack = createIconButton(IMAGE_PATH + "controller-jump-to-start.png");
-		JButton btnPlay = createIconButton(IMAGE_PATH + "controller-play.png");
-		JButton btnPause = createIconButton(IMAGE_PATH + "controller-paus.png");
+		btnPlay = createIconButton(IMAGE_PATH + "controller-play.png");
+		btnPause = createIconButton(IMAGE_PATH + "controller-paus.png");
 		JButton btnForward = createIconButton(IMAGE_PATH + "controller-next.png");
 		
 		btnPause.setVisible(false);
-		playFunctionality(btnPlay, btnPause);
-		pauseFunctionality(btnPause, btnPlay);
+		playFunctionality();
+		pauseFunctionality();
+		backFunctionality(btnBack);
+		forwardFunctionality(btnForward);
 		
 		panel.add(btnBack);
 		panel.add(btnPlay);
 		panel.add(btnPause);
 		panel.add(btnForward);
 	}
-	
+
 	private void createCenter() {
 		centerPanel = new JPanel();
 		add(centerPanel, BorderLayout.CENTER);
@@ -156,6 +166,18 @@ public class SearchSongsPanel extends JPanel {
 		ListSelectionModel selectionModel = new DefaultListSelectionModel();
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setSelectionModel(selectionModel);
+		table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table =(JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if (mouseEvent.getClickCount() == 2 && row != -1) {
+					songPlaying = row;
+					Song song = filteredSongs.get(songPlaying);
+					playSong(song);
+				}
+			}
+		});
 	}
 	
 	private void createTopButtons(JPanel centerPanel) {
@@ -198,24 +220,30 @@ public class SearchSongsPanel extends JPanel {
 		});
 	}
 	
-	private void playFunctionality(JButton btnPlay, JButton btnPause) {
+	private void playSong(Song song) {
+		controller.playSong(song.getPath());
+		controller.addRecentSong(song);
+		btnPlay.setVisible(false);
+		btnPause.setVisible(true);
+		this.revalidate();
+		this.repaint();
+		this.validate();
+	}
+	
+	private void playFunctionality() {
 		btnPlay.addActionListener(e -> {
-			// DefaultTableModel model = table.getModel();
+			if (table.getRowCount() == 0) return;
 			int selectedSong = table.getSelectedRow();
-			if (selectedSong >= 0) {
-				Song song = filteredSongs.get(selectedSong);
-				controller.playSong(song.getPath());
-				controller.addRecentSong(song);
-				btnPlay.setVisible(false);
-				btnPause.setVisible(true);
-				this.revalidate();
-				this.repaint();
-				this.validate();
+			if (selectedSong < 0) {
+				selectedSong = 0;
 			}
+			Song song = filteredSongs.get(selectedSong);
+			songPlaying = selectedSong;
+			playSong(song);
 		});
 	}
 	
-	private void pauseFunctionality(JButton btnPause, JButton btnPlay) {
+	private void pauseFunctionality() {
 		btnPause.addActionListener(e -> {
 				// Pauses the song, doesn't really need to check for the selectedSong.
 				controller.pauseSong();
@@ -224,6 +252,33 @@ public class SearchSongsPanel extends JPanel {
 				this.revalidate();
 				this.repaint();
 				this.validate();
+		});
+	}
+	
+		
+	private void forwardFunctionality(JButton btnForward) {
+		btnForward.addActionListener(e -> {
+			int rowCount = table.getRowCount();
+			if (rowCount == 0) return;
+			if (songPlaying + 1 < rowCount) {
+				++songPlaying;
+			}
+			else songPlaying = 0; 
+			Song song = filteredSongs.get(songPlaying);
+			playSong(song);
+		});
+	}
+
+	private void backFunctionality(JButton btnBack) {
+		btnBack.addActionListener(e -> {
+			int rowCount = table.getRowCount();
+			if (rowCount == 0) return;
+			if (songPlaying - 1 < 0) {
+				songPlaying = rowCount - 1;
+			}
+			else songPlaying--; 
+			Song song = filteredSongs.get(songPlaying);
+			playSong(song);
 		});
 	}
 }

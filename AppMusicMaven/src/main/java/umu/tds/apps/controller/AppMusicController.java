@@ -135,6 +135,9 @@ public class AppMusicController implements CancionesListener{
 		File f = new File(path);
 		String source = f.toURI().toString();
 		if (mediaPlayer == null || !mediaPlayer.getMedia().getSource().equals(source)) {
+			if (mediaPlayer != null) {
+				mediaPlayer.dispose();
+			}
 			Media hit = new Media(source);
 			mediaPlayer = new MediaPlayer(hit);
 		}

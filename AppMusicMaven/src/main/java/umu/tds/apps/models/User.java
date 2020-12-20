@@ -143,10 +143,6 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public void makePayment() {
-		// TODO: makePayment using a discount or not.
-	}
 
 	@Override
 	public String toString() {
