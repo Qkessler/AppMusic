@@ -65,10 +65,11 @@ public class MainView {
 	private void initialize() {
 		frmMainView = new JFrame();
 		frmMainView.setTitle("AppMusic");
-		frmMainView.setBounds(100, 100, 710, 550);
 		frmMainView.setResizable(false);
 		frmMainView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMainView.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmMainView.add(selectedTab, BorderLayout.CENTER);
+		frmMainView.setSize(selectedTab.getPreferredSize());
 		
 		createTopRow();
 		createTabSwitcher();
