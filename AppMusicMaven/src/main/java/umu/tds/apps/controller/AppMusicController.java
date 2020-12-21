@@ -128,6 +128,11 @@ public class AppMusicController implements CancionesListener{
 		playListAdapter.updatePlayList(playlist);
 	}
 	
+	public void deletePlaylist(PlayList playlist) {
+		playListRepo.removePlayList(playlist);
+		playListAdapter.removePlayList(playlist);
+	}
+	
 	public ArrayList<Song> getRecentSongs() {
 		return (ArrayList<Song>) currentUser.getRecentSongs();
 	}

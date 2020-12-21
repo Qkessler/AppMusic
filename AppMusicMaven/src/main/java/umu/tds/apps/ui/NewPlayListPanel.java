@@ -48,6 +48,7 @@ public class NewPlayListPanel extends JPanel {
 	private JPanel centerPanel;
 	private Box addRmvButtonsBox;
 	private JPanel acceptCancelPanel;
+	private JButton btnDelete;
 
 
 
@@ -65,7 +66,7 @@ public class NewPlayListPanel extends JPanel {
 
 	private void initialize() {
 		createTopPanel();
-		//createMainPanel();	//esto tiene que estar siempre comentado, solo se descomenta para usar el windowbuilder
+//		createMainPanel();	//esto tiene que estar siempre comentado, solo se descomenta para usar el windowbuilder
 	}
 
 	private void createTopPanel() {
@@ -79,6 +80,25 @@ public class NewPlayListPanel extends JPanel {
 		JButton btnCreate = new JButton("Create");
 		createPlayListFunctionality(btnCreate);
 		topPanel.add(btnCreate);
+		
+		btnDelete = new JButton("Delete");
+		deletePlayListFunctionality();
+		btnDelete.setVisible(false);
+		topPanel.add(btnDelete);
+	}
+
+	private void deletePlayListFunctionality() {
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int output = JOptionPane.showConfirmDialog(table, "Are you sure that you want to delete the playlist?",
+						"DELETE PLAYLIST?", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+				if (output == JOptionPane.YES_OPTION) {
+					controller.deletePlaylist(playlist);
+					changeVisibility(false);
+					btnDelete.setVisible(false);
+				}				
+			}
+		});
 	}
 
 	private void createPlayListFunctionality(JButton btnCreate) {
@@ -90,6 +110,7 @@ public class NewPlayListPanel extends JPanel {
 																"Edit playlist?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 					if (output == JOptionPane.YES_OPTION) {
 						playlist = pl;
+						btnDelete.setVisible(true);
 						songAdditionPanel();
 					}		
 				}
