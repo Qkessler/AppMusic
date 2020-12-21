@@ -249,6 +249,7 @@ public class MainView {
 				}
 				frmMainView.add(selectedTab, BorderLayout.CENTER);
 				frmMainView.setPreferredSize(selectedTab.getPreferredSize());
+				frmMainView.pack();			// in order to resize the frame when playlist panels with different preferred sizes are selected
 				frmMainView.revalidate();
 				frmMainView.repaint();
 				frmMainView.validate();

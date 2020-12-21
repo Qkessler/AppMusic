@@ -1,6 +1,6 @@
 package umu.tds.apps.models;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlayList {
@@ -11,7 +11,7 @@ public class PlayList {
 	public PlayList(String name) {
 		this.name = name;
 		this.id = 0;
-		songs = new LinkedList<Song>(); // Check whether LinkedList is good here.
+		songs = new ArrayList<Song>(); // Check whether LinkedList is good here.
 	}
 	
 	public String getName() {
@@ -24,7 +24,7 @@ public class PlayList {
 	
 	public List<Song> getSongs() {
 		// Creating a new copy, we reduce the possibility of corruption in our songs.
-		return new LinkedList<Song>(songs);
+		return new ArrayList<Song>(songs);
 	}
 	
 	public String songsToString() {		// método para la construcción de propiedades del método DAO
@@ -50,6 +50,10 @@ public class PlayList {
 	
 	public boolean removeSong(Song song) {
 		return songs.remove(song);
+	}
+	
+	public void removeSong(int index) {
+		songs.remove(index);
 	}
 
 }
