@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class MyPlayListsPanel extends JPanel {
-	private static final int WIDTH = 1100;
+	private static final int WIDTH = 710;
 	private static final int HEIGHT = 500;
 	/**
 	 * Create the panel.

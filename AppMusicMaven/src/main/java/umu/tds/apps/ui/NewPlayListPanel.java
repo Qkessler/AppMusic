@@ -57,7 +57,7 @@ public class NewPlayListPanel extends JPanel {
 	public NewPlayListPanel() {
 		controller = AppMusicController.getInstance();
 		this.filteredSongs = new HashMap<Integer, Song>();		
-		setPreferredSize(new Dimension(1300, HEIGHT));
+		setPreferredSize(new Dimension(1200, HEIGHT));
 		setLayout(new BorderLayout(0, 0));
 		
 		initialize();
@@ -67,12 +67,49 @@ public class NewPlayListPanel extends JPanel {
 		createTopPanel();
 		//createMainPanel();	//esto tiene que estar siempre comentado, solo se descomenta para usar el windowbuilder
 	}
+
+	private void createTopPanel() {
+		JPanel topPanel = new JPanel();
+		add(topPanel, BorderLayout.NORTH);
+		
+		createTextField = new JTextField();
+		topPanel.add(createTextField);
+		createTextField.setColumns(10);
+		
+		JButton btnCreate = new JButton("Create");
+		createPlayListFunctionality(btnCreate);
+		topPanel.add(btnCreate);
+	}
+
+	private void createPlayListFunctionality(JButton btnCreate) {
+		btnCreate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PlayList pl = controller.existsPlaylist(createTextField.getText());
+				if (pl!=null) {
+					int output = JOptionPane.showConfirmDialog(table, "That playlist alredy exists. Do you want to edit it?",
+																"Edit playlist?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+					if (output == JOptionPane.YES_OPTION) {
+						playlist = pl;
+						songAdditionPanel();
+					}		
+				}
+				else {
+					int output = JOptionPane.showConfirmDialog(table, "Do you want to create a new playlist?",
+																"Create playlist?", JOptionPane.YES_NO_OPTION);
+					if (output == JOptionPane.YES_OPTION) {
+						playlist = new PlayList(createTextField.getText());	//crea la playlist con el nombre del campo de texto
+						songAdditionPanel();
+					}
+				}		
+			}
+		});
+	}
 	
 	private void songAdditionPanel() {
 		System.out.println("me estoy ejecutando");
-		setPreferredSize(new Dimension(1100, HEIGHT));	
-		this.validate();
-		
+//		setPreferredSize(new Dimension(1100, HEIGHT));	
+//		this.validate();
+
 		createMainPanel();
 		changeVisibility(true);
 	}
@@ -117,19 +154,12 @@ public class NewPlayListPanel extends JPanel {
 		
 	}
 
-	private void changeVisibility(Boolean bool) {
-		topButtons.setVisible(bool);
-		addRmvButtonsBox.setVisible(bool);
-		acceptCancelPanel.setVisible(bool);
-	}
-
 	private void createCenterPanel() {
 		centerPanel = new JPanel();
 		mainPanel.add(centerPanel, BorderLayout.CENTER);
 		createSongsTable(artistTextField.getText(),
 				artistTextField.getText(), genreValue);
 		tablePanel = new JScrollPane(table);
-//		tablePanel.setVisible(false);
 		centerPanel.add(tablePanel);
 		
 		addRmvButtonsBox = Box.createVerticalBox();
@@ -232,42 +262,43 @@ public class NewPlayListPanel extends JPanel {
 		table.setSelectionModel(selectionModel);
 	}
 	
-	private void createTopPanel() {
-		JPanel topPanel = new JPanel();
-		add(topPanel, BorderLayout.NORTH);
-		
-		createTextField = new JTextField();
-		topPanel.add(createTextField);
-		createTextField.setColumns(10);
-		
-		JButton btnCreate = new JButton("Create");
-		createPlayListFunctionality(btnCreate);
-		topPanel.add(btnCreate);
-	}
 
 	private void createAcceptCancelPanel() {
 		acceptCancelPanel = new JPanel();
 		mainPanel.add(acceptCancelPanel, BorderLayout.SOUTH);
 		JButton btnAccept = new JButton("Accept");
+		acceptButtonFunctionality(btnAccept);
 		acceptCancelPanel.add(btnAccept);
 		JButton btnCancel = new JButton("Cancel");
+		cancelButtonFunctionality(btnCancel);
 		acceptCancelPanel.add(btnCancel);
 	}
 
-	private void createPlayListFunctionality(JButton btnCreate) {
-		btnCreate.addActionListener(new ActionListener() {
+	private void acceptButtonFunctionality(JButton btnAccept) {
+		btnAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int output = JOptionPane.showConfirmDialog(table, "Do you want to create a new playlist?",
-						"Create playlist?", JOptionPane.YES_NO_OPTION);
-				if (output == JOptionPane.YES_OPTION) {
-					playlist = new PlayList(createTextField.getText());	//crea la playlist con el nombre del campo de texto
-					songAdditionPanel();
-				}		
+				System.out.println("aceptar");
+				if (controller.existsPlaylist(playlist.getName())!=null)		// si la playlist ya existe
+					controller.updatePlayList(playlist);
+				else 
+					controller.registerPlayList(playlist);
+				tablePlPanel.setVisible(false);
+				tablePanel.setVisible(false);
+				changeVisibility(false);
 			}
-
 		});
 	}
-	
+
+	private void cancelButtonFunctionality(JButton btnCancel) {
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("cancelar");
+
+				changeVisibility(false);
+			}
+		});
+	}
+
 	private void searchFunctionality(JButton btnSearch) {
 		btnSearch.addActionListener(e -> {
 			createSongsTable(artistTextField.getText(), titleTextField.getText(), genreValue);
@@ -290,5 +321,13 @@ public class NewPlayListPanel extends JPanel {
 		combo.addActionListener(e -> {
 			genreValue = combo.getSelectedItem().toString();			
 		});
+	}
+	
+	private void changeVisibility(Boolean bool) {
+		topButtons.setVisible(bool);
+		addRmvButtonsBox.setVisible(bool);
+		acceptCancelPanel.setVisible(bool);
+		tablePlPanel.setVisible(bool);
+		tablePanel.setVisible(bool);
 	}
 }

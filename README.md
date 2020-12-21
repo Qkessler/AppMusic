@@ -21,12 +21,12 @@ on all the topics at hand, some of which are:
 - [x] Component creation.
 ### Javier Barceló Pérez
 - [x] Improvement of Register window.
-- [ ] Creation of NewList window.
+- [x] Creation of NewList window.
 - [ ] Creation of MyLists window.
 - [ ] Creation of Most reproduced songs window.
 - [x] Repo creation for Users (UsersRepo): En español lo llama el profesor Catálogo.
 - [x] DAO Adapter for User.
-- [ ] DAO Adapter for PlayList.
-- [ ] Repo creation for PlayList (PlayListRepo)
+- [x] DAO Adapter for PlayList.
+- [x] Repo creation for PlayList (PlayListRepo)
 - [ ] Tests for User functionality.
 

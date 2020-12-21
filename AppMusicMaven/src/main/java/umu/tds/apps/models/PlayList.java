@@ -11,7 +11,7 @@ public class PlayList {
 	public PlayList(String name) {
 		this.name = name;
 		this.id = 0;
-		songs = new ArrayList<Song>(); // Check whether LinkedList is good here.
+		songs = new ArrayList<Song>(); // Check whether LinkedList is good here. Array list mejor pa lo que viene siendo aliminar las canciones por índice
 	}
 	
 	public String getName() {

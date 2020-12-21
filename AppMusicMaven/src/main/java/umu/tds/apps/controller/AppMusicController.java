@@ -14,6 +14,8 @@ import javafx.scene.media.MediaPlayer;
 import umu.tds.apps.models.Discount;
 import umu.tds.apps.models.EducationDiscount;
 import umu.tds.apps.models.ElderDiscount;
+import umu.tds.apps.models.PlayList;
+import umu.tds.apps.models.PlayListRepo;
 import umu.tds.apps.models.Song;
 import umu.tds.apps.models.SongRepo;
 import umu.tds.apps.models.User;
@@ -21,6 +23,7 @@ import umu.tds.apps.models.UserRepo;
 import umu.tds.apps.models.YouthDiscount;
 import umu.tds.apps.persistence.DAOException;
 import umu.tds.apps.persistence.FactoriaDAO;
+import umu.tds.apps.persistence.IPlayListAdapterDAO;
 import umu.tds.apps.persistence.ISongAdapterDAO;
 import umu.tds.apps.persistence.IUserAdapterDAO;
 import umu.tds.componente.Canciones;
@@ -35,11 +38,11 @@ public class AppMusicController implements CancionesListener{
 
 	private ISongAdapterDAO songAdapter;
 	private IUserAdapterDAO userAdapter;
-	// private IPlayListAdapterDAO playListAdapter;
+	private IPlayListAdapterDAO playListAdapter;
 
 	private UserRepo userRepo;
 	private SongRepo songRepo;
-	// private PlayListRepo playListRepo;
+	private PlayListRepo playListRepo;
 	
 	private User currentUser;
 	private Canciones nuevasCanciones;
@@ -107,6 +110,24 @@ public class AppMusicController implements CancionesListener{
 		songRepo.addSong(song);
 	}
 	
+	public void registerPlayList(PlayList playlist) {
+		playListAdapter.registerPlayList(playlist);
+		playListRepo.addPlayList(playlist);
+	}
+	
+	public PlayList existsPlaylist(String playlist) {
+		for (PlayList pl : playListRepo.getAllPlayLists()) {
+			if (pl.getName().equals(playlist))
+				return pl;
+		}
+		return null;
+	}
+	
+	public void updatePlayList(PlayList playlist) {
+		playListRepo.addPlayList(playlist);		// para el repo se usa también el método addPlaylist() porque sustituye los valores antiguos por los nuevos
+		playListAdapter.updatePlayList(playlist);
+	}
+	
 	public ArrayList<Song> getRecentSongs() {
 		return (ArrayList<Song>) currentUser.getRecentSongs();
 	}
@@ -163,11 +184,13 @@ public class AppMusicController implements CancionesListener{
 		}
 		songAdapter = factoria.getSongDAO();
 		userAdapter = factoria.getUserDAO();
+		playListAdapter = factoria.getPlayListDAO();
 	}
 
 	private void initializeRepos() {
 		songRepo = SongRepo.getInstance();
 		userRepo = UserRepo.getInstance();
+		playListRepo = PlayListRepo.getInstance();
 	}
 
 	@Override
