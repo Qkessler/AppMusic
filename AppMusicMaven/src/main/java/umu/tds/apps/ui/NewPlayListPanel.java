@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -30,13 +31,15 @@ import javax.swing.border.TitledBorder;
 public class NewPlayListPanel extends JPanel {
 	//TODO find a way to change the size not when the panel is initialized, but when a playlist is being created.
 	private static final int WIDTH = 710;
-	private static final int HEIGHT = 550;
+	private static final int HEIGHT = 500;
 	
 	private AppMusicController controller;
 	private JPanel mainPanel;
 	private JPanel topButtons;
 	private JTextField createTextField;
 	private PlayList playlist;
+	private JFrame frmMainView;
+
 	
 	private JTextField artistTextField;
 	private JTextField titleTextField;
@@ -56,10 +59,11 @@ public class NewPlayListPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public NewPlayListPanel() {
+	public NewPlayListPanel(JFrame frmMainView) {
 		controller = AppMusicController.getInstance();
+		this.frmMainView = frmMainView;
 		this.filteredSongs = new HashMap<Integer, Song>();		
-		setPreferredSize(new Dimension(1200, HEIGHT));
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setLayout(new BorderLayout(0, 0));
 		
 		initialize();
@@ -129,11 +133,16 @@ public class NewPlayListPanel extends JPanel {
 	
 	private void songAdditionPanel() {
 		System.out.println("me estoy ejecutando");
-//		setPreferredSize(new Dimension(1100, HEIGHT));	
-//		this.validate();
+		setPreferredSize(new Dimension(1200, 620));
+		frmMainView.setPreferredSize(getPreferredSize());
+		frmMainView.pack();
+		frmMainView.revalidate();
+		frmMainView.repaint();
+		frmMainView.validate();
 
 		createMainPanel();
 		changeVisibility(true);
+
 	}
 	
 	private void createMainPanel() {
@@ -302,7 +311,6 @@ public class NewPlayListPanel extends JPanel {
 	private void acceptButtonFunctionality(JButton btnAccept) {
 		btnAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("aceptar");
 				if (controller.existsPlaylist(playlist.getName())!=null)		// si la playlist ya existe
 					controller.updatePlayList(playlist);
 				else 
@@ -310,6 +318,12 @@ public class NewPlayListPanel extends JPanel {
 				tablePlPanel.setVisible(false);
 				tablePanel.setVisible(false);
 				changeVisibility(false);
+				setPreferredSize(new Dimension(WIDTH, HEIGHT));
+				frmMainView.setPreferredSize(getPreferredSize());
+				frmMainView.pack();
+				frmMainView.revalidate();
+				frmMainView.repaint();
+				frmMainView.validate();
 			}
 		});
 	}
@@ -317,9 +331,13 @@ public class NewPlayListPanel extends JPanel {
 	private void cancelButtonFunctionality(JButton btnCancel) {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("cancelar");
-
 				changeVisibility(false);
+				setPreferredSize(new Dimension(WIDTH, HEIGHT));
+				frmMainView.setPreferredSize(getPreferredSize());
+				frmMainView.pack();
+				frmMainView.revalidate();
+				frmMainView.repaint();
+				frmMainView.validate();
 			}
 		});
 	}

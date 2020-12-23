@@ -250,7 +250,7 @@ public class MainView implements ListSelectionListener{
 						playListPane.setVisible(false);
 					break;
 				case 1:
-					selectedTab = new NewPlayListPanel();
+					selectedTab = new NewPlayListPanel(frmMainView);
 					if (playListPane!=null)
 						playListPane.setVisible(false);					
 					break;
