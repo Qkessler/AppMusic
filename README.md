@@ -22,8 +22,8 @@ on all the topics at hand, some of which are:
 ### Javier Barceló Pérez
 - [x] Improvement of Register window.
 - [x] Creation of NewList window.
-- [ ] Creation of MyLists window.
-- [ ] Creation of Most reproduced songs window.
+- [x] Creation of MyLists window.
+- [x] Creation of Most reproduced songs window.
 - [x] Repo creation for Users (UsersRepo): En español lo llama el profesor Catálogo.
 - [x] DAO Adapter for User.
 - [x] DAO Adapter for PlayList.
