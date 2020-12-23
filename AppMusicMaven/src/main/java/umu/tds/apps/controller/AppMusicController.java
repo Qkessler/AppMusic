@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.EventObject;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -121,6 +122,10 @@ public class AppMusicController implements CancionesListener{
 				return pl;
 		}
 		return null;
+	}
+	
+	public List<PlayList> getAllPlayLists(){
+		return playListRepo.getAllPlayLists();
 	}
 	
 	public void updatePlayList(PlayList playlist) {

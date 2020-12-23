@@ -8,6 +8,18 @@
 		<interprete>TOOL</interprete>
 	</cancion>
 
+	<cancion titulo="Do I Wanna Know">
+	  <URL><![CDATA[D:\javib\Music\Acoustic 15\Do I Wanna Know.mp3]]></URL>
+		<estilo>POP</estilo>
+		<interprete>Arctic Monkeys</interprete>
+	</cancion>
+	
+	<cancion titulo="Wish You Were Here">
+	  <URL><![CDATA[D:\javib\Music\Wish You Were Here\4 - Wish You Were Here.mp3]]></URL>
+		<estilo>ROCK</estilo>
+		<interprete>Pink Floyd</interprete>
+	</cancion>
+	
     <cancion titulo="My Way">
 	  <URL><![CDATA[/home/qkessler/Documents/AppMusic/AppMusicMaven/canciones/Frank Sinatra - My Way.wav]]></URL>
 		<estilo>ROMANTICA</estilo>

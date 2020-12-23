@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
@@ -20,9 +21,13 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import pulsador.Luz;
 import umu.tds.apps.controller.AppMusicController;
+import umu.tds.apps.models.PlayList;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -38,7 +43,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
-public class MainView {
+public class MainView implements ListSelectionListener{
 
 	private JFrame frmMainView;
 	private String username;
@@ -46,6 +51,12 @@ public class MainView {
 	private JPanel selectedTab;
 	private JFileChooser fileChooser;
 	private String songFilePath;
+	
+	private JPanel panelLateral;
+	private JScrollPane playListPane;
+	private JList<String> playListslist;
+	private JList<Integer> functionalityList;
+	private PlayList playlist;
 	
 	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
 	private static final String IMAGE_PATH = "/umu/tds/apps/images/";
@@ -168,17 +179,18 @@ public class MainView {
 	}
 	
 	private void createTabSwitcher() {
-		JPanel panel = new JPanel();
-		frmMainView.getContentPane().add(panel, BorderLayout.WEST);
+		panelLateral = new JPanel();
+		frmMainView.getContentPane().add(panelLateral, BorderLayout.WEST);
+		panelLateral.setLayout(new BorderLayout(0, 0));
 		DefaultListModel<Integer> listModel = new DefaultListModel<Integer>();
 		listModel.addAll(Arrays.asList(0, 1, 2, 3));
-		JList<Integer> functionalityList = new JList<Integer>(listModel);
+		functionalityList = new JList<Integer>(listModel);
 		functionalityList.setFixedCellHeight(50);
 		functionalityList.setFixedCellWidth(180);
 		functionalityList.setCellRenderer(createListRenderer());
 		selectTabFunctionality(functionalityList);
 		JScrollPane pane = new JScrollPane(functionalityList);
-		panel.add(pane);
+		panelLateral.add(pane, BorderLayout.CENTER);
 	}
 	
 	@SuppressWarnings("serial")
@@ -234,15 +246,22 @@ public class MainView {
 				switch(value) {
 				case 0:
 					selectedTab = new SearchSongsPanel();
+					if (playListPane!=null)
+						playListPane.setVisible(false);
 					break;
 				case 1:
 					selectedTab = new NewPlayListPanel();
+					if (playListPane!=null)
+						playListPane.setVisible(false);					
 					break;
 				case 2:
 					selectedTab = new RecentSongsPanel();
+					if (playListPane!=null)
+						playListPane.setVisible(false);
 					break;
 				case 3:
-					selectedTab = new MyPlayListsPanel();
+					createPlaylistSwitcher();
+					selectedTab = new MyPlayListsPanel(playlist);
 					break;
 				default:
 					break;
@@ -257,6 +276,35 @@ public class MainView {
 		});
 	}
 	
+	private void createPlaylistSwitcher() {
+		DefaultListModel<String> list = new DefaultListModel<String>();
+		for (PlayList pl : controller.getAllPlayLists()) {
+			list.addElement(pl.getName());
+		}
+		playListslist = new JList<String>(list);
+		playListslist.setBorder(new TitledBorder(null, "Playlists", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		playListslist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		playListPane = new JScrollPane(playListslist);
+		panelLateral.add(playListPane, BorderLayout.SOUTH);
+		playListslist.addListSelectionListener(this);
+		panelLateral.repaint();
+		panelLateral.revalidate();
+
+	}
+	
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		frmMainView.remove(selectedTab);
+		String returns = playListslist.getSelectedValue();
+	    playlist = controller.existsPlaylist(returns);
+	    selectedTab = new MyPlayListsPanel(playlist);
+	    frmMainView.add(selectedTab, BorderLayout.CENTER);
+		frmMainView.setPreferredSize(selectedTab.getPreferredSize());
+		frmMainView.revalidate();
+		frmMainView.repaint();
+		frmMainView.validate();
+	}
+
 	private void logoutFunctionality(JButton btnLogout) {
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -283,4 +331,5 @@ public class MainView {
 			}
 		});
 	}
+
 }

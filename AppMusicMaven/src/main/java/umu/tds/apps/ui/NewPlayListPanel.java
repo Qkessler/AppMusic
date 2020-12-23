@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.awt.event.ActionEvent;
 import javax.swing.Box;
+import javax.swing.border.TitledBorder;
 
 public class NewPlayListPanel extends JPanel {
 	//TODO find a way to change the size not when the panel is initialized, but when a playlist is being created.
@@ -194,6 +195,7 @@ public class NewPlayListPanel extends JPanel {
 		
 		createPlaylistPanel();
 		tablePlPanel = new JScrollPane(tablePl);
+		tablePlPanel.setBorder(new TitledBorder(null, "PlayList", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		centerPanel.add(tablePlPanel);
 	}
 	
@@ -208,6 +210,7 @@ public class NewPlayListPanel extends JPanel {
 				playlist.addSong(filteredSongs.get(selectedSong));
 				createPlaylistPanel();
 				tablePlPanel = new JScrollPane(tablePl);
+				tablePlPanel.setBorder(new TitledBorder(null, "PlayList", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 				tablePlPanel.setVisible(true);
 				centerPanel.add(tablePlPanel);
 				validate();
@@ -225,6 +228,7 @@ public class NewPlayListPanel extends JPanel {
 					playlist.removeSong(selectedSong);
 				createPlaylistPanel();
 				tablePlPanel = new JScrollPane(tablePl);
+				tablePlPanel.setBorder(new TitledBorder(null, "PlayList", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 				tablePlPanel.setVisible(true);
 				centerPanel.add(tablePlPanel);
 				validate();
