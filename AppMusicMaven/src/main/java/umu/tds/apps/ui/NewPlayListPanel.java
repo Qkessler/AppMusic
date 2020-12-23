@@ -132,7 +132,6 @@ public class NewPlayListPanel extends JPanel {
 	}
 	
 	private void songAdditionPanel() {
-		System.out.println("me estoy ejecutando");
 		setPreferredSize(new Dimension(1200, 620));
 		frmMainView.setPreferredSize(getPreferredSize());
 		frmMainView.pack();
