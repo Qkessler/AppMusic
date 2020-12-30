@@ -74,7 +74,7 @@ public class User {
 		this.email = email;
 	}
 
-	public Boolean getPremium() {
+	public Boolean isPremium() {
 		return premium;
 	}
 

@@ -130,12 +130,15 @@ public class UserAdapterTDS implements IUserAdapterDAO {
 		String recentSongsString = servicioPersistencia.recuperarPropiedadEntidad(eUser, RECENT_SONGS);
 		String playListsString = servicioPersistencia.recuperarPropiedadEntidad(eUser, PLAYLISTS);
 		
-		Date date = null;
-		try {
-			date = dateFormat.parse(birthDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		Date date = parseBirthDate(birthDate);
+//		Date date = null;
+//		try {
+//			date = dateFormat.parse(birthDate);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+		
+		
 		User user = new User(username, password, name, lastName, email, date);
 		user.setId(id);
 
@@ -154,6 +157,57 @@ public class UserAdapterTDS implements IUserAdapterDAO {
 //		user.setPlaylists(playlists);
 
 		return user;
+	}
+	
+	// el formato de la fecha es tal que así: Thu Dec 10 16:39:00 CET 1750  -->  10/12/1750
+	private Date parseBirthDate(String date) {
+		String[] dateSplitted = date.split(" ");
+		int year = Integer.parseInt(dateSplitted[5]) - 1900;
+		int day = Integer.parseInt(dateSplitted[2]);
+		int month;
+		switch (dateSplitted[1]) {
+		case "Jan":
+			month = 0;
+			break;
+		case "Feb":
+			month = 1;
+			break;
+		case "Mar":
+			month = 2;
+			break;
+		case "Apr":
+			month = 3;
+			break;
+		case "May":
+			month = 4;
+			break;
+		case "Jun":
+			month = 5;
+			break;
+		case "Jul":
+			month = 6;
+			break;
+		case "Aug":
+			month = 7;
+			break;
+		case "Sep":
+			month = 8;
+			break;
+		case "Oct":
+			month = 9;
+			break;
+		case "Nov":
+			month = 10;
+			break;
+		case "Dec":
+			month = 11;
+			break;
+		default:
+			return null;
+		}
+		@SuppressWarnings("deprecation")
+		Date parsedDate = new Date(year, month, day);
+		return parsedDate;
 	}
 
 	@Override

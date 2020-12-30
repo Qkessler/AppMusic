@@ -37,11 +37,18 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.Arrays;
 
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class MainView implements ListSelectionListener{
 
@@ -143,7 +150,11 @@ public class MainView implements ListSelectionListener{
 		});
 
 		Icon iconUpgrade = new ImageIcon(getClass().getResource(IMAGE_PATH + "credit.png"));
-		JButton btnUpgrade = createSimpleButton("Upgrade", iconUpgrade);
+		JButton btnUpgrade;
+		if (controller.getCurrentUser().isPremium())
+			btnUpgrade = createSimpleButton("Premium", iconUpgrade);
+		else
+			btnUpgrade = createSimpleButton("Upgrade", iconUpgrade);
 		GridBagConstraints gbc_btnUpgrade = new GridBagConstraints();
 		gbc_btnUpgrade.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnUpgrade.insets = new Insets(0, 0, 5, 5);
@@ -318,6 +329,16 @@ public class MainView implements ListSelectionListener{
 	private void upgradeFunctionality(JButton btnUpgrade) {
 		btnUpgrade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (controller.getCurrentUser().isPremium()) {
+					JOptionPane.showMessageDialog(frmMainView, "You alredy are premium.",
+							"Premium", JOptionPane.INFORMATION_MESSAGE);
+					int output = JOptionPane.showConfirmDialog(frmMainView, "Do you want to generate a PDF with all the playlists and songs?",
+							"Premium PDF", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+						if (output == JOptionPane.YES_OPTION) {
+						generatePDF();
+						}		
+					return;
+				}
 				if (controller.getDiscount().isPresent()) {
 					String message = controller.getDiscount().get().getMessage();
 					JOptionPane.showMessageDialog(frmMainView, "Discount applied: " + message, "Premium",
@@ -330,6 +351,23 @@ public class MainView implements ListSelectionListener{
 				controller.upgradeUser();
 			}
 		});
+	}
+	
+	private void generatePDF() {
+//		String ruta = ;
+//	    try {
+//	    	FileOutputStream archivo = new FileOutputStream(ruta);
+//			Document documento = new Document();
+//			PdfWriter.getInstance(documento, archivo);
+//			documento.open();
+//			documento.add(new Paragraph("Hola Mundo!"));
+//			documento.add(new Paragraph("SoloInformaticaYAlgoMas.blogspot.com"));
+//			documento.close();
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (DocumentException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }
