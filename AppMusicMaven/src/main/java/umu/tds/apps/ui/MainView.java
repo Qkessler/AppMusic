@@ -39,6 +39,7 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 
 import javax.swing.JLabel;
@@ -354,20 +355,24 @@ public class MainView implements ListSelectionListener{
 	}
 	
 	private void generatePDF() {
-//		String ruta = ;
-//	    try {
-//	    	FileOutputStream archivo = new FileOutputStream(ruta);
-//			Document documento = new Document();
-//			PdfWriter.getInstance(documento, archivo);
-//			documento.open();
-//			documento.add(new Paragraph("Hola Mundo!"));
-//			documento.add(new Paragraph("SoloInformaticaYAlgoMas.blogspot.com"));
-//			documento.close();
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (DocumentException e) {
-//			e.printStackTrace();
-//		}
+		String sep = System.getProperty("os.name").startsWith("Windows") ? "\\" : "/";
+		String ruta = new JFileChooser().getFileSystemView().getDefaultDirectory().toString();
+		try {
+	    	FileOutputStream archivo = new FileOutputStream(ruta + sep + "AppMusicReport.pdf");
+			Document documento = new Document();
+			PdfWriter.getInstance(documento, archivo);
+			documento.open();
+			documento.add(new Paragraph("Hola Mundo!"));
+			documento.add(new Paragraph("SoloInformaticaYAlgoMas.blogspot.com"));
+			documento.close();
+			JOptionPane.showMessageDialog(frmMainView, "The PDF was succesfully generated at \"" + ruta + "\"" , "PDF generated!", JOptionPane.INFORMATION_MESSAGE);
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(frmMainView, "Error: The PDF could not be created", "PDF: Error", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			JOptionPane.showMessageDialog(frmMainView, "Error: The PDF could not be created", "PDF: Error", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
 	}
 
 }
