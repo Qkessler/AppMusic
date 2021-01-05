@@ -141,8 +141,22 @@ public class RecentSongsPanel extends JPanel {
 			}
 			songPlaying = selectedSong;
 			Song song = recentSongs.get(songPlaying);
-			playSong(song);
-			controller.addPlayCount(song);
+			playLoop(song);
+		});
+	}
+	
+	private void playLoop(Song song) {
+		playSong(song);
+		controller.addPlayCount(song); 	//this function adds one reproduction in song counter
+		controller.getMediaPlayer().setOnEndOfMedia(() -> {		// prepara el reproductor para que cuando acabe la canción en reproducción, se pase a la siguiente
+																// pero solo reproduce la siguiente y luego se para :c
+			int rowCount = table.getRowCount();
+			if (rowCount == 0) return;
+			if (songPlaying + 1 < rowCount) {
+				++songPlaying;
+			}
+			else songPlaying = 0; 
+			playLoop(recentSongs.get(songPlaying));
 		});
 	}
 	

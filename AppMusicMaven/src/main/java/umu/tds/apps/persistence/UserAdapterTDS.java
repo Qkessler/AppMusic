@@ -1,11 +1,9 @@
 package umu.tds.apps.persistence;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +12,6 @@ import beans.Entidad;
 import beans.Propiedad;
 import tds.driver.FactoriaServicioPersistencia;
 import tds.driver.ServicioPersistencia;
-import umu.tds.apps.models.PlayList;
 import umu.tds.apps.models.Song;
 import umu.tds.apps.models.SongRepo;
 import umu.tds.apps.models.User;

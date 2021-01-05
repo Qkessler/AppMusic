@@ -6,7 +6,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -20,7 +19,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import javafx.scene.media.MediaPlayer.Status;
 import umu.tds.apps.controller.AppMusicController;
 import umu.tds.apps.models.Song;
 
@@ -37,7 +35,6 @@ import javax.swing.JTable;
 public class SearchSongsPanel extends JPanel {
 	private static final int WIDTH = 710;
 	private static final int HEIGHT = 500;
-	private static final String EMPTY = null;
 	private static final Color DEFAULT_BACKGROUND = new Color(10, 37, 64, 255);
 	private static final String IMAGE_PATH = "/umu/tds/apps/images/";
 	

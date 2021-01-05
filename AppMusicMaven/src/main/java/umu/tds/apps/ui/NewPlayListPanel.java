@@ -158,7 +158,6 @@ public class NewPlayListPanel extends JPanel {
 		createTopButtons();
 		createCenterPanel();
 		createAcceptCancelPanel();
-		changeVisibility(false);	
 	}
 
 	private void createTopButtons() {
