@@ -75,6 +75,10 @@ public class AppMusicController implements CancionesListener{
 		return currentUser;
 	}
 	
+	public MediaPlayer getMediaPlayer() {
+		return mediaPlayer;
+	}
+	
 	public boolean isRegistered(String username) {
 		return userRepo.getUser(username) != null;
 	}
