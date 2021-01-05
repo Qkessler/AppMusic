@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.EventObject;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -175,8 +173,19 @@ public class AppMusicController implements CancionesListener{
 		mediaPlayer.play();
 	}
 	
+	public void addPlayCount(Song song) {
+		song.playSong();
+		songRepo.addSong(song);		//actualiza la canción en el repo
+		songAdapter.addPlayCount(song);	//actualiza el contador de la canción en la bbdd
+	}
+	
 	public void pauseSong() {
 		mediaPlayer.pause();
+	}
+	
+	//returns 
+	public List<Song> getAllSongs() {
+		return songRepo.getAllSongs();		
 	}
 	
 	public void addRecentSong(Song song) {

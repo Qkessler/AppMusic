@@ -1,13 +1,10 @@
 package umu.tds.apps.models;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import umu.tds.apps.persistence.DAOException;
@@ -19,7 +16,6 @@ import umu.tds.componente.Canciones;
 public class SongRepo {
 
 	private String songsPath;
-	private String separator;
 	private Map<Integer, Song> songs;
 	private static SongRepo instance = new SongRepo();
 	
@@ -31,23 +27,9 @@ public class SongRepo {
 			dao = FactoriaDAO.getInstancia(FactoriaDAO.DAO_TDS);
 			songAdapter = dao.getSongDAO();
 			songs = new HashMap<Integer, Song>();
-			fixSeparator();
 			this.loadRepo();
 		} catch (DAOException eDAO) {
 			eDAO.printStackTrace();
-		}
-	}
-	
-	private void fixSeparator() {				// los separadores en windows son diferentes que en linux y mac
-		if (System.getProperty("os.name").startsWith("Windows")) {
-			//songsPath = System.getProperty("user.dir") + "\\canciones";
-			//songsPath = songsPath.replaceAll("\\", "\\\\");
-			songsPath = "C:\\\\Users\\\\javib\\\\Documents\\\\GitHub\\\\AppMusic\\\\AppMusicMaven\\\\canciones";
-			separator = "\\\\";
-		}
-		else {
-			songsPath = System.getProperty("user.dir") + "/canciones";
-			separator = "/";			
 		}
 	}
 	

@@ -78,7 +78,7 @@ public class PlayListAdapterTDS implements IPlayListAdapterDAO {
 	public void updatePlayList(PlayList playlist) {		// tanto para cuando se añade o se quita una cancion de la playlist
 		Entidad ePlayList = servicioPersistencia.recuperarEntidad(playlist.getId());
 		for (Propiedad prop : ePlayList.getPropiedades())
-			if (prop.getNombre().equals(PLAYLIST)) {
+			if (prop.getNombre().equals(SONGS)) {
 				prop.setValor(playlist.songsToString());
 				servicioPersistencia.modificarPropiedad(prop);
 			}

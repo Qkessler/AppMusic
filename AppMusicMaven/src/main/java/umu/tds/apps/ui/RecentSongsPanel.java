@@ -142,6 +142,7 @@ public class RecentSongsPanel extends JPanel {
 			songPlaying = selectedSong;
 			Song song = recentSongs.get(songPlaying);
 			playSong(song);
+			controller.addPlayCount(song);
 		});
 	}
 	

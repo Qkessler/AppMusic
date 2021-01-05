@@ -45,6 +45,15 @@ public class SongAdapterTDS implements ISongAdapterDAO {
 		song.setId(eSong.getId());
 	}
 
+	public void addPlayCount(Song song) {
+		Entidad eSong = servicioPersistencia.recuperarEntidad(song.getId());
+		for (Propiedad prop : eSong.getPropiedades())
+			if (prop.getNombre().equals(PLAY_COUNT)) {
+				prop.setValor(String.valueOf(song.getPlayCount()));
+				servicioPersistencia.modificarPropiedad(prop);
+			}
+	}
+	
 	public void removeSong(Song song) {
 		if (isRegistered(song.getId())) {
 			Entidad eSong = servicioPersistencia.recuperarEntidad(song.getId());

@@ -141,6 +141,10 @@ public class MyPlayListsPanel extends JPanel {
 			Song song = playlist.getSongs().get(selectedSong);
 			songPlaying = selectedSong;
 			playSong(song);
+//			TODO COMO HAGO PARA QUE NO SE SUME SIEMPRE QUE SE QUITE UNA CANCION DE LA PAUSA??????
+//			song.playSong(); 	//this function adds one reproduction in song counter
+			controller.addPlayCount(song);
+			
 		});
 	}
 	

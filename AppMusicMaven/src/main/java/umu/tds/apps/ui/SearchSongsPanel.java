@@ -240,6 +240,8 @@ public class SearchSongsPanel extends JPanel {
 			Song song = filteredSongs.get(selectedSong);
 			songPlaying = selectedSong;
 			playSong(song);
+			controller.addPlayCount(song); 	//this function adds one reproduction in song counter
+
 		});
 	}
 	

@@ -99,8 +99,15 @@ public class NewPlayListPanel extends JPanel {
 						"DELETE PLAYLIST?", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
 				if (output == JOptionPane.YES_OPTION) {
 					controller.deletePlaylist(playlist);
+					tablePlPanel.setVisible(false);
+					tablePanel.setVisible(false);
 					changeVisibility(false);
-					btnDelete.setVisible(false);
+					setPreferredSize(new Dimension(WIDTH, HEIGHT));
+					frmMainView.setPreferredSize(getPreferredSize());
+					frmMainView.pack();
+					frmMainView.revalidate();
+					frmMainView.repaint();
+					frmMainView.validate();
 				}				
 			}
 		});

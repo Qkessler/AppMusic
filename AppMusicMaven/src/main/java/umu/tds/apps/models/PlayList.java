@@ -27,6 +27,10 @@ public class PlayList {
 		return new ArrayList<Song>(songs);
 	}
 	
+	public void emptySongs() {
+		songs = new ArrayList<Song>();
+	}
+	
 	public String songsToString() {		// método para la construcción de propiedades del método DAO
 		String songsString = "";
 		for(Song song : songs) {

@@ -163,7 +163,6 @@ public class LoginView {
 			public void actionPerformed(ActionEvent e) {
 				boolean login = AppMusicController.getInstance().login(textUsuario.getText(),
 						new String(textPassword.getPassword()));
-
 				if (login) {
 					MainView window = new MainView();
 					window.show();

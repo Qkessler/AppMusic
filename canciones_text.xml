@@ -7,11 +7,60 @@
 		<estilo>METAL</estilo>
 		<interprete>TOOL</interprete>
 	</cancion>
+	
+	<cancion titulo="Battery">
+	  <URL><![CDATA[D:\javib\Music\Master Of Puppets\01-Battery.mp3]]></URL>
+		<estilo>METAL</estilo>
+		<interprete>Metallica</interprete>
+	</cancion>	
 
 	<cancion titulo="Do I Wanna Know">
 	  <URL><![CDATA[D:\javib\Music\Acoustic 15\Do I Wanna Know.mp3]]></URL>
-		<estilo>POP</estilo>
+		<estilo>ACOUSTIC</estilo>
 		<interprete>Arctic Monkeys</interprete>
+	</cancion>
+	
+	<cancion titulo="Bigger Boys And Stolen Sweethearts">
+	  <URL><![CDATA[D:\javib\Music\Acoustic 15\Bigger Boys And Stolen Sweethearts.mp3]]></URL>
+		<estilo>ACOUSTIC</estilo>
+		<interprete>Arctic Monkeys</interprete>
+	</cancion>
+	
+	<cancion titulo="A Certain Romance">
+	  <URL><![CDATA[D:\javib\Music\Acoustic 15\A Certain Romance.mp3]]></URL>
+		<estilo>ACOUSTIC</estilo>
+		<interprete>Arctic Monkeys</interprete>
+	</cancion>
+	
+	<cancion titulo="Crying Lightning">
+	  <URL><![CDATA[D:\javib\Music\Acoustic 15\Crying Lightning.mp3]]></URL>
+		<estilo>ACOUSTIC</estilo>
+		<interprete>Arctic Monkeys</interprete>
+	</cancion>
+	
+	<cancion titulo="Mardy Bum">
+	  <URL><![CDATA[D:\javib\Music\Acoustic 15\Mardy Bum.mp3]]></URL>
+		<estilo>ACOUSTIC</estilo>
+		<interprete>Arctic Monkeys</interprete>
+	</cancion>
+	
+	<cancion titulo="Piledriver Waltz">
+	  <URL><![CDATA[D:\javib\Music\Acoustic 15\Piledriver Waltz.mp3]]></URL>
+		<estilo>ACOUSTIC</estilo>
+		<interprete>Arctic Monkeys</interprete>
+	</cancion>
+
+	
+	<cancion titulo="Shine on You Crazy Diamond, Pts. 1-5">
+	  <URL><![CDATA[D:\javib\Music\Wish You Were Here\1 - Shine on You Crazy Diamond, Pts. 1-5.mp3]]></URL>
+		<estilo>ROCK</estilo>
+		<interprete>Pink Floyd</interprete>
+	</cancion>
+	
+	<cancion titulo="Shine on You Crazy Diamond, Pts. 6-9">
+	  <URL><![CDATA[D:\javib\Music\Wish You Were Here\5 - Shine on You Crazy Diamond, Pts. 6-9.mp3]]></URL>
+		<estilo>ROCK</estilo>
+		<interprete>Pink Floyd</interprete>
 	</cancion>
 	
 	<cancion titulo="Wish You Were Here">
@@ -20,9 +69,70 @@
 		<interprete>Pink Floyd</interprete>
 	</cancion>
 	
-    <cancion titulo="My Way">
-	  <URL><![CDATA[/home/qkessler/Documents/AppMusic/AppMusicMaven/canciones/Frank Sinatra - My Way.wav]]></URL>
-		<estilo>ROMANTICA</estilo>
-		<interprete>Frank Sinatra</interprete>
+	<cancion titulo="Have a Cigar">
+	  <URL><![CDATA[D:\javib\Music\Wish You Were Here\3 - Have a Cigar.mp3]]></URL>
+		<estilo>ROCK</estilo>
+		<interprete>Pink Floyd</interprete>
 	</cancion>
+	
+	<cancion titulo="Suya Mi Guerra">
+	  <URL><![CDATA[D:\javib\Music\Así en la Tierra como en la Selva\La Raíz   Suya mi guerra.mp3]]></URL>
+		<estilo>ROCK ESPAÑOL</estilo>
+		<interprete>La Raíz</interprete>
+	</cancion>	
+	
+	<cancion titulo="A La Sombra de la Sierra">
+	  <URL><![CDATA[D:\javib\Music\Así en la Tierra como en la Selva\La Raíz   A la sombra de la sierra.mp3]]></URL>
+		<estilo>ROCK ESPAÑOL</estilo>
+		<interprete>La Raíz</interprete>
+	</cancion>
+	
+	<cancion titulo="Gran Galà">
+	  <URL><![CDATA[D:\javib\Music\01 Gran Galà   TALCO 'Gran Galà' HD.mp3]]></URL>
+		<estilo>PUNK</estilo>
+		<interprete>Talco</interprete>
+	</cancion>
+	
+	<cancion titulo="Smells Like Teen Spirit">
+	  <URL><![CDATA[D:\javib\Music\Nirvana - Smells Like Teen Spirit (lyrics).mp3]]></URL>
+		<estilo>GRUNGE</estilo>
+		<interprete>Nirvana</interprete>
+	</cancion>
+	
+	<cancion titulo="Smooth Criminal">
+	  <URL><![CDATA[D:\javib\Music\Michael Jackson - Smooth Criminal Lyrics.mp3]]></URL>
+		<estilo>POP</estilo>
+		<interprete>Michael Jackson</interprete>
+	</cancion>
+	
+	<cancion titulo="Paraísos Artificiales">
+	  <URL><![CDATA[D:\javib\Music\Los Chikos del Maiz   Paraísos artificiales (ft Laura) (2014).mp3]]></URL>
+		<estilo>RAP</estilo>
+		<interprete>Los Chikos Del Maíz</interprete>
+	</cancion>
+	
+	<cancion titulo="La De Los Maniquíes">
+	  <URL><![CDATA[D:\javib\Music\SONS OF AGUIRRE - LA DE LOS MANIQUÍES (Lyric official Wall Street video).mp3]]></URL>
+		<estilo>RAP</estilo>
+		<interprete>Sons Of Aguirre</interprete>
+	</cancion>
+	
+	<cancion titulo="Hey Jude">
+	  <URL><![CDATA[D:\javib\Music\The Beatles - Hey Jude Legendado.mp3]]></URL>
+		<estilo>ROCK</estilo>
+		<interprete>The Beatles</interprete>
+	</cancion>
+	
+	<cancion titulo="Las Cuatro Estaciones - Primavera(Allegro)">
+	  <URL><![CDATA[D:\javib\Music\VIVALDI PRIMAVERA ALLEGRO.mp3]]></URL>
+		<estilo>CLÁSICA</estilo>
+		<interprete>Antonio Vivaldi</interprete>
+	</cancion>
+	
+	<cancion titulo="los Porros no dan Sueño">
+	  <URL><![CDATA[D:\javib\Music\LOCOPLAYA (2014)\Locoplaya - 10. Los porros no dan sueño.mp3]]></URL>
+		<estilo>RAP</estilo>
+		<interprete>Locoplaya</interprete>
+	</cancion>
+	
 </canciones>

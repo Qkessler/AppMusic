@@ -28,6 +28,7 @@ import javax.swing.event.ListSelectionListener;
 import pulsador.Luz;
 import umu.tds.apps.controller.AppMusicController;
 import umu.tds.apps.models.PlayList;
+import umu.tds.apps.models.Song;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -39,8 +40,8 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -62,6 +63,7 @@ public class MainView implements ListSelectionListener{
 	
 	private JPanel panelLateral;
 	private JScrollPane playListPane;
+	private JButton btnUpgrade;
 	private JList<String> playListslist;
 	private JList<Integer> functionalityList;
 	private PlayList playlist;
@@ -151,7 +153,6 @@ public class MainView implements ListSelectionListener{
 		});
 
 		Icon iconUpgrade = new ImageIcon(getClass().getResource(IMAGE_PATH + "credit.png"));
-		JButton btnUpgrade;
 		if (controller.getCurrentUser().isPremium())
 			btnUpgrade = createSimpleButton("Premium", iconUpgrade);
 		else
@@ -331,19 +332,23 @@ public class MainView implements ListSelectionListener{
 		btnUpgrade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (controller.getCurrentUser().isPremium()) {
-					JOptionPane.showMessageDialog(frmMainView, "You alredy are premium.",
+					JOptionPane.showMessageDialog(frmMainView, "You alredy are premium, so you can now generate a premium PDF or the most reproduced songs playlist.",
 							"Premium", JOptionPane.INFORMATION_MESSAGE);
-					int output = JOptionPane.showConfirmDialog(frmMainView, "Do you want to generate a PDF with all the playlists and songs?",
-							"Premium PDF", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-						if (output == JOptionPane.YES_OPTION) {
+						String[] options = {"PDF", "Playlist", "Cancel"};
+					int output = JOptionPane.showOptionDialog(frmMainView, "Do you wanto to generate the PDF or the playlist?", "Premium functionality", 
+							JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[2]);
+					if (output == 0) 
 						generatePDF();
-						}		
+					else if (output==1)
+						generateMostPlayedSongs();
 					return;
 				}
 				if (controller.getDiscount().isPresent()) {
 					String message = controller.getDiscount().get().getMessage();
 					JOptionPane.showMessageDialog(frmMainView, "Discount applied: " + message, "Premium",
 								JOptionPane.INFORMATION_MESSAGE);
+					btnUpgrade.setText("Premium");
+					btnUpgrade.repaint();
 				}
 				else {
 					JOptionPane.showMessageDialog(frmMainView, "No discount could be applied.", "Premium",
@@ -361,10 +366,7 @@ public class MainView implements ListSelectionListener{
 	    	FileOutputStream archivo = new FileOutputStream(ruta + sep + "AppMusicReport.pdf");
 			Document documento = new Document();
 			PdfWriter.getInstance(documento, archivo);
-			documento.open();
-			documento.add(new Paragraph("Hola Mundo!"));
-			documento.add(new Paragraph("SoloInformaticaYAlgoMas.blogspot.com"));
-			documento.close();
+			fillPDF(documento);
 			JOptionPane.showMessageDialog(frmMainView, "The PDF was succesfully generated at \"" + ruta + "\"" , "PDF generated!", JOptionPane.INFORMATION_MESSAGE);
 		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(frmMainView, "Error: The PDF could not be created", "PDF: Error", JOptionPane.ERROR_MESSAGE);
@@ -374,5 +376,53 @@ public class MainView implements ListSelectionListener{
 			e.printStackTrace();
 		}
 	}
+	
+	private void generateMostPlayedSongs() {
+//		System.out.println("aqui se genera la playlist con las canciones top");
+		PlayList mostPlayedSongs;
+		if (controller.existsPlaylist("Most Played Songs")!=null) {
+			mostPlayedSongs = controller.existsPlaylist("Most Played Songs");
+			mostPlayedSongs.emptySongs();
+		}	
+		else
+			mostPlayedSongs = new PlayList("Most Played Songs");
+		List<Song> songs = controller.getAllSongs();
+		while (mostPlayedSongs.getSongs().size() < 10) {
+			Song aux = null;
+			for (Song s : songs) {
+				if (aux==null)
+					aux = s;
+				else
+					if (s.getPlayCount() > aux.getPlayCount())
+						aux = s;
+			}
+			mostPlayedSongs.addSong(aux);
+			songs.remove(aux);
+			aux = null;
+		}
+		if (controller.existsPlaylist(mostPlayedSongs.getName())!=null)		// si la playlist ya existe
+			controller.updatePlayList(mostPlayedSongs);
+		else 
+			controller.registerPlayList(mostPlayedSongs);
+	}
+
+	private void fillPDF(Document doc) throws DocumentException {
+		doc.open();
+		doc.add(new Paragraph("                                                     AppMusic(c) Premium Document"));
+		doc.add(new Paragraph("\n\n"));
+		doc.add(new Paragraph("Este documento contiene todas las playlists con todas las canciones que las componen.\n\n"));
+		for (PlayList pl : controller.getAllPlayLists()) {
+			doc.add(new Paragraph("Nombre: " + pl.getName() + ". Número de canciones: " + pl.getSongs().size()+".\n"));
+			for (Song s : pl.getSongs())
+				doc.add(new Paragraph("    Título: "+s.getTitle()+", Intérprete: "+s.getArtists()+", Estilo: "+s.getGenre()));
+			doc.add(new Paragraph("_______________________________________________________________________\n\n"));
+		}
+		doc.close();
+	}
 
 }
+
+
+
+
+

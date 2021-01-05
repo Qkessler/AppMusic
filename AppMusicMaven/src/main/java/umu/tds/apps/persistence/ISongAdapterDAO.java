@@ -7,6 +7,7 @@ import umu.tds.apps.models.Song;
 
 public interface ISongAdapterDAO {
 	public void registerSong(Song song);
+	public void addPlayCount(Song song);
 	public void removeSong(Song song);
 	public Song getSong(int id);
 	public Optional<Song> getSong(String path);
