@@ -29,4 +29,5 @@ on all the topics at hand, some of which are:
 - [x] DAO Adapter for PlayList.
 - [x] Repo creation for PlayList (PlayListRepo)
 - [ ] Tests for User functionality.
+- [x] Premium User Functionality (PDF and post played songs)
 
