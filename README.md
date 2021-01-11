@@ -20,7 +20,7 @@ and easier reviewing in the future.
 The structure of AppMusic can be appreciated in the subsequent image:
 
 <p align="center">
-  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/main/src/diagrama_profesores.png" alt="AppMusic structure">
+  <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/diagrama_profesores.png" alt="AppMusic structure">
 </p>
 
 ## Functionality
@@ -41,17 +41,17 @@ composes every "view". The views in our app are composed of JFrame, which may or
 have different pannels inside, containing the relevant "Components". Examples of the views:
 
 <p align="center">
-  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/main/src/register.png" alt="Register View">
+  <img width="320" src="https://github.com/Qkessler/AppMusic/blob/main/src/registro.png" alt="Register View">
 </p>
 <h5 align="center">Register View</h5>
 
 <p align="center">
-  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/main/src/login.png" alt="Login View">
+  <img width="200" src="https://github.com/Qkessler/AppMusic/blob/main/src/login.png" alt="Login View">
 </p>
 <h5 align="center">Login View</h5>
 
 <p align="center">
-  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/main/src/recents.png" alt="Main View">
+  <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/recents.png" alt="Main View">
 </p>
 <h5 align="center">Main View</h5>
 
