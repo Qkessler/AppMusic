@@ -19,7 +19,9 @@ and easier reviewing in the future.
 ## Structure
 The structure of AppMusic can be appreciated in the subsequent image:
 
-![AppMusic's structure](src/diagrama_profesores.png "AppMusic's structure")
+<p align="center">
+  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/master/src/diagrama_profesores.png" alt="AppMusic structure">
+</p>
 
 ## Functionality
 If we had to give a functionality list it would be the following:
@@ -38,13 +40,19 @@ The UI was created using the Swing Framework. Swing allows for different element
 composes every "view". The views in our app are composed of JFrame, which may or may not
 have different pannels inside, containing the relevant "Components". Examples of the views:
 
-![Register View](src/registro.png "Register View")
+<p align="center">
+  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/master/src/register.png" alt="Register View">
+</p>
 <h5 align="center">Register View</h5>
 
-![Login View](src/login.png "Login View")
+<p align="center">
+  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/master/src/login.png" alt="Login View">
+</p>
 <h5 align="center">Login View</h5>
 
-![Main View](src/recents.png "Main View")
+<p align="center">
+  <img width="460" src="https://github.com/Qkessler/AppMusic/blob/master/src/recents.png" alt="Main View">
+</p>
 <h5 align="center">Main View</h5>
 
 
