@@ -1,33 +1,75 @@
-# AppMusic
-Proyecto de AppMusic para TDS.
+<h1 align="center">AppMusic</h1>
 
-## TASK SEPARATION
-To be able to understand the app thoroughly, I find important that both contributors work
-on all the topics at hand, some of which are:
-- Persistence through DAO.
-- Swing (Creation of windows).
-- Component creation.
-### Enrique Kessler Martínez
-- [x] Improvement of Login window.
-- [x] Creation of searching songs Panel.
-- [x] Creation of Recent songs Panel.
-- [x] Creation of Main window.
-- [x] Initial persistence configuration.
-- [x] Controller configuration.
-- [x] Repo Creation for Songs (SongsRepo)
-- [x] DAO Adapter for Song.
-- [x] Discount configuration.
-- [x] Tests for Song functionality.
-- [x] Component creation.
-### Javier Barceló Pérez
-- [x] Improvement of Register window.
-- [x] Creation of NewList window.
-- [x] Creation of MyLists window.
-- [x] Creation of Most reproduced songs window.
-- [x] Repo creation for Users (UsersRepo): En español lo llama el profesor Catálogo.
-- [x] DAO Adapter for User.
-- [x] DAO Adapter for PlayList.
-- [x] Repo creation for PlayList (PlayListRepo)
-- [ ] Tests for User functionality.
-- [x] Premium User Functionality (PDF and post played songs)
+:musical_note: Maven Desktop App created with functionality that allows for xml
+importing, and implemented with patterns from the GoF Design Patterns book. 
 
+All the code has been refactored in order to allow for a better code reading time
+and easier reviewing in the future.
+
+## Summary
+
+- [Structure](#structure)
+- [Functionality](#functionality)
+- [Patterns](#patterns)
+- [Contributing](#contributing)
+- [Development](#development)
+- [Tests](#tests)
+- [Licence](#licence)
+
+## Structure
+The structure of AppMusic can be appreciated in the subsequent image:
+
+![AppMusic's structure](https://github.com/Qkessler/AppMusic/blob/master/src/diagrama_profesores.png "AppMusic's structure")
+
+## Functionality
+If we had to give a functionality list it would be the following:
+
+###  :file\_folder: Persistence.
+The Persistence was configured using the H2 engine, which provides with the 
+possibility to register entities, and allows for editing certain values of the
+mentioned entities. The important information regarding the H2 documentation can 
+be found at: 
+
+- [H2 official documentation](https://www.h2database.com/html/main.html)
+- [H2 Github](https://github.com/h2database/h2database)
+
+###  :computer:	UI.
+The UI was created using the Swing Framework. Swing allows for different elements which
+composes every "view". The views in our app are composed of JFrame, which may or may not
+have different pannels inside, containing the relevant "Components". Examples of the views:
+
+![Register View](https://github.com/Qkessler/AppMusic/blob/master/src/registro.png "Register View")
+<h5 align="center">Register View</h5>
+
+![Login View](https://github.com/Qkessler/AppMusic/blob/master/src/login.png "Login View")
+<h5 align="center">Login View</h5>
+
+![Main View](https://github.com/Qkessler/AppMusic/blob/master/src/recents.png "Main View")
+<h5 align="center">Main View</h5>
+
+
+### :MAG: Search Songs.
+### :arrows\_counterclockwise: Recent Songs.
+### :twisted\_rightwards\_arrows: PlayLists.
+
+## Patterns
+
+:warning: Working on this section.
+
+## Contributing
+
+Contributions are warmly welcomed. Doesn't have to be implementing new functionality, issues are also opened for documentation, support, etc. 
+
+Please read [CONTRIBUTING.md](https://github.com/Qkessler/AppMusic/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Development
+
+:warning: Working on this section.
+
+## Tests
+
+:warning: Working on this section.
+
+## Licence
+
+:warning: Working on this section.
