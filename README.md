@@ -19,12 +19,12 @@ and easier reviewing in the future.
 ## Structure
 The structure of AppMusic can be appreciated in the subsequent image:
 
-![AppMusic's structure](https://github.com/Qkessler/AppMusic/blob/master/src/diagrama_profesores.png "AppMusic's structure")
+![AppMusic's structure](src/diagrama_profesores.png "AppMusic's structure")
 
 ## Functionality
 If we had to give a functionality list it would be the following:
 
-###  :file\_folder: Persistence.
+###  :file\_folder: Persistence
 The Persistence was configured using the H2 engine, which provides with the 
 possibility to register entities, and allows for editing certain values of the
 mentioned entities. The important information regarding the H2 documentation can 
@@ -33,24 +33,24 @@ be found at:
 - [H2 official documentation](https://www.h2database.com/html/main.html)
 - [H2 Github](https://github.com/h2database/h2database)
 
-###  :computer:	UI.
+###  :computer:	UI
 The UI was created using the Swing Framework. Swing allows for different elements which
 composes every "view". The views in our app are composed of JFrame, which may or may not
 have different pannels inside, containing the relevant "Components". Examples of the views:
 
-![Register View](https://github.com/Qkessler/AppMusic/blob/master/src/registro.png "Register View")
+![Register View](src/registro.png "Register View")
 <h5 align="center">Register View</h5>
 
-![Login View](https://github.com/Qkessler/AppMusic/blob/master/src/login.png "Login View")
+![Login View](src/login.png "Login View")
 <h5 align="center">Login View</h5>
 
-![Main View](https://github.com/Qkessler/AppMusic/blob/master/src/recents.png "Main View")
+![Main View](src/recents.png "Main View")
 <h5 align="center">Main View</h5>
 
 
-### :MAG: Search Songs.
-### :arrows\_counterclockwise: Recent Songs.
-### :twisted\_rightwards\_arrows: PlayLists.
+### :mag: Search Songs
+### :arrows\_counterclockwise: Recent Songs
+### :twisted\_rightwards\_arrows: PlayLists
 
 ## Patterns
 
@@ -60,7 +60,7 @@ have different pannels inside, containing the relevant "Components". Examples of
 
 Contributions are warmly welcomed. Doesn't have to be implementing new functionality, issues are also opened for documentation, support, etc. 
 
-Please read [CONTRIBUTING.md](https://github.com/Qkessler/AppMusic/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Development
 
