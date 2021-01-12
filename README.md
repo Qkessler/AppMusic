@@ -40,15 +40,19 @@ The UI was created using the Swing Framework. Swing allows for different element
 composes every "view". The views in our app are composed of JFrame, which may or may not
 have different pannels inside, containing the relevant "Components". Examples of the views:
 
+
 <p align="center">
   <img width="320" src="https://github.com/Qkessler/AppMusic/blob/main/src/registro.png" alt="Register View">
 </p>
 <h5 align="center">Register View</h5>
 
+
 <p align="center">
   <img width="200" src="https://github.com/Qkessler/AppMusic/blob/main/src/login.png" alt="Login View">
 </p>
 <h5 align="center">Login View</h5>
+
+
 
 <p align="center">
   <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/recents.png" alt="Main View">
@@ -57,8 +61,56 @@ have different pannels inside, containing the relevant "Components". Examples of
 
 
 ### :mag: Search Songs
+You have the possibility to access the the search songs tab, which allows you to
+access all the songs that have been persisted and play a certain one. You could also
+play songs by double clicking them in this tab. The search possibilities are with the
+following sections:
+
+- Genre: Genres are calculated dinamically with the keys read while parsing the xml files.
+- Artist: Search by the name of the artist.
+- Title: Search by the name of the song.
+
+<p align="center">
+  <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/explore1.png" alt="Filtering by genre">
+</p>
+<h5 align="center">Filtering by genre example</h5>
+
+
+<p align="center">
+  <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/explore2.png" alt="Filtering by artist and title">
+</p>
+<h5 align="center">Filtering by artist and title example</h5>
+
 ### :arrows\_counterclockwise: Recent Songs
+The Recent songs tab is the default tab when you enter the app and contains the list of the
+10 recently played songs. You could still access the media functionality.
+
+<p align="center">
+  <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/recents.png" alt="Recent Songs Tab">
+</p>
+<h5 align="center">Recent Songs Tab</h5>
+
 ### :twisted\_rightwards\_arrows: PlayLists
+Following the functionality list, playlist functionality has been
+implemented. While being a normal user, you have access to creation of ilimited
+playlists (New Playlist Tab) and media functionality for your created playlists
+on the My Lists Tab. 
+
+If you upgraded your account (fictional upgrade), you would be applied a discount code
+depending on defined codes being applicable. When multiple codes are applicable, the highest
+discount is applied.
+
+<p align="center">
+  <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/newplaylist1.png" alt="New Playlist confirmation">
+</p>
+<h5 align="center">New Playlist confirmation</h5>
+
+
+<p align="center">
+  <img width="600" src="https://github.com/Qkessler/AppMusic/blob/main/src/newplaylist2.png" alt="Playlist Creation UI">
+</p>
+<h5 align="center">Playlist Creation UI</h5>
+
 
 ## Patterns
 
