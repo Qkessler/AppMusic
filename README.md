@@ -131,5 +131,4 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 :warning: Working on this section.
 
 ## Licence
-
-:warning: Working on this section.
+This project is licenced under the [MIT](https://github.com/Qkessler/AppMusic/blob/main/LICENSE) Licence - see the [LICENCE](https://github.com/Qkessler/AppMusic/blob/main/LICENSE) file for details.
