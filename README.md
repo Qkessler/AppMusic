@@ -112,9 +112,17 @@ discount is applied.
 <h5 align="center">Playlist Creation UI</h5>
 
 
-## Patterns
+## :file_folder: Patterns
 
-:warning: Working on this section.
+AppMusic was designed having the [Design Patterns book](https://en.wikipedia.org/wiki/Design_Patterns) by Gang of Four in mind. 
+
+Starting with the patterns used, is the **MVC pattern**, which is creating a Controller that asures that we have layer separation between models and UI elements in the application. We also make use of the **DAO pattern**, which is used to make the application independent of any persistence framework.
+
+In order to implement the Discount functionality we use the **Strategy pattern**, which allows for dynamic and execution time changing on the implementation for Discounts. The Discount interface is defined, which will be implemented by concrete Discount classes like "EducationDiscount" or "ElderDiscount".
+
+The **Singleton pattern** is used in order to provide our factories --which are the classes that store the persisted elemements in HashMaps in order to allow for faster access-- with only one instance in the entire application, reducing overhead by creation of objects. We use the implementation model of declaring a getInstance method that checks whether the INSTANCE attribute is non-null and returns it. If the instance is null, it calls the private constructor to create the new instance.
+
+Lastly, we use the **Observer pattern** so that our Controller can listen to any possible changes on the Song Component, which provides a list of Songs that it parses from an xml file. Any possible change in the list is notified to all the listeners, which in this case is only the Controller.
 
 ## Contributing
 
@@ -123,8 +131,29 @@ Contributions are warmly welcomed. Doesn't have to be implementing new functiona
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Development
+This instructions will get you up and running for development purposes. See [Tests](#tests) for notes on how to test the app and special requests on tests created.
 
-:warning: Working on this section.
+### Prerequisites
+As you can see in the description of the project, we use Maven in order to provide for easier control of the project, hence the need of installing Maven. You can install it reaching the following [link](http://maven.apache.org/install.html) and reading the installing steps for your OS distribution.
+
+As a side note, we use --in order to comply with instructions from professors-- the H2 persistence system, adapted to our course. You should be able to get it googling for H2 server or use your own persistence framework, like SQLite3.
+
+### Getting Up and Running
+1. Fork this repository.
+2. Clone the repo that you just forked, :warning: IMPORTANT to clone the repo that you just forked, not this one, you should go to your Github profile if necessary.
+3. Checkout to the "dev" branch, at AppMusic we use GitFlow.
+    ```
+        git checkout dev
+    ```
+4. Create a new branch off the "dev" branch:
+    ```
+    git checkout -b <new_branch_name>
+    ```
+5. Run `mvn install` in order to install all the dependencies.
+6. Open the persistence server.
+7. Run the App class, which contains the main function for the application.
+
+You are up and running! Enjoy!
 
 ## Tests
 
