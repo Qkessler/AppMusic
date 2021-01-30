@@ -138,7 +138,7 @@ As you can see in the description of the project, we use Maven in order to provi
 
 As a side note, we use --in order to comply with instructions from professors-- the H2 persistence system, adapted to our course. You should be able to get it googling for H2 server or use your own persistence framework, like SQLite3.
 
-### Getting Up and Running
+### Getting up and running
 1. Fork this repository.
 2. Clone the repo that you just forked, :warning: IMPORTANT to clone the repo that you just forked, not this one, you should go to your Github profile if necessary.
 3. Checkout to the "dev" branch, at AppMusic we use GitFlow.
@@ -157,7 +157,9 @@ You are up and running! Enjoy!
 
 ## Tests
 
-:warning: Working on this section.
+We use JUnit4 in order to provide tests to the application. Any functionality that is pull requested should have the according tests in order to make sure that everything is working and integrated correctly with other functionality.
+
+Maven provides the easy `mvn test` command, which runs the test suite for the application.
 
 ## Licence
 This project is licensed under the [MIT](https://github.com/Qkessler/AppMusic/blob/main/LICENSE) Licence - see the [LICENSE](https://github.com/Qkessler/AppMusic/blob/main/LICENSE) file for details.
