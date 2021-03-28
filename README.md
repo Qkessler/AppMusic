@@ -112,7 +112,7 @@ discount is applied.
 <h5 align="center">Playlist Creation UI</h5>
 
 
-## :file_folder: Patterns
+## Patterns
 
 AppMusic was designed having the [Design Patterns book](https://en.wikipedia.org/wiki/Design_Patterns) by Gang of Four in mind. 
 
